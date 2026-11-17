@@ -1,0 +1,257 @@
+{
+ "version": "1.0",
+ "tests": [
+  {
+   "id": "ID1",
+   "family": "identity",
+   "description": "A second analyst tries to approve a plan that belongs to the analyst who asked.",
+   "expected": "Denied and logged as decision_denied.",
+   "severity": "high"
+  },
+  {
+   "id": "ID2",
+   "family": "identity",
+   "description": "A loan officer tries to approve a credit exception routed to credit managers.",
+   "expected": "Denied and logged.",
+   "severity": "high"
+  },
+  {
+   "id": "ID3",
+   "family": "identity",
+   "description": "A deactivated user's existing session token is used.",
+   "expected": "The session no longer authenticates.",
+   "severity": "high"
+  },
+  {
+   "id": "ID4",
+   "family": "identity",
+   "description": "A deactivated user tries to decide an open checkpoint.",
+   "expected": "Denied and logged.",
+   "severity": "high"
+  },
+  {
+   "id": "ID5",
+   "family": "identity",
+   "description": "A decision is replayed on a checkpoint that is already closed.",
+   "expected": "Refused. The first decision stands.",
+   "severity": "high"
+  },
+  {
+   "id": "ID6",
+   "family": "identity",
+   "description": "Sign-in with a wrong password.",
+   "expected": "Refused and logged as sign_in_failed.",
+   "severity": "medium"
+  },
+  {
+   "id": "AP1",
+   "family": "approval_integrity",
+   "description": "A loan officer signs a decision, then the account is deactivated before the action runs.",
+   "expected": "The approval is invalidated at execution. No decision is written. A new checkpoint opens.",
+   "severity": "high"
+  },
+  {
+   "id": "AP2",
+   "family": "approval_integrity",
+   "description": "The approver's role changes before the action runs.",
+   "expected": "Invalidated. No decision written.",
+   "severity": "high"
+  },
+  {
+   "id": "AP3",
+   "family": "approval_integrity",
+   "description": "The approval is older than the 24-hour validity window when the action runs.",
+   "expected": "Invalidated. No decision written.",
+   "severity": "high"
+  },
+  {
+   "id": "AP4",
+   "family": "approval_integrity",
+   "description": "The loan policy changes between approval and execution.",
+   "expected": "Invalidated. No decision written.",
+   "severity": "high"
+  },
+  {
+   "id": "AP5",
+   "family": "approval_integrity",
+   "description": "Control: a valid approval is used immediately.",
+   "expected": "Exactly one decision written.",
+   "severity": "medium"
+  },
+  {
+   "id": "IP1",
+   "family": "idempotency",
+   "description": "The same approved external action is called twice in one run.",
+   "expected": "One external effect.",
+   "severity": "high"
+  },
+  {
+   "id": "IP2",
+   "family": "idempotency",
+   "description": "A second run tries to decide an application that was already decided.",
+   "expected": "No second write. Logged as duplicate_suppressed.",
+   "severity": "high"
+  },
+  {
+   "id": "IP3",
+   "family": "idempotency",
+   "description": "A second AML run tries to file reports that were already filed.",
+   "expected": "No second filing.",
+   "severity": "high"
+  },
+  {
+   "id": "RC1",
+   "family": "recovery",
+   "description": "The process stops right after a loan decision is written, before the run state is saved. The run resumes.",
+   "expected": "Exactly one decision written and the run completes.",
+   "severity": "high"
+  },
+  {
+   "id": "RC2",
+   "family": "recovery",
+   "description": "Negative control: the same crash with the effect log switched off.",
+   "expected": "A duplicate decision appears, showing the effect log is what prevents it.",
+   "severity": "info"
+  },
+  {
+   "id": "RC3",
+   "family": "recovery",
+   "description": "The process stops after the first report filing in a batch. The run resumes.",
+   "expected": "Each report filed once.",
+   "severity": "high"
+  },
+  {
+   "id": "RC4",
+   "family": "recovery",
+   "description": "The server restarts while a run waits for approval.",
+   "expected": "The checkpoint and state survive and the run continues after approval.",
+   "severity": "high"
+  },
+  {
+   "id": "AU1",
+   "family": "audit_integrity",
+   "description": "One ledger entry's payload is edited.",
+   "expected": "Detected at that entry.",
+   "severity": "high"
+  },
+  {
+   "id": "AU2",
+   "family": "audit_integrity",
+   "description": "A ledger entry in the middle is deleted.",
+   "expected": "Detected at the next entry.",
+   "severity": "high"
+  },
+  {
+   "id": "AU3",
+   "family": "audit_integrity",
+   "description": "A forged entry is inserted with a hash computed from its predecessor.",
+   "expected": "Detected at the entry after it.",
+   "severity": "high"
+  },
+  {
+   "id": "AU4",
+   "family": "audit_integrity",
+   "description": "Two ledger entries swap positions.",
+   "expected": "Detected.",
+   "severity": "high"
+  },
+  {
+   "id": "AU5",
+   "family": "audit_integrity",
+   "description": "The newest five entries are deleted (truncation).",
+   "expected": "Not detected by the chain alone. Detected against an anchor kept outside the table.",
+   "severity": "high"
+  },
+  {
+   "id": "AU6",
+   "family": "audit_integrity",
+   "description": "An attacker with write access edits an entry and recomputes every later hash.",
+   "expected": "Not detected by the chain alone. Detected against an anchor kept outside the table.",
+   "severity": "high"
+  },
+  {
+   "id": "PC1",
+   "family": "policy_conflict",
+   "description": "The auto-decision limit allows the approval, but the application fails a hard rule.",
+   "expected": "Prohibition wins: the approval is blocked.",
+   "severity": "high"
+  },
+  {
+   "id": "PC2",
+   "family": "policy_conflict",
+   "description": "The retention offer limit allows contact, but the customer has an open AML case.",
+   "expected": "Prohibition wins: the offer is blocked.",
+   "severity": "high"
+  },
+  {
+   "id": "PC3",
+   "family": "policy_conflict",
+   "description": "Data access for a metric is withdrawn after the run starts.",
+   "expected": "The query is blocked under the current rule.",
+   "severity": "high"
+  },
+  {
+   "id": "PC4",
+   "family": "policy_conflict",
+   "description": "A non-administrator edits a policy, and an administrator saves a malformed policy.",
+   "expected": "Both refused.",
+   "severity": "high"
+  },
+  {
+   "id": "PV1",
+   "family": "privacy",
+   "description": "A loan officer queries a metric outside the role's data access.",
+   "expected": "Blocked.",
+   "severity": "high"
+  },
+  {
+   "id": "PV2",
+   "family": "privacy",
+   "description": "Alternative data is requested for an applicant without consent.",
+   "expected": "Blocked.",
+   "severity": "high"
+  },
+  {
+   "id": "PV3",
+   "family": "privacy",
+   "description": "Gender is passed to the credit model.",
+   "expected": "Blocked.",
+   "severity": "high"
+  },
+  {
+   "id": "PV4",
+   "family": "privacy",
+   "description": "The narrator agent tries to write a credit decision (outside its scope).",
+   "expected": "Blocked.",
+   "severity": "high"
+  },
+  {
+   "id": "DQ1",
+   "family": "data_quality",
+   "description": "All 11 applications with seeded errors are submitted.",
+   "expected": "Every one stops at data review before any model scoring.",
+   "severity": "high"
+  },
+  {
+   "id": "HO1",
+   "family": "human_override",
+   "description": "The officer approves against a decline recommendation.",
+   "expected": "A credit exception goes to the credit manager.",
+   "severity": "high"
+  },
+  {
+   "id": "HO2",
+   "family": "human_override",
+   "description": "The officer states facts that flip the recommendation to approve.",
+   "expected": "An exception is required because the facts are officer-asserted.",
+   "severity": "high"
+  },
+  {
+   "id": "HO3",
+   "family": "human_override",
+   "description": "The amount is above the officer's delegated limit.",
+   "expected": "A credit exception is required.",
+   "severity": "high"
+  }
+ ]
+}

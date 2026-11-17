@@ -1,0 +1,848 @@
+{
+ "version": "1.0",
+ "base": {
+  "age": 35,
+  "bvn_verified": 1,
+  "tenure_months": 24,
+  "consent_alt_data": 1,
+  "employer_type": "salaried_private",
+  "amount": 1000000,
+  "tenor_months": 12,
+  "declared_income": 1000000,
+  "collateral_value": 0,
+  "utility_ontime_ratio": 0.9,
+  "bureau_score": 700,
+  "existing_installment": 0,
+  "existing_dpd": null,
+  "avg_monthly_inflow": 600000,
+  "pd": 0.05
+ },
+ "cases": [
+  {
+   "id": "CB01",
+   "description": "Baseline that meets every rule",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB02",
+   "description": "R1 age exactly 21 (at least 21)",
+   "inputs": {
+    "age": 21,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB03",
+   "description": "R1 age 20 (below 21)",
+   "inputs": {
+    "age": 20,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R1"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB04",
+   "description": "R1 age 64 with 12 months: 65.0 at maturity (no older than 65)",
+   "inputs": {
+    "age": 64,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB05",
+   "description": "R1 age 64 with 24 months: 66 at maturity",
+   "inputs": {
+    "age": 64,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 24,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R1"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB06",
+   "description": "R2 identity not verified",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 0,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R2"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB07",
+   "description": "R3 tenure exactly 6 months (at least 6)",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 6,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB08",
+   "description": "R3 tenure 5 months",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 5,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R3"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB09",
+   "description": "R4 debt-to-income exactly 40% (does not exceed 40%)",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 3750000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 1000000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB10",
+   "description": "R4 debt-to-income just above 40%",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 3760000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 1000000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R4"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB11",
+   "description": "R4 existing repayments count toward the 40%",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 2000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 200000,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 1000000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R4"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB12",
+   "description": "R5 amount exactly 4 times inflow (at most 4 times)",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 250000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB13",
+   "description": "R5 amount just above 4 times inflow",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 249000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R5"
+    ],
+    "recommendation": "refer"
+   }
+  },
+  {
+   "id": "CB14",
+   "description": "R5 waived by collateral of exactly 120%",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 1200000,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 100000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB15",
+   "description": "R5 collateral just under 120% does not waive",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 1190000,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 100000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R5"
+    ],
+    "recommendation": "refer"
+   }
+  },
+  {
+   "id": "CB16",
+   "description": "R6 existing loan 29 days past due (no loan 30 or more)",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": 29,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB17",
+   "description": "R6 existing loan 30 days past due",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": 30,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R6"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB18",
+   "description": "R7 tenor exactly 36 months",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 36,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB19",
+   "description": "R7 tenor 37 months",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 37,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R7"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB20",
+   "description": "R8 thin file, consent, utility exactly 75%",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.75,
+    "bureau_score": null,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB21",
+   "description": "R8 thin file, consent, utility 74%",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.74,
+    "bureau_score": null,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R8"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB22",
+   "description": "R8 thin file without consent",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 0,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.95,
+    "bureau_score": null,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R8"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB23",
+   "description": "R9 default probability 11.99% (below 12%)",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.1199
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB24",
+   "description": "R9 default probability exactly 12% (not below 12%)",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.12
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R9"
+    ],
+    "recommendation": "refer"
+   }
+  },
+  {
+   "id": "CB25",
+   "description": "R9 default probability exactly 30% (not above 30%)",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.3
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R9"
+    ],
+    "recommendation": "refer"
+   }
+  },
+  {
+   "id": "CB26",
+   "description": "R9 default probability 30.01% (above 30%)",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.3001
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R9"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB27",
+   "description": "Soft and hard failures together: hard wins",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 3,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 100000,
+    "pd": 0.05
+   },
+   "policy_change": null,
+   "expected": {
+    "failed_rules": [
+     "R3",
+     "R5"
+    ],
+    "recommendation": "decline"
+   }
+  },
+  {
+   "id": "CB28",
+   "description": "Policy as code: R3 turned off by the administrator",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 2,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 1000000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 600000,
+    "pd": 0.05
+   },
+   "policy_change": {
+    "rule": "R3",
+    "enabled": false
+   },
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  },
+  {
+   "id": "CB29",
+   "description": "Policy as code: R4 changed to a soft rule",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 3760000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 1000000,
+    "pd": 0.05
+   },
+   "policy_change": {
+    "rule": "R4",
+    "kind": "soft"
+   },
+   "expected": {
+    "failed_rules": [
+     "R4"
+    ],
+    "recommendation": "refer"
+   }
+  },
+  {
+   "id": "CB30",
+   "description": "Policy as code: debt-to-income limit raised to 45%",
+   "inputs": {
+    "age": 35,
+    "bvn_verified": 1,
+    "tenure_months": 24,
+    "consent_alt_data": 1,
+    "employer_type": "salaried_private",
+    "amount": 3760000,
+    "tenor_months": 12,
+    "declared_income": 1000000,
+    "collateral_value": 0,
+    "utility_ontime_ratio": 0.9,
+    "bureau_score": 700,
+    "existing_installment": 0,
+    "existing_dpd": null,
+    "avg_monthly_inflow": 1000000,
+    "pd": 0.05
+   },
+   "policy_change": {
+    "rule": "R4",
+    "params": {
+     "max_dti": 0.45
+    }
+   },
+   "expected": {
+    "failed_rules": [],
+    "recommendation": "approve"
+   }
+  }
+ ]
+}

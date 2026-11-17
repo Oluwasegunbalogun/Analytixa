@@ -1,0 +1,1712 @@
+{
+ "benchmark": "HAARA semantic interpretation benchmark",
+ "version": "1.0",
+ "items": [
+  {
+   "id": "S001",
+   "category": "simple",
+   "question": "What is our total loan book?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_book",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S002",
+   "category": "simple",
+   "question": "How many loans do we have?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_count",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S003",
+   "category": "simple",
+   "question": "What is the delinquency rate?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S004",
+   "category": "simple",
+   "question": "Give me the NPL ratio",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "npl_ratio",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S005",
+   "category": "simple",
+   "question": "How many customers does the bank have?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "customer_count",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S006",
+   "category": "simple",
+   "question": "What is the average monthly income of our customers?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "avg_income",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S007",
+   "category": "simple",
+   "question": "Total deposit inflow",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S008",
+   "category": "simple",
+   "question": "How many transactions were processed?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "txn_count",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S009",
+   "category": "simple",
+   "question": "How many complaints have we received?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S010",
+   "category": "simple",
+   "question": "What is the loan approval rate?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "approval_rate",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S011",
+   "category": "simple",
+   "question": "How much cash was withdrawn from our ATMs?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S012",
+   "category": "simple",
+   "question": "Show the non-performing loan ratio",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "npl_ratio",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S013",
+   "category": "simple",
+   "question": "What is the outstanding loan balance?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_book",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S014",
+   "category": "simple",
+   "question": "Number of customers",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "customer_count",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S015",
+   "category": "simple",
+   "question": "Total complaints",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S016",
+   "category": "simple",
+   "question": "Total ATM withdrawals",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S017",
+   "category": "grouping",
+   "question": "Delinquency rate by branch",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [
+     "branch"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S018",
+   "category": "grouping",
+   "question": "Loan book by product",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_book",
+    "dimensions": [
+     "product"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S019",
+   "category": "grouping",
+   "question": "NPL ratio by region",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "npl_ratio",
+    "dimensions": [
+     "region"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S020",
+   "category": "grouping",
+   "question": "Customers by city",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "customer_count",
+    "dimensions": [
+     "city"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S021",
+   "category": "grouping",
+   "question": "Deposit inflow by month",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [
+     "month"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S022",
+   "category": "grouping",
+   "question": "Complaints by topic",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [
+     "topic"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S023",
+   "category": "grouping",
+   "question": "Transactions by channel",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "txn_count",
+    "dimensions": [
+     "channel"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S024",
+   "category": "grouping",
+   "question": "ATM withdrawals by branch",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [
+     "branch"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S025",
+   "category": "grouping",
+   "question": "Average income per segment",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "avg_income",
+    "dimensions": [
+     "segment"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S026",
+   "category": "grouping",
+   "question": "Show the loan count for each region",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_count",
+    "dimensions": [
+     "region"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S027",
+   "category": "grouping",
+   "question": "Complaints by channel",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [
+     "channel"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S028",
+   "category": "grouping",
+   "question": "Delinquency rate by segment",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [
+     "segment"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S029",
+   "category": "grouping",
+   "question": "Deposit inflow by branch and month",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [
+     "branch",
+     "month"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S030",
+   "category": "grouping",
+   "question": "Monthly trend of ATM withdrawals",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [
+     "month"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S031",
+   "category": "grouping",
+   "question": "Loan book by region and product",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_book",
+    "dimensions": [
+     "region",
+     "product"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S032",
+   "category": "grouping",
+   "question": "Customers across each segment",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "customer_count",
+    "dimensions": [
+     "segment"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S033",
+   "category": "filter",
+   "question": "What is the delinquency rate in Lagos?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [],
+    "filters": {
+     "city": "Lagos"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S034",
+   "category": "filter",
+   "question": "Delinquency rate by branch in Lagos",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [
+     "branch"
+    ],
+    "filters": {
+     "city": "Lagos"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S035",
+   "category": "filter",
+   "question": "Loan book for SME customers",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_book",
+    "dimensions": [],
+    "filters": {
+     "segment": "SME"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S036",
+   "category": "filter",
+   "question": "Deposit inflow from retail customers by month",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [
+     "month"
+    ],
+    "filters": {
+     "segment": "Retail"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S037",
+   "category": "filter",
+   "question": "Complaints in Abuja by topic",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [
+     "topic"
+    ],
+    "filters": {
+     "city": "Abuja"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S038",
+   "category": "filter",
+   "question": "NPL ratio for the South West region",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "npl_ratio",
+    "dimensions": [],
+    "filters": {
+     "region": "South West"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S039",
+   "category": "filter",
+   "question": "Number of customers in Kano",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "customer_count",
+    "dimensions": [],
+    "filters": {
+     "city": "Kano"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S040",
+   "category": "filter",
+   "question": "ATM withdrawals in Port Harcourt by month",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [
+     "month"
+    ],
+    "filters": {
+     "city": "Port Harcourt"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S041",
+   "category": "filter",
+   "question": "Average income of SME customers in Lagos",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "avg_income",
+    "dimensions": [],
+    "filters": {
+     "city": "Lagos",
+     "segment": "SME"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S042",
+   "category": "filter",
+   "question": "Transactions in Ibadan by channel",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "txn_count",
+    "dimensions": [
+     "channel"
+    ],
+    "filters": {
+     "city": "Ibadan"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S043",
+   "category": "filter",
+   "question": "Loan count in the North West region by product",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_count",
+    "dimensions": [
+     "product"
+    ],
+    "filters": {
+     "region": "North West"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S044",
+   "category": "filter",
+   "question": "Delinquency rate for retail customers in Enugu",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [],
+    "filters": {
+     "city": "Enugu",
+     "segment": "Retail"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S045",
+   "category": "negation",
+   "question": "What is the deposit inflow by month when the city is not Lagos?",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [
+     "month"
+    ],
+    "filters": {
+     "city": {
+      "not": "Lagos"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S046",
+   "category": "negation",
+   "question": "Deposit inflow by month except Lagos",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [
+     "month"
+    ],
+    "filters": {
+     "city": {
+      "not": "Lagos"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S047",
+   "category": "negation",
+   "question": "Delinquency rate by branch outside Lagos",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [
+     "branch"
+    ],
+    "filters": {
+     "city": {
+      "not": "Lagos"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S048",
+   "category": "negation",
+   "question": "Loan book excluding SME customers",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_book",
+    "dimensions": [],
+    "filters": {
+     "segment": {
+      "not": "SME"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S049",
+   "category": "negation",
+   "question": "Complaints by topic for customers who are not retail",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [
+     "topic"
+    ],
+    "filters": {
+     "segment": {
+      "not": "Retail"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S050",
+   "category": "negation",
+   "question": "NPL ratio by region other than the South West",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "npl_ratio",
+    "dimensions": [
+     "region"
+    ],
+    "filters": {
+     "region": {
+      "not": "South West"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S051",
+   "category": "negation",
+   "question": "Customers by city apart from Abuja",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "customer_count",
+    "dimensions": [
+     "city"
+    ],
+    "filters": {
+     "city": {
+      "not": "Abuja"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S052",
+   "category": "negation",
+   "question": "ATM withdrawals by branch outside Lagos and Abuja",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [
+     "branch"
+    ],
+    "filters": {
+     "city": {
+      "not": [
+       "Lagos",
+       "Abuja"
+      ]
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S053",
+   "category": "negation",
+   "question": "Deposit inflow for all cities except Kano and Kaduna",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [],
+    "filters": {
+     "city": {
+      "not": [
+       "Kano",
+       "Kaduna"
+      ]
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S054",
+   "category": "negation",
+   "question": "Delinquency rate for non-Lagos branches",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [],
+    "filters": {
+     "city": {
+      "not": "Lagos"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S055",
+   "category": "negation",
+   "question": "Transactions by channel besides Port Harcourt",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "txn_count",
+    "dimensions": [
+     "channel"
+    ],
+    "filters": {
+     "city": {
+      "not": "Port Harcourt"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S056",
+   "category": "negation",
+   "question": "Average income excluding the North West region",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "avg_income",
+    "dimensions": [],
+    "filters": {
+     "region": {
+      "not": "North West"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S057",
+   "category": "negation",
+   "question": "Loan count by product without SME customers",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_count",
+    "dimensions": [
+     "product"
+    ],
+    "filters": {
+     "segment": {
+      "not": "SME"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S058",
+   "category": "negation",
+   "question": "Complaints in Lagos but not from SME customers",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [],
+    "filters": {
+     "city": "Lagos",
+     "segment": {
+      "not": "SME"
+     }
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S059",
+   "category": "negation",
+   "question": "Show deposit inflow by month, leaving out Lagos",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [
+     "month"
+    ],
+    "filters": {
+     "city": {
+      "not": "Lagos"
+     }
+    },
+    "period": null
+   },
+   "note": "'leaving out' is a negation phrase outside the parser's word list"
+  },
+  {
+   "id": "S060",
+   "category": "negation",
+   "question": "Delinquency rate for every city but Lagos",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [],
+    "filters": {
+     "city": {
+      "not": "Lagos"
+     }
+    },
+    "period": null
+   },
+   "note": "'but' as exclusion"
+  },
+  {
+   "id": "S061",
+   "category": "and_or",
+   "question": "Loan book in Lagos and Abuja",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_book",
+    "dimensions": [],
+    "filters": {
+     "city": [
+      "Lagos",
+      "Abuja"
+     ]
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S062",
+   "category": "and_or",
+   "question": "Customers in Kano or Kaduna",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "customer_count",
+    "dimensions": [],
+    "filters": {
+     "city": [
+      "Kano",
+      "Kaduna"
+     ]
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S063",
+   "category": "and_or",
+   "question": "Deposit inflow by month for Lagos and Ibadan",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [
+     "month"
+    ],
+    "filters": {
+     "city": [
+      "Lagos",
+      "Ibadan"
+     ]
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S064",
+   "category": "and_or",
+   "question": "Delinquency rate in Enugu or Port Harcourt",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [],
+    "filters": {
+     "city": [
+      "Enugu",
+      "Port Harcourt"
+     ]
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S065",
+   "category": "and_or",
+   "question": "Complaints by topic in the South West and South East regions",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [
+     "topic"
+    ],
+    "filters": {
+     "region": [
+      "South West",
+      "South East"
+     ]
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S066",
+   "category": "and_or",
+   "question": "NPL ratio for retail and SME customers by region",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "npl_ratio",
+    "dimensions": [
+     "region"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": "retail and SME together is every segment, so no segment filter"
+  },
+  {
+   "id": "S067",
+   "category": "and_or",
+   "question": "ATM withdrawals in Abuja, Kano and Kaduna",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [],
+    "filters": {
+     "city": [
+      "Abuja",
+      "Kano",
+      "Kaduna"
+     ]
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S068",
+   "category": "and_or",
+   "question": "Transactions in Lagos or Abuja by channel",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "txn_count",
+    "dimensions": [
+     "channel"
+    ],
+    "filters": {
+     "city": [
+      "Lagos",
+      "Abuja"
+     ]
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S069",
+   "category": "and_or",
+   "question": "Average income in North West or North Central",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "avg_income",
+    "dimensions": [],
+    "filters": {
+     "region": [
+      "North West",
+      "North Central"
+     ]
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S070",
+   "category": "and_or",
+   "question": "Loan count for SME customers in Lagos and Abuja",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_count",
+    "dimensions": [],
+    "filters": {
+     "city": [
+      "Lagos",
+      "Abuja"
+     ],
+     "segment": "SME"
+    },
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S071",
+   "category": "period",
+   "question": "Deposit inflow last quarter",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [],
+    "filters": {},
+    "period": "last quarter"
+   },
+   "note": ""
+  },
+  {
+   "id": "S072",
+   "category": "period",
+   "question": "Complaints by topic last quarter",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [
+     "topic"
+    ],
+    "filters": {},
+    "period": "last quarter"
+   },
+   "note": ""
+  },
+  {
+   "id": "S073",
+   "category": "period",
+   "question": "Transactions last month",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "txn_count",
+    "dimensions": [],
+    "filters": {},
+    "period": "last month"
+   },
+   "note": ""
+  },
+  {
+   "id": "S074",
+   "category": "period",
+   "question": "ATM withdrawals in August",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [],
+    "filters": {},
+    "period": "august"
+   },
+   "note": ""
+  },
+  {
+   "id": "S075",
+   "category": "period",
+   "question": "Deposit inflow in September by branch",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [
+     "branch"
+    ],
+    "filters": {},
+    "period": "september"
+   },
+   "note": ""
+  },
+  {
+   "id": "S076",
+   "category": "period",
+   "question": "Complaints in the last 30 days",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [],
+    "filters": {},
+    "period": "last 30 days"
+   },
+   "note": ""
+  },
+  {
+   "id": "S077",
+   "category": "period",
+   "question": "Transactions by channel in Q2",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "txn_count",
+    "dimensions": [
+     "channel"
+    ],
+    "filters": {},
+    "period": "q2"
+   },
+   "note": ""
+  },
+  {
+   "id": "S078",
+   "category": "period",
+   "question": "ATM withdrawals by branch over the last 90 days",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [
+     "branch"
+    ],
+    "filters": {},
+    "period": "last 90 days"
+   },
+   "note": ""
+  },
+  {
+   "id": "S079",
+   "category": "period",
+   "question": "Deposit inflow in Lagos last month",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [],
+    "filters": {
+     "city": "Lagos"
+    },
+    "period": "last month"
+   },
+   "note": ""
+  },
+  {
+   "id": "S080",
+   "category": "period",
+   "question": "Complaints this quarter by channel",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "complaint_count",
+    "dimensions": [
+     "channel"
+    ],
+    "filters": {},
+    "period": "last quarter"
+   },
+   "note": "data ends 30 September, so this quarter is Q3, the same range as last quarter in the parser"
+  },
+  {
+   "id": "S081",
+   "category": "period",
+   "question": "Deposit inflow between July and September",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "deposit_inflow",
+    "dimensions": [],
+    "filters": {},
+    "period": "last quarter"
+   },
+   "note": "July to September is Q3; a range phrase the parser does not read"
+  },
+  {
+   "id": "S082",
+   "category": "period",
+   "question": "Transactions in the past week",
+   "role": "analyst",
+   "expect": "answer",
+   "gold": {
+    "metric": "txn_count",
+    "dimensions": [],
+    "filters": {},
+    "period": "last 7 days"
+   },
+   "note": "'past week' is a period phrase outside the parser's list"
+  },
+  {
+   "id": "S083",
+   "category": "ambiguous",
+   "question": "Which branches are performing best?",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": "performance is not a defined metric"
+  },
+  {
+   "id": "S084",
+   "category": "ambiguous",
+   "question": "How healthy is our loan portfolio?",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S085",
+   "category": "ambiguous",
+   "question": "What is our profit by branch?",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": "profit is not in the semantic layer"
+  },
+  {
+   "id": "S086",
+   "category": "ambiguous",
+   "question": "Show me customer satisfaction",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S087",
+   "category": "ambiguous",
+   "question": "What is the average account balance?",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": "balances are not a defined metric"
+  },
+  {
+   "id": "S088",
+   "category": "ambiguous",
+   "question": "How is the weather in Lagos?",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S089",
+   "category": "ambiguous",
+   "question": "What is the cost of funds?",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S090",
+   "category": "ambiguous",
+   "question": "Show me risk by region",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": "risk could mean delinquency, NPL or AML risk"
+  },
+  {
+   "id": "S091",
+   "category": "ambiguous",
+   "question": "What is the market share in Abuja?",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S092",
+   "category": "ambiguous",
+   "question": "Top 10 customers by revenue",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S093",
+   "category": "threshold",
+   "question": "Loan book for loans above 1 million naira",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": "amount thresholds are not supported"
+  },
+  {
+   "id": "S094",
+   "category": "threshold",
+   "question": "How many customers earn more than 500,000 a month?",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S095",
+   "category": "threshold",
+   "question": "Delinquency rate for loans 60 or more days past due",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": "the metric fixes the 30-day definition; a 60-day variant is not defined"
+  },
+  {
+   "id": "S096",
+   "category": "threshold",
+   "question": "Transactions over 5 million naira by channel",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S097",
+   "category": "threshold",
+   "question": "Complaints from customers with more than two loans",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S098",
+   "category": "threshold",
+   "question": "ATM withdrawals on weekends only",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S099",
+   "category": "contradiction",
+   "question": "Deposit inflow in Lagos excluding Lagos",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S100",
+   "category": "contradiction",
+   "question": "Loan book for SME customers but not SME customers",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S101",
+   "category": "contradiction",
+   "question": "Complaints in Abuja only, outside Abuja",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S102",
+   "category": "contradiction",
+   "question": "Customers in Kano and not in Kano by city",
+   "role": "analyst",
+   "expect": "clarify",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S103",
+   "category": "permission",
+   "question": "What is the deposit inflow by branch?",
+   "role": "loan_officer",
+   "expect": "blocked",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S104",
+   "category": "permission",
+   "question": "Complaints by topic",
+   "role": "loan_officer",
+   "expect": "blocked",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S105",
+   "category": "permission",
+   "question": "Average income by city",
+   "role": "loan_officer",
+   "expect": "blocked",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S106",
+   "category": "permission",
+   "question": "Customers by segment",
+   "role": "branch_ops",
+   "expect": "blocked",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S107",
+   "category": "permission",
+   "question": "Loan book by product",
+   "role": "branch_ops",
+   "expect": "blocked",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S108",
+   "category": "permission",
+   "question": "Delinquency rate by branch",
+   "role": "branch_ops",
+   "expect": "blocked",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S109",
+   "category": "permission",
+   "question": "NPL ratio by region",
+   "role": "branch_ops",
+   "expect": "blocked",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S110",
+   "category": "permission",
+   "question": "Approval rate",
+   "role": "branch_ops",
+   "expect": "blocked",
+   "gold": null,
+   "note": ""
+  },
+  {
+   "id": "S111",
+   "category": "permission",
+   "question": "Loan book by product",
+   "role": "loan_officer",
+   "expect": "answer",
+   "gold": {
+    "metric": "loan_book",
+    "dimensions": [
+     "product"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S112",
+   "category": "permission",
+   "question": "Delinquency rate by branch",
+   "role": "loan_officer",
+   "expect": "answer",
+   "gold": {
+    "metric": "delinquency_rate",
+    "dimensions": [
+     "branch"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S113",
+   "category": "permission",
+   "question": "ATM withdrawals by branch",
+   "role": "branch_ops",
+   "expect": "answer",
+   "gold": {
+    "metric": "atm_withdrawals",
+    "dimensions": [
+     "branch"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  },
+  {
+   "id": "S114",
+   "category": "permission",
+   "question": "Transactions by channel",
+   "role": "branch_ops",
+   "expect": "answer",
+   "gold": {
+    "metric": "txn_count",
+    "dimensions": [
+     "channel"
+    ],
+    "filters": {},
+    "period": null
+   },
+   "note": ""
+  }
+ ],
+ "counts": {
+  "simple": 16,
+  "grouping": 16,
+  "filter": 12,
+  "negation": 16,
+  "and_or": 10,
+  "period": 12,
+  "ambiguous": 10,
+  "threshold": 6,
+  "contradiction": 4,
+  "permission": 12
+ }
+}

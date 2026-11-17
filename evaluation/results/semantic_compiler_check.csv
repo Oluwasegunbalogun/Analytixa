@@ -1,0 +1,13 @@
+intent,compiled,hand_written,result
+"{""metric"": ""loan_book"", ""dimensions"": [], ""filters"": {}, ""period"": null}",480642000.0,480642000.0,pass
+"{""metric"": ""loan_count"", ""dimensions"": [], ""filters"": {""segment"": ""SME""}, ""period"": null}",97,97,pass
+"{""metric"": ""customer_count"", ""dimensions"": [], ""filters"": {""city"": {""not"": ""Lagos""}}, ""period"": null}",559,559,pass
+"{""metric"": ""deposit_inflow"", ""dimensions"": [], ""filters"": {}, ""period"": ""august""}",437228800.0,437228800.0,pass
+"{""metric"": ""txn_count"", ""dimensions"": [], ""filters"": {""city"": [""Kano"", ""Kaduna""]}, ""period"": null}",15924,15924,pass
+"{""metric"": ""complaint_count"", ""dimensions"": [], ""filters"": {}, ""period"": ""last quarter""}",504,504,pass
+"{""metric"": ""delinquency_rate"", ""dimensions"": [], ""filters"": {}, ""period"": null}",23.04609218436874,23.04609218436874,pass
+"{""metric"": ""npl_ratio"", ""dimensions"": [], ""filters"": {""region"": ""South West""}, ""period"": null}",9.387575452716298,9.387575452716298,pass
+"{""metric"": ""atm_withdrawals"", ""dimensions"": [], ""filters"": {""city"": ""Abuja""}, ""period"": ""september""}",338488000.0,338488000.0,pass
+"{""metric"": ""avg_income"", ""dimensions"": [], ""filters"": {""segment"": {""not"": ""Retail""}}, ""period"": null}",640484.9785407726,640484.9785407726,pass
+"{""metric"": ""loan_book"", ""dimensions"": [], ""filters"": {""city"": {""not"": [""Lagos"", ""Abuja""]}}, ""period"": null}",160538000.0,160538000.0,pass
+"{""metric"": ""delinquency_rate"", ""dimensions"": [""branch""], ""filters"": {""city"": ""Lagos""}, ""period"": null}",31.25,31.25,pass

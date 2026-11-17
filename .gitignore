@@ -1,0 +1,15 @@
+config.env
+__pycache__/
+*.pyc
+evaluation/*.db
+logs/
+.vercel/
+.pytest_cache/
+.env
+*.env
+!config.example.env
+.venv/
+venv/
+*.zip
+.DS_Store
+Thumbs.db

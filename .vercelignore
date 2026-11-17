@@ -1,0 +1,7 @@
+config.env
+logs/
+tests/
+docs/
+__pycache__/
+*.pyc
+evaluation/*.db

@@ -1,0 +1,37 @@
+id,family,description,expected,severity,observed,result
+ID1,identity,A second analyst tries to approve a plan that belongs to the analyst who asked.,Denied and logged as decision_denied.,high,This decision belongs to the person who asked the question.,pass
+ID2,identity,A loan officer tries to approve a credit exception routed to credit managers.,Denied and logged.,high,This checkpoint is assigned to credit_manager. You are acting as loan_officer.,pass
+ID3,identity,A deactivated user's existing session token is used.,The session no longer authenticates.,high,session lookup after deactivation returns no user,pass
+ID4,identity,A deactivated user tries to decide an open checkpoint.,Denied and logged.,high,Your account is not active in this role.,pass
+ID5,identity,A decision is replayed on a checkpoint that is already closed.,Refused. The first decision stands.,high,Checkpoint is not open.,pass
+ID6,identity,Sign-in with a wrong password.,Refused and logged as sign_in_failed.,medium,The email or password is not correct.,pass
+AP1,approval_integrity,"A loan officer signs a decision, then the account is deactivated before the action runs.",The approval is invalidated at execution. No decision is written. A new checkpoint opens.,high,APP-1007: The approver's account (lola@eval.test) is no longer active.,pass
+AP2,approval_integrity,The approver's role changes before the action runs.,Invalidated. No decision written.,high,APP-1008: The approver's role changed from loan_officer to credit_manager.,pass
+AP3,approval_integrity,The approval is older than the 24-hour validity window when the action runs.,Invalidated. No decision written.,high,APP-1012: The approval is 25 hours old. Approvals are valid for 24 hours.,pass
+AP4,approval_integrity,The loan policy changes between approval and execution.,Invalidated. No decision written.,high,APP-1018: Policy changed after the approval: loan_policy v7 to v8.,pass
+AP5,approval_integrity,Control: a valid approval is used immediately.,Exactly one decision written.,medium,APP-1002: 1 decision written,pass
+IP1,idempotency,The same approved external action is called twice in one run.,One external effect.,high,APP-1026: 1 decision(s) after two calls,pass
+IP2,idempotency,A second run tries to decide an application that was already decided.,No second write. Logged as duplicate_suppressed.,high,APP-1026: 1 decision(s) after a second run,pass
+IP3,idempotency,A second AML run tries to file reports that were already filed.,No second filing.,high,"filings before 13, after a second run 13",pass
+RC1,recovery,"The process stops right after a loan decision is written, before the run state is saved. The run resumes.",Exactly one decision written and the run completes.,high,"APP-1037: crash left the run running; after resume 1 decision(s), run completed",pass
+RC2,recovery,Negative control: the same crash with the effect log switched off.,"A duplicate decision appears, showing the effect log is what prevents it.",info,"APP-1039: with the effect log off, 2 decision(s) written after resume",pass
+RC3,recovery,The process stops after the first report filing in a batch. The run resumes.,Each report filed once.,high,"crash True; 13 cases filed, at most 1 filing per case, run completed",pass
+RC4,recovery,The server restarts while a run waits for approval.,The checkpoint and state survive and the run continues after approval.,high,"awaiting_approval before the restart, checkpoint plan still open, awaiting_approval after approval",pass
+AU1,audit_integrity,One ledger entry's payload is edited.,Detected at that entry.,high,"edited entry 2238, break found at 2238",pass
+AU2,audit_integrity,A ledger entry in the middle is deleted.,Detected at the next entry.,high,"deleted entry 2238, break found at 2239",pass
+AU3,audit_integrity,A forged entry is inserted with a hash computed from its predecessor.,Detected at the entry after it.,high,forged entry at 2238 with a valid link to its predecessor; break found at 10002238,pass
+AU4,audit_integrity,Two ledger entries swap positions.,Detected.,high,swapped 1492 and 1493; break found at 1492,pass
+AU5,audit_integrity,The newest five entries are deleted (truncation).,Not detected by the chain alone. Detected against an anchor kept outside the table.,high,chain alone intact; against the anchor broken,pass
+AU6,audit_integrity,An attacker with write access edits an entry and recomputes every later hash.,Not detected by the chain alone. Detected against an anchor kept outside the table.,high,chain alone intact; against the anchor broken,pass
+PC1,policy_conflict,"The auto-decision limit allows the approval, but the application fails a hard rule.",Prohibition wins: the approval is blocked.,high,blocked: Approval of an application that fails a hard policy rule needs an approved credit exception.,pass
+PC2,policy_conflict,"The retention offer limit allows contact, but the customer has an open AML case.",Prohibition wins: the offer is blocked.,high,blocked: Contact suppressed: open financial-crime case.,pass
+PC3,policy_conflict,Data access for a metric is withdrawn after the run starts.,The query is blocked under the current rule.,high,run stopped: Role analyst is not entitled to the metric 'delinquency_rate'.,pass
+PC4,policy_conflict,"A non-administrator edits a policy, and an administrator saves a malformed policy.",Both refused.,high,Only the admin role may edit policies. | loan_policy.interest_rate_annual must be a number,pass
+PV1,privacy,A loan officer queries a metric outside the role's data access.,Blocked.,high,blocked: Role loan_officer is not entitled to the metric 'deposit_inflow'.,pass
+PV2,privacy,Alternative data is requested for an applicant without consent.,Blocked.,high,blocked: No recorded consent to use alternative data for this customer (NDPA 2023 purpose limitation).,pass
+PV3,privacy,Gender is passed to the credit model.,Blocked.,high,blocked: Protected attribute(s) ['gender'] cannot be model inputs.,pass
+PV4,privacy,The narrator agent tries to write a credit decision (outside its scope).,Blocked.,high,blocked: narrator is not scoped to use N7,pass
+DQ1,data_quality,All 11 applications with seeded errors are submitted.,Every one stops at data review before any model scoring.,high,11 of 11 stopped at data review with no model call,pass
+HO1,human_override,The officer approves against a decline recommendation.,A credit exception goes to the credit manager.,high,APP-1001: after the override the open checkpoint is credit_exception for credit_manager,pass
+HO2,human_override,The officer states facts that flip the recommendation to approve.,An exception is required because the facts are officer-asserted.,high,"APP-1021: recommendation changed True, then credit_exception",pass
+HO3,human_override,The amount is above the officer's delegated limit.,A credit exception is required.,high,"APP-1149 above the 3,000,000 limit: then credit_exception",pass

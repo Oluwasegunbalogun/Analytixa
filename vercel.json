@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "server.py": {
+      "excludeFiles": "{tests/**,docs/**,logs/**,evaluation/benchmark/**,**/__pycache__/**,config.env,setup.py,start.bat,start.sh}"
+    }
+  },
+  "crons": [
+    { "path": "/api/cron/daily", "schedule": "0 5 * * *" }
+  ]
+}

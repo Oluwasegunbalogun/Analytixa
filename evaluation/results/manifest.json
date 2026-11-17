@@ -1,0 +1,897 @@
+{
+ "benchmark": "HAARA reproducible benchmark",
+ "started": "2026-10-12T21:01:44.421506+00:00",
+ "finished": "2026-10-12T21:13:46.937679+00:00",
+ "elapsed_seconds": 722.5,
+ "code_fingerprint": "bcf0da5f33ae8955",
+ "git_commit": null,
+ "python": "3.11.15",
+ "postgres": "16.13 (Ubuntu 16.13-0ubuntu0.24.04.1)",
+ "seeds": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "parts": [
+  "comparative",
+  "oversight",
+  "boundaries",
+  "semantic",
+  "validity"
+ ],
+ "llm": "disabled for repeatability",
+ "environments": [
+  {
+   "schema": "lagoon_e_s1_auto",
+   "seed": 1,
+   "config": "autonomous",
+   "data_fingerprint": "8d74d1a4ea8bbcc9",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.772,
+      "train_rows": 3750,
+      "default_rate": 0.147
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.811,
+      "train_rows": 720,
+      "base_rate": 0.107
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 119885
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s1_unif",
+   "seed": 1,
+   "config": "uniform",
+   "data_fingerprint": "8d74d1a4ea8bbcc9",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.772,
+      "train_rows": 3750,
+      "default_rate": 0.147
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.811,
+      "train_rows": 720,
+      "base_rate": 0.107
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 119885
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s1_haar",
+   "seed": 1,
+   "config": "haara",
+   "data_fingerprint": "8d74d1a4ea8bbcc9",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.772,
+      "train_rows": 3750,
+      "default_rate": 0.147
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.811,
+      "train_rows": 720,
+      "base_rate": 0.107
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 119885
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s2_auto",
+   "seed": 2,
+   "config": "autonomous",
+   "data_fingerprint": "83446026eb00befe",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.753,
+      "train_rows": 3750,
+      "default_rate": 0.147
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.778,
+      "train_rows": 720,
+      "base_rate": 0.132
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 119566
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s2_unif",
+   "seed": 2,
+   "config": "uniform",
+   "data_fingerprint": "83446026eb00befe",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.753,
+      "train_rows": 3750,
+      "default_rate": 0.147
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.778,
+      "train_rows": 720,
+      "base_rate": 0.132
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 119566
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s2_haar",
+   "seed": 2,
+   "config": "haara",
+   "data_fingerprint": "83446026eb00befe",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.753,
+      "train_rows": 3750,
+      "default_rate": 0.147
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.778,
+      "train_rows": 720,
+      "base_rate": 0.132
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 119566
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s3_auto",
+   "seed": 3,
+   "config": "autonomous",
+   "data_fingerprint": "e968e05829b2e462",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.774,
+      "train_rows": 3750,
+      "default_rate": 0.144
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.846,
+      "train_rows": 720,
+      "base_rate": 0.12
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 120482
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s3_unif",
+   "seed": 3,
+   "config": "uniform",
+   "data_fingerprint": "e968e05829b2e462",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.774,
+      "train_rows": 3750,
+      "default_rate": 0.144
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.846,
+      "train_rows": 720,
+      "base_rate": 0.12
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 120482
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s3_haar",
+   "seed": 3,
+   "config": "haara",
+   "data_fingerprint": "e968e05829b2e462",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.774,
+      "train_rows": 3750,
+      "default_rate": 0.144
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.846,
+      "train_rows": 720,
+      "base_rate": 0.12
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 120482
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s4_auto",
+   "seed": 4,
+   "config": "autonomous",
+   "data_fingerprint": "1be86aced97d6aed",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.772,
+      "train_rows": 3750,
+      "default_rate": 0.148
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.814,
+      "train_rows": 720,
+      "base_rate": 0.118
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 120147
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s4_unif",
+   "seed": 4,
+   "config": "uniform",
+   "data_fingerprint": "1be86aced97d6aed",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.772,
+      "train_rows": 3750,
+      "default_rate": 0.148
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.814,
+      "train_rows": 720,
+      "base_rate": 0.118
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 120147
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s4_haar",
+   "seed": 4,
+   "config": "haara",
+   "data_fingerprint": "1be86aced97d6aed",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.772,
+      "train_rows": 3750,
+      "default_rate": 0.148
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.814,
+      "train_rows": 720,
+      "base_rate": 0.118
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 120147
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s5_auto",
+   "seed": 5,
+   "config": "autonomous",
+   "data_fingerprint": "a468b67d8de3fbf6",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.752,
+      "train_rows": 3750,
+      "default_rate": 0.149
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.78,
+      "train_rows": 720,
+      "base_rate": 0.127
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 120209
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s5_unif",
+   "seed": 5,
+   "config": "uniform",
+   "data_fingerprint": "a468b67d8de3fbf6",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.752,
+      "train_rows": 3750,
+      "default_rate": 0.149
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.78,
+      "train_rows": 720,
+      "base_rate": 0.127
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 120209
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s5_haar",
+   "seed": 5,
+   "config": "haara",
+   "data_fingerprint": "a468b67d8de3fbf6",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   },
+   "models": [
+    {
+     "name": "credit_pd",
+     "version": "credit_pd-v1",
+     "type": "logistic regression",
+     "metrics": {
+      "auc_holdout": 0.752,
+      "train_rows": 3750,
+      "default_rate": 0.149
+     }
+    },
+    {
+     "name": "churn",
+     "version": "churn-v1",
+     "type": "logistic regression (class-balanced)",
+     "metrics": {
+      "auc_holdout": 0.78,
+      "train_rows": 720,
+      "base_rate": 0.127
+     }
+    },
+    {
+     "name": "anomaly",
+     "version": "anomaly-v1",
+     "type": "isolation forest",
+     "metrics": {
+      "train_rows": 120209
+     }
+    },
+    {
+     "name": "cash_demand",
+     "version": "cash_demand-v1",
+     "type": "seasonal day-of-week model with payday effect",
+     "metrics": {
+      "history_days": 180
+     }
+    }
+   ]
+  },
+  {
+   "schema": "lagoon_e_s1_test",
+   "seed": 1,
+   "config": "haara-tests",
+   "data_fingerprint": "8d74d1a4ea8bbcc9",
+   "policy_versions": {
+    "entitlements": 1,
+    "envelopes": 1,
+    "fairness": 1,
+    "loan_policy": 1,
+    "cash_policy": 1,
+    "semantic_layer": 1,
+    "aml_policy": 1,
+    "autonomy": 1,
+    "routing": 1,
+    "churn_policy": 1
+   }
+  }
+ ],
+ "spec_versions": {
+  "comparative.json": "2.0",
+  "credit_boundaries.json": "1.0",
+  "oversight.json": "1.0",
+  "semantic.json": "1.0"
+ },
+ "spec_sha256": {
+  "comparative.json": "13ca97f0a80fb827",
+  "credit_boundaries.json": "d1a1e563542a52bc",
+  "oversight.json": "0764198277bc996a",
+  "semantic.json": "6e989237809420fa"
+ }
+}

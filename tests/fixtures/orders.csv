@@ -1,0 +1,901 @@
+order_id,order_date,region,category,product_name,quantity,sales,profit,profit_margin
+ORD-50000,2025-10-09,South,Furniture,Bookcase,6,349.9,3.66,0.0105
+ORD-50001,2026-04-23,North,Office Supplies,Stapler,5,81.45,28.16,0.3457
+ORD-50002,2026-01-06,West,Office Supplies,Binder,4,52.71,2.88,0.0546
+ORD-50003,2025-07-06,West,Furniture,Bookcase,5,120.33,-6.92,-0.0575
+ORD-50004,2026-03-23,South,Furniture,Desk Lamp,5,384.09,24.76,0.0645
+ORD-50005,2025-12-16,East,Technology,Printer,4,662.12,5.76,0.0087
+ORD-50006,2025-07-22,North,Furniture,Table,1,216.71,-54.45,-0.2513
+ORD-50007,2025-05-07,East,Furniture,Bookcase,7,637.24,-99.21,-0.1557
+ORD-50008,2026-01-07,East,Technology,Printer,8,640.56,127.7,0.1994
+ORD-50009,2025-03-16,North,Office Supplies,Paper,2,116.95,29.59,0.253
+ORD-50010,2025-03-27,South,Office Supplies,Labels,6,56.14,13.78,0.2455
+ORD-50011,2025-07-10,North,Office Supplies,Paper,2,30.9,6.84,0.2214
+ORD-50012,2026-04-03,North,Office Supplies,Binder,1,142.08,3.76,0.0265
+ORD-50013,2025-01-20,North,Office Supplies,Stapler,8,128.54,32.87,0.2557
+ORD-50014,2025-09-12,North,Furniture,Office Chair,5,389.23,71.11,0.1827
+ORD-50015,2025-10-12,North,Technology,Headset,5,469.0,33.18,0.0707
+ORD-50016,2025-02-08,North,Office Supplies,Paper,8,75.44,21.7,0.2876
+ORD-50017,2026-02-28,East,Office Supplies,Envelopes,5,82.06,10.71,0.1305
+ORD-50018,2025-09-13,West,Technology,Printer,5,444.95,78.92,0.1774
+ORD-50019,2025-09-10,East,Office Supplies,Envelopes,4,26.66,5.83,0.2187
+ORD-50020,2025-12-02,West,Technology,Printer,3,966.63,-22.9,-0.0237
+ORD-50021,2025-05-16,West,Furniture,Table,4,169.56,37.39,0.2205
+ORD-50022,2026-02-18,West,Office Supplies,Envelopes,3,72.96,5.25,0.072
+ORD-50023,2025-07-14,North,Office Supplies,Stapler,3,74.12,12.05,0.1626
+ORD-50024,2026-01-10,East,Office Supplies,Envelopes,8,104.21,12.03,0.1154
+ORD-50025,2026-05-07,South,Office Supplies,Paper,5,33.84,7.77,0.2296
+ORD-50026,2025-06-04,South,Furniture,Desk Lamp,2,858.12,82.9,0.0966
+ORD-50027,2025-05-25,East,Technology,Phone,7,895.49,140.89,0.1573
+ORD-50028,2025-02-19,East,Technology,Phone,7,959.37,311.29,0.3245
+ORD-50029,2025-07-18,South,Furniture,Desk Lamp,1,890.57,70.12,0.0787
+ORD-50030,2025-02-28,East,Office Supplies,Labels,8,55.28,7.02,0.127
+ORD-50031,2026-02-17,North,Office Supplies,Stapler,8,13.61,-2.32,-0.1705
+ORD-50032,2025-12-12,South,Furniture,Table,6,508.98,5.63,0.0111
+ORD-50033,2025-05-30,North,Technology,Printer,2,1331.34,159.84,0.1201
+ORD-50034,2026-08-01,North,Office Supplies,Binder,3,179.61,12.64,0.0704
+ORD-50035,2026-07-12,North,Furniture,Bookcase,4,302.77,-17.67,-0.0584
+ORD-50036,2025-01-24,South,Office Supplies,Stapler,5,84.72,20.85,0.2461
+ORD-50037,2025-04-14,South,Furniture,Office Chair,7,496.03,84.48,0.1703
+ORD-50038,2025-10-14,East,Technology,Laptop,8,205.24,78.46,0.3823
+ORD-50039,2025-01-15,North,Furniture,Bookcase,2,280.22,51.01,0.182
+ORD-50040,2025-05-22,South,Furniture,Bookcase,3,285.52,-11.42,-0.04
+ORD-50041,2025-09-14,West,Furniture,Office Chair,6,1082.01,81.89,0.0757
+ORD-50042,2025-07-29,South,Office Supplies,Labels,7,60.67,0.69,0.0114
+ORD-50043,2025-11-21,East,Office Supplies,Envelopes,5,230.27,60.47,0.2626
+ORD-50044,2025-10-06,South,Technology,Headset,6,613.33,121.35,0.1979
+ORD-50045,2025-12-08,North,Office Supplies,Paper,5,32.84,3.34,0.1017
+ORD-50046,2025-08-28,North,Office Supplies,Stapler,6,339.85,55.16,0.1623
+ORD-50047,2025-07-14,East,Furniture,Table,7,234.07,3.49,0.0149
+ORD-50048,2025-12-16,North,Furniture,Table,5,608.07,-19.11,-0.0314
+ORD-50049,2026-04-14,East,Technology,Phone,2,1697.33,532.05,0.3135
+ORD-50050,2025-07-26,North,Office Supplies,Envelopes,7,65.28,35.75,0.5476
+ORD-50051,2026-05-22,West,Office Supplies,Paper,2,43.01,11.78,0.2739
+ORD-50052,2026-08-03,East,Furniture,Table,1,784.31,134.89,0.172
+ORD-50053,2025-10-20,North,Furniture,Office Chair,8,436.81,28.07,0.0643
+ORD-50054,2026-05-24,West,Technology,Printer,6,292.09,33.04,0.1131
+ORD-50055,2026-05-07,South,Office Supplies,Stapler,8,47.04,20.63,0.4386
+ORD-50056,2026-06-05,West,Office Supplies,Binder,2,71.24,9.35,0.1312
+ORD-50057,2026-04-28,South,Office Supplies,Paper,1,160.49,35.73,0.2226
+ORD-50058,2026-07-19,East,Furniture,Table,2,353.55,10.9,0.0308
+ORD-50059,2025-04-18,East,Furniture,Table,6,622.02,72.17,0.116
+ORD-50060,2026-03-24,East,Furniture,Bookcase,7,1132.16,44.41,0.0392
+ORD-50061,2025-03-26,North,Technology,Headset,1,1306.51,295.7,0.2263
+ORD-50062,2025-10-08,South,Office Supplies,Paper,4,213.23,4.94,0.0232
+ORD-50063,2025-03-21,West,Furniture,Desk Lamp,8,879.54,29.04,0.033
+ORD-50064,2026-06-01,South,Office Supplies,Labels,7,34.28,11.64,0.3396
+ORD-50065,2025-02-21,North,Furniture,Bookcase,8,874.82,-69.01,-0.0789
+ORD-50066,2025-06-29,South,Furniture,Desk Lamp,3,511.52,-17.89,-0.035
+ORD-50067,2026-04-12,South,Office Supplies,Stapler,6,83.53,28.37,0.3396
+ORD-50068,2025-01-31,West,Technology,Laptop,2,318.2,64.8,0.2036
+ORD-50069,2025-08-18,East,Furniture,Office Chair,4,161.88,28.06,0.1733
+ORD-50070,2026-03-15,North,Technology,Headset,5,313.19,-35.53,-0.1134
+ORD-50071,2025-03-26,South,Furniture,Table,6,414.65,25.92,0.0625
+ORD-50072,2026-08-15,North,Furniture,Office Chair,4,207.51,-22.43,-0.1081
+ORD-50073,2025-11-26,South,Furniture,Bookcase,5,257.33,-31.4,-0.122
+ORD-50074,2025-04-13,East,Office Supplies,Stapler,5,62.16,13.94,0.2243
+ORD-50075,2025-06-27,East,Office Supplies,Envelopes,7,134.25,42.57,0.3171
+ORD-50076,2025-10-17,East,Office Supplies,Labels,2,75.39,-0.36,-0.0048
+ORD-50077,2025-01-29,East,Technology,Laptop,7,558.87,12.23,0.0219
+ORD-50078,2025-10-19,North,Furniture,Office Chair,7,930.75,-23.58,-0.0253
+ORD-50079,2025-09-06,East,Office Supplies,Labels,7,74.22,11.84,0.1595
+ORD-50080,2025-08-09,West,Office Supplies,Binder,1,128.94,1.92,0.0149
+ORD-50081,2026-05-11,West,Technology,Phone,7,323.46,137.87,0.4262
+ORD-50082,2026-05-25,North,Technology,Laptop,1,743.19,167.4,0.2252
+ORD-50083,2026-02-27,West,Office Supplies,Stapler,2,96.69,12.69,0.1312
+ORD-50084,2026-06-09,South,Office Supplies,Binder,2,99.98,11.21,0.1121
+ORD-50085,2026-08-15,South,Office Supplies,Stapler,2,68.03,30.88,0.4539
+ORD-50086,2026-02-01,East,Office Supplies,Stapler,4,48.49,21.52,0.4438
+ORD-50087,2025-10-12,South,Furniture,Desk Lamp,6,350.91,-5.11,-0.0146
+ORD-50088,2026-01-18,North,Furniture,Bookcase,4,317.18,27.27,0.086
+ORD-50089,2026-08-01,West,Office Supplies,Envelopes,5,167.31,54.49,0.3257
+ORD-50090,2026-02-28,South,Furniture,Bookcase,3,724.12,-71.33,-0.0985
+ORD-50091,2025-08-18,West,Technology,Phone,8,296.54,24.69,0.0833
+ORD-50092,2026-06-19,East,Office Supplies,Labels,8,131.13,44.12,0.3365
+ORD-50093,2025-10-21,West,Office Supplies,Paper,1,67.49,6.09,0.0902
+ORD-50094,2025-03-06,North,Office Supplies,Envelopes,8,118.53,14.42,0.1217
+ORD-50095,2026-03-24,North,Office Supplies,Envelopes,4,67.42,0.76,0.0113
+ORD-50096,2025-09-16,North,Technology,Laptop,6,252.24,15.6,0.0618
+ORD-50097,2025-10-03,West,Technology,Laptop,7,1122.39,264.8,0.2359
+ORD-50098,2025-03-17,South,Furniture,Office Chair,3,550.94,-30.83,-0.056
+ORD-50099,2025-04-11,East,Office Supplies,Paper,4,43.14,0.68,0.0158
+ORD-50100,2026-06-15,West,Furniture,Office Chair,6,135.02,-4.43,-0.0328
+ORD-50101,2026-03-03,East,Office Supplies,Labels,2,65.32,25.23,0.3863
+ORD-50102,2025-08-07,East,Technology,Phone,1,300.17,52.21,0.1739
+ORD-50103,2026-07-04,North,Technology,Headset,3,490.35,41.61,0.0849
+ORD-50104,2026-06-30,East,Technology,Laptop,5,885.03,151.2,0.1708
+ORD-50105,2025-08-02,North,Furniture,Office Chair,8,1014.05,97.02,0.0957
+ORD-50106,2025-08-02,South,Office Supplies,Labels,7,72.66,13.57,0.1868
+ORD-50107,2025-09-07,West,Furniture,Table,7,959.74,-168.8,-0.1759
+ORD-50108,2026-08-16,East,Technology,Printer,8,1226.68,230.6,0.188
+ORD-50109,2025-07-05,South,Furniture,Desk Lamp,7,323.63,5.2,0.0161
+ORD-50110,2026-07-13,East,Furniture,Desk Lamp,7,154.48,22.16,0.1434
+ORD-50111,2026-02-18,South,Office Supplies,Paper,3,150.2,1.26,0.0084
+ORD-50112,2026-06-19,South,Furniture,Table,2,605.77,101.79,0.168
+ORD-50113,2025-10-23,South,Technology,Headset,7,2505.92,229.44,0.0916
+ORD-50114,2025-05-11,West,Office Supplies,Binder,7,212.49,-7.41,-0.0349
+ORD-50115,2025-05-18,South,Furniture,Desk Lamp,1,672.41,135.68,0.2018
+ORD-50116,2025-08-23,East,Office Supplies,Paper,5,248.2,27.0,0.1088
+ORD-50117,2026-06-24,South,Furniture,Table,2,224.32,19.31,0.0861
+ORD-50118,2026-08-08,East,Office Supplies,Paper,8,101.29,15.33,0.1513
+ORD-50119,2025-01-09,South,Furniture,Table,6,357.28,61.73,0.1728
+ORD-50120,2026-02-21,North,Furniture,Table,8,1197.83,208.59,0.1741
+ORD-50121,2026-05-16,West,Furniture,Table,6,591.19,103.63,0.1753
+ORD-50122,2025-10-15,East,Office Supplies,Binder,7,14.4,3.7,0.2569
+ORD-50123,2026-06-03,East,Office Supplies,Stapler,4,205.52,-5.08,-0.0247
+ORD-50124,2025-07-25,West,Office Supplies,Paper,1,52.44,-1.72,-0.0328
+ORD-50125,2025-02-26,South,Office Supplies,Stapler,8,144.13,28.03,0.1945
+ORD-50126,2025-08-29,East,Office Supplies,Labels,4,67.87,3.73,0.055
+ORD-50127,2025-01-11,North,Furniture,Bookcase,3,489.21,47.18,0.0964
+ORD-50128,2026-06-04,South,Office Supplies,Stapler,2,132.6,25.21,0.1901
+ORD-50129,2026-01-24,West,Office Supplies,Stapler,3,101.8,-0.1,-0.001
+ORD-50130,2026-06-10,East,Technology,Phone,1,346.63,8.53,0.0246
+ORD-50131,2025-12-17,West,Furniture,Table,2,979.89,-95.27,-0.0972
+ORD-50132,2025-03-04,East,Furniture,Table,1,537.27,-36.24,-0.0675
+ORD-50133,2025-04-14,West,Office Supplies,Stapler,6,89.85,13.01,0.1448
+ORD-50134,2026-05-12,North,Technology,Headset,6,939.98,218.28,0.2322
+ORD-50135,2025-09-17,East,Technology,Printer,7,446.42,139.2,0.3118
+ORD-50136,2025-08-29,North,Office Supplies,Paper,3,281.68,14.74,0.0523
+ORD-50137,2025-02-27,South,Furniture,Office Chair,7,485.34,-13.79,-0.0284
+ORD-50138,2025-05-04,North,Technology,Phone,4,767.2,259.21,0.3379
+ORD-50139,2025-09-06,North,Office Supplies,Labels,5,111.97,31.13,0.278
+ORD-50140,2025-12-07,East,Furniture,Table,8,245.43,16.7,0.068
+ORD-50141,2025-11-12,South,Office Supplies,Envelopes,1,44.96,-5.14,-0.1143
+ORD-50142,2025-10-06,South,Furniture,Table,4,483.64,-39.78,-0.0823
+ORD-50143,2026-06-21,North,Technology,Phone,4,761.94,128.69,0.1689
+ORD-50144,2025-07-07,East,Office Supplies,Binder,8,204.09,20.05,0.0982
+ORD-50145,2025-08-14,South,Technology,Headset,2,808.75,315.97,0.3907
+ORD-50146,2026-05-15,North,Technology,Printer,3,320.95,51.55,0.1606
+ORD-50147,2025-04-06,South,Office Supplies,Paper,3,124.84,25.46,0.2039
+ORD-50148,2025-04-12,East,Technology,Printer,8,1013.78,16.72,0.0165
+ORD-50149,2026-07-25,North,Furniture,Bookcase,1,775.63,-67.35,-0.0868
+ORD-50150,2025-06-02,West,Furniture,Office Chair,2,519.08,-21.35,-0.0411
+ORD-50151,2026-01-18,North,Office Supplies,Binder,6,43.75,4.1,0.0937
+ORD-50152,2025-08-05,South,Office Supplies,Stapler,1,182.77,25.82,0.1413
+ORD-50153,2025-03-22,North,Office Supplies,Paper,3,58.69,12.61,0.2149
+ORD-50154,2025-11-24,West,Office Supplies,Labels,6,128.46,25.48,0.1983
+ORD-50155,2025-02-06,South,Office Supplies,Stapler,5,35.43,10.31,0.291
+ORD-50156,2025-05-21,North,Furniture,Desk Lamp,3,672.24,-83.58,-0.1243
+ORD-50157,2025-08-17,West,Office Supplies,Paper,8,56.84,11.09,0.1951
+ORD-50158,2025-06-13,West,Office Supplies,Labels,1,174.29,34.62,0.1986
+ORD-50159,2025-05-26,West,Office Supplies,Paper,2,262.35,94.98,0.362
+ORD-50160,2025-01-07,South,Office Supplies,Envelopes,2,183.62,26.28,0.1431
+ORD-50161,2025-08-09,North,Technology,Headset,3,306.07,57.87,0.1891
+ORD-50162,2026-07-12,South,Office Supplies,Labels,7,51.64,3.65,0.0707
+ORD-50163,2025-06-13,East,Office Supplies,Paper,3,53.96,11.92,0.2209
+ORD-50164,2025-08-11,South,Office Supplies,Envelopes,3,135.38,29.48,0.2178
+ORD-50165,2026-07-02,North,Office Supplies,Labels,1,111.91,10.45,0.0934
+ORD-50166,2026-07-03,North,Office Supplies,Stapler,7,100.02,11.63,0.1163
+ORD-50167,2026-05-03,East,Technology,Phone,5,742.06,108.09,0.1457
+ORD-50168,2026-08-23,North,Furniture,Table,4,600.84,66.02,0.1099
+ORD-50169,2026-02-07,East,Office Supplies,Envelopes,5,134.39,4.05,0.0301
+ORD-50170,2025-07-11,West,Office Supplies,Binder,2,250.52,69.35,0.2768
+ORD-50171,2025-02-23,East,Furniture,Office Chair,5,410.05,-0.3,-0.0007
+ORD-50172,2026-04-29,North,Furniture,Table,3,479.03,129.27,0.2699
+ORD-50173,2026-04-20,South,Technology,Headset,8,202.13,66.04,0.3267
+ORD-50174,2025-09-12,North,Technology,Laptop,2,278.06,27.95,0.1005
+ORD-50175,2025-08-27,South,Office Supplies,Envelopes,5,59.86,5.6,0.0936
+ORD-50176,2025-07-23,North,Technology,Printer,2,301.74,135.09,0.4477
+ORD-50177,2026-06-06,North,Technology,Printer,5,701.59,158.56,0.226
+ORD-50178,2026-01-02,East,Office Supplies,Binder,1,169.29,40.37,0.2385
+ORD-50179,2025-01-31,East,Office Supplies,Binder,8,69.76,8.25,0.1183
+ORD-50180,2026-03-10,East,Office Supplies,Binder,4,67.66,10.41,0.1539
+ORD-50181,2025-03-29,West,Office Supplies,Envelopes,7,66.58,17.8,0.2673
+ORD-50182,2025-09-08,North,Office Supplies,Stapler,8,97.85,23.91,0.2444
+ORD-50183,2025-03-19,North,Furniture,Office Chair,5,304.3,-18.48,-0.0607
+ORD-50184,2025-11-29,North,Technology,Phone,4,791.42,237.8,0.3005
+ORD-50185,2026-05-05,West,Office Supplies,Envelopes,5,108.24,22.41,0.207
+ORD-50186,2026-01-13,North,Office Supplies,Stapler,7,111.06,6.04,0.0544
+ORD-50187,2026-07-27,North,Office Supplies,Labels,3,142.8,41.47,0.2904
+ORD-50188,2025-10-31,North,Technology,Laptop,1,623.35,80.07,0.1285
+ORD-50189,2026-03-24,West,Office Supplies,Binder,4,98.35,26.03,0.2647
+ORD-50190,2025-06-08,East,Office Supplies,Labels,3,259.2,26.59,0.1026
+ORD-50191,2025-07-04,West,Furniture,Bookcase,4,409.34,34.24,0.0836
+ORD-50192,2025-12-20,East,Office Supplies,Paper,7,145.48,-3.94,-0.0271
+ORD-50193,2025-02-01,South,Technology,Headset,5,630.73,122.99,0.195
+ORD-50194,2025-12-21,West,Office Supplies,Stapler,4,68.41,-0.99,-0.0145
+ORD-50195,2026-08-02,West,Technology,Headset,2,463.76,78.64,0.1696
+ORD-50196,2025-11-11,East,Office Supplies,Stapler,6,55.01,-7.57,-0.1376
+ORD-50197,2025-04-13,East,Technology,Headset,5,614.17,87.21,0.142
+ORD-50198,2026-02-04,West,Furniture,Desk Lamp,1,292.18,37.22,0.1274
+ORD-50199,2026-05-02,South,Technology,Laptop,3,472.97,98.64,0.2086
+ORD-50200,2025-08-10,West,Office Supplies,Labels,5,186.95,58.84,0.3147
+ORD-50201,2025-10-10,East,Furniture,Desk Lamp,3,387.4,-34.98,-0.0903
+ORD-50202,2025-07-19,South,Office Supplies,Paper,8,178.25,64.13,0.3598
+ORD-50203,2025-07-23,South,Office Supplies,Binder,3,105.46,38.42,0.3643
+ORD-50204,2025-01-23,North,Office Supplies,Envelopes,1,150.82,3.66,0.0243
+ORD-50205,2025-09-04,North,Technology,Phone,7,422.39,22.54,0.0534
+ORD-50206,2025-01-21,North,Furniture,Desk Lamp,2,458.27,-13.52,-0.0295
+ORD-50207,2025-02-16,West,Office Supplies,Stapler,1,436.97,72.94,0.1669
+ORD-50208,2025-04-16,West,Office Supplies,Envelopes,5,147.64,28.38,0.1922
+ORD-50209,2025-03-12,North,Office Supplies,Stapler,8,164.05,-21.21,-0.1293
+ORD-50210,2025-12-15,North,Office Supplies,Labels,3,103.32,24.96,0.2416
+ORD-50211,2026-06-05,West,Furniture,Desk Lamp,2,701.05,6.14,0.0088
+ORD-50212,2025-04-09,West,Office Supplies,Envelopes,4,44.7,2.07,0.0463
+ORD-50213,2025-09-29,North,Technology,Phone,5,365.1,96.63,0.2647
+ORD-50214,2026-06-14,East,Furniture,Table,8,541.66,-1.17,-0.0022
+ORD-50215,2026-02-08,South,Furniture,Office Chair,2,684.82,121.35,0.1772
+ORD-50216,2025-06-29,East,Furniture,Table,8,327.27,34.07,0.1041
+ORD-50217,2025-07-19,West,Office Supplies,Labels,6,80.13,10.48,0.1308
+ORD-50218,2026-05-18,East,Technology,Phone,6,489.01,142.55,0.2915
+ORD-50219,2025-10-17,West,Furniture,Office Chair,7,373.61,51.23,0.1371
+ORD-50220,2026-06-05,East,Technology,Headset,8,295.43,26.09,0.0883
+ORD-50221,2026-04-22,South,Office Supplies,Stapler,4,37.9,-0.97,-0.0256
+ORD-50222,2026-05-14,South,Furniture,Desk Lamp,1,397.66,-10.62,-0.0267
+ORD-50223,2026-01-23,East,Office Supplies,Envelopes,4,31.54,7.7,0.2441
+ORD-50224,2025-06-12,North,Furniture,Bookcase,5,231.97,2.46,0.0106
+ORD-50225,2025-08-28,West,Office Supplies,Labels,8,60.14,23.03,0.3829
+ORD-50226,2026-03-02,South,Office Supplies,Labels,7,47.49,9.55,0.2011
+ORD-50227,2025-10-04,South,Office Supplies,Binder,5,102.98,19.87,0.193
+ORD-50228,2025-04-16,East,Office Supplies,Stapler,2,68.26,14.9,0.2183
+ORD-50229,2026-08-15,South,Technology,Printer,3,575.6,24.49,0.0425
+ORD-50230,2026-01-24,North,Technology,Printer,4,329.33,44.32,0.1346
+ORD-50231,2025-01-20,North,Office Supplies,Stapler,2,57.03,5.1,0.0894
+ORD-50232,2026-01-08,East,Office Supplies,Paper,4,120.97,-13.88,-0.1147
+ORD-50233,2025-08-30,East,Office Supplies,Stapler,7,110.54,-5.07,-0.0459
+ORD-50234,2025-10-09,West,Technology,Headset,4,455.52,108.7,0.2386
+ORD-50235,2025-03-20,East,Furniture,Office Chair,6,515.43,-7.4,-0.0144
+ORD-50236,2025-01-25,South,Furniture,Desk Lamp,2,463.45,11.39,0.0246
+ORD-50237,2025-03-04,North,Office Supplies,Stapler,3,97.59,-0.92,-0.0094
+ORD-50238,2025-03-04,West,Office Supplies,Binder,7,230.77,22.65,0.0981
+ORD-50239,2025-02-01,East,Furniture,Table,5,325.06,43.59,0.1341
+ORD-50240,2025-03-02,North,Furniture,Bookcase,1,531.47,27.13,0.051
+ORD-50241,2026-04-05,South,Furniture,Office Chair,2,531.88,-12.47,-0.0234
+ORD-50242,2025-07-05,East,Office Supplies,Binder,4,76.88,27.25,0.3544
+ORD-50243,2025-10-02,East,Office Supplies,Stapler,7,43.96,7.12,0.162
+ORD-50244,2025-09-24,South,Office Supplies,Binder,2,133.78,16.99,0.127
+ORD-50245,2025-11-26,East,Furniture,Table,8,482.34,85.77,0.1778
+ORD-50246,2025-02-18,East,Furniture,Desk Lamp,8,424.41,-72.39,-0.1706
+ORD-50247,2025-06-30,East,Office Supplies,Labels,6,89.46,21.11,0.236
+ORD-50248,2025-04-12,North,Technology,Phone,7,605.22,8.76,0.0145
+ORD-50249,2025-08-25,East,Technology,Printer,6,349.23,18.85,0.054
+ORD-50250,2025-03-24,West,Office Supplies,Stapler,3,104.9,9.08,0.0866
+ORD-50251,2025-09-29,South,Technology,Laptop,2,202.12,33.34,0.165
+ORD-50252,2026-06-15,West,Technology,Laptop,7,586.5,95.19,0.1623
+ORD-50253,2026-05-13,East,Office Supplies,Labels,8,35.79,7.37,0.2059
+ORD-50254,2025-05-19,South,Office Supplies,Paper,5,71.05,13.82,0.1945
+ORD-50255,2025-02-24,North,Office Supplies,Binder,5,134.7,45.65,0.3389
+ORD-50256,2026-08-18,South,Furniture,Desk Lamp,6,350.05,85.34,0.2438
+ORD-50257,2025-04-18,West,Office Supplies,Binder,8,65.67,16.75,0.2551
+ORD-50258,2026-08-12,East,Furniture,Office Chair,8,555.82,72.75,0.1309
+ORD-50259,2025-04-12,South,Office Supplies,Labels,6,74.41,9.22,0.1239
+ORD-50260,2025-11-01,North,Technology,Laptop,8,463.85,7.6,0.0164
+ORD-50261,2025-10-07,West,Technology,Laptop,8,467.7,103.31,0.2209
+ORD-50262,2025-06-28,North,Office Supplies,Paper,8,216.32,37.58,0.1737
+ORD-50263,2025-10-14,East,Furniture,Bookcase,7,606.79,86.85,0.1431
+ORD-50264,2025-10-06,North,Technology,Headset,7,789.06,-56.23,-0.0713
+ORD-50265,2026-02-13,South,Technology,Laptop,6,289.39,136.98,0.4733
+ORD-50266,2026-01-26,North,Technology,Laptop,4,856.49,-3.66,-0.0043
+ORD-50267,2026-08-17,South,Office Supplies,Paper,5,40.1,6.97,0.1738
+ORD-50268,2025-10-14,East,Office Supplies,Envelopes,1,116.09,33.59,0.2893
+ORD-50269,2026-07-05,East,Office Supplies,Paper,3,44.55,0.1,0.0022
+ORD-50270,2025-10-04,South,Furniture,Table,2,1309.78,-35.83,-0.0274
+ORD-50271,2025-05-25,South,Office Supplies,Labels,3,31.66,-2.36,-0.0745
+ORD-50272,2025-11-07,South,Office Supplies,Labels,6,180.9,-0.61,-0.0034
+ORD-50273,2025-09-02,East,Office Supplies,Paper,8,140.5,-9.1,-0.0648
+ORD-50274,2025-11-20,South,Office Supplies,Envelopes,5,29.94,5.45,0.182
+ORD-50275,2025-11-15,South,Office Supplies,Binder,7,75.16,15.42,0.2052
+ORD-50276,2025-08-07,West,Office Supplies,Paper,8,206.51,27.11,0.1313
+ORD-50277,2026-04-20,West,Technology,Phone,3,1163.08,351.77,0.3024
+ORD-50278,2026-01-07,North,Furniture,Table,6,149.74,31.09,0.2076
+ORD-50279,2025-11-04,South,Office Supplies,Labels,1,63.51,10.73,0.1689
+ORD-50280,2025-11-03,East,Furniture,Table,1,200.21,2.61,0.013
+ORD-50281,2025-04-06,West,Technology,Laptop,8,317.91,37.07,0.1166
+ORD-50282,2026-05-11,South,Office Supplies,Paper,5,58.99,6.78,0.1149
+ORD-50283,2025-01-31,South,Office Supplies,Paper,1,261.68,85.76,0.3277
+ORD-50284,2025-04-06,North,Furniture,Desk Lamp,6,438.2,30.04,0.0686
+ORD-50285,2025-07-24,West,Office Supplies,Envelopes,5,75.68,9.82,0.1298
+ORD-50286,2025-10-29,West,Office Supplies,Paper,8,70.89,10.09,0.1423
+ORD-50287,2025-12-31,West,Furniture,Desk Lamp,6,602.94,63.84,0.1059
+ORD-50288,2026-04-25,West,Furniture,Office Chair,4,611.95,-5.06,-0.0083
+ORD-50289,2025-04-18,North,Office Supplies,Stapler,4,49.9,10.38,0.208
+ORD-50290,2025-09-16,West,Office Supplies,Stapler,2,208.87,34.59,0.1656
+ORD-50291,2025-09-30,West,Office Supplies,Labels,8,45.23,15.1,0.3338
+ORD-50292,2026-08-15,East,Technology,Headset,4,497.03,144.22,0.2902
+ORD-50293,2025-08-19,West,Technology,Laptop,6,769.0,-16.34,-0.0212
+ORD-50294,2026-07-27,North,Technology,Printer,2,1637.67,213.99,0.1307
+ORD-50295,2026-07-31,East,Technology,Laptop,8,476.74,112.55,0.2361
+ORD-50296,2025-04-15,East,Office Supplies,Binder,5,102.77,11.9,0.1158
+ORD-50297,2026-02-24,North,Office Supplies,Stapler,6,189.11,50.7,0.2681
+ORD-50298,2026-03-12,South,Office Supplies,Labels,8,125.81,26.51,0.2107
+ORD-50299,2026-08-09,West,Office Supplies,Paper,5,170.21,41.16,0.2418
+ORD-50300,2025-08-28,South,Furniture,Bookcase,4,753.06,24.54,0.0326
+ORD-50301,2025-11-08,East,Technology,Laptop,1,685.64,128.19,0.187
+ORD-50302,2026-06-20,East,Furniture,Office Chair,3,589.73,61.05,0.1035
+ORD-50303,2025-10-22,North,Furniture,Bookcase,8,700.04,-96.23,-0.1375
+ORD-50304,2026-03-12,South,Office Supplies,Labels,3,85.12,5.07,0.0596
+ORD-50305,2026-08-10,East,Office Supplies,Paper,1,225.8,10.66,0.0472
+ORD-50306,2025-05-25,South,Office Supplies,Stapler,2,26.29,9.82,0.3735
+ORD-50307,2025-09-02,North,Office Supplies,Labels,3,49.82,10.31,0.2069
+ORD-50308,2025-10-11,East,Office Supplies,Labels,3,205.82,44.31,0.2153
+ORD-50309,2025-11-28,East,Furniture,Desk Lamp,6,521.89,31.97,0.0613
+ORD-50310,2026-02-07,East,Furniture,Desk Lamp,2,274.5,-6.12,-0.0223
+ORD-50311,2025-01-15,North,Office Supplies,Binder,6,108.61,8.72,0.0803
+ORD-50312,2025-07-05,North,Office Supplies,Envelopes,4,166.16,45.34,0.2729
+ORD-50313,2025-04-12,South,Technology,Laptop,8,419.62,44.18,0.1053
+ORD-50314,2026-08-03,East,Office Supplies,Stapler,8,137.25,49.57,0.3612
+ORD-50315,2025-06-22,North,Technology,Printer,8,545.41,94.95,0.1741
+ORD-50316,2026-03-04,North,Furniture,Bookcase,1,377.52,19.46,0.0515
+ORD-50317,2025-05-27,South,Furniture,Desk Lamp,8,387.69,5.44,0.014
+ORD-50318,2025-07-05,East,Office Supplies,Paper,4,168.71,27.26,0.1616
+ORD-50319,2025-09-18,East,Furniture,Table,7,206.47,9.22,0.0447
+ORD-50320,2026-02-20,North,Furniture,Table,5,324.23,72.71,0.2243
+ORD-50321,2026-06-18,East,Furniture,Table,4,601.5,193.96,0.3225
+ORD-50322,2026-07-20,East,Office Supplies,Envelopes,3,41.69,1.31,0.0314
+ORD-50323,2025-05-06,South,Office Supplies,Paper,6,33.55,6.76,0.2015
+ORD-50324,2025-09-29,North,Office Supplies,Paper,3,121.87,31.21,0.2561
+ORD-50325,2025-01-29,South,Technology,Headset,2,587.72,24.54,0.0418
+ORD-50326,2025-06-09,East,Office Supplies,Labels,8,79.31,7.48,0.0943
+ORD-50327,2025-12-04,North,Furniture,Desk Lamp,3,440.35,-6.35,-0.0144
+ORD-50328,2026-08-04,South,Office Supplies,Envelopes,4,48.35,-5.78,-0.1195
+ORD-50329,2025-08-07,South,Furniture,Office Chair,8,2321.01,276.76,0.1192
+ORD-50330,2025-04-02,South,Office Supplies,Envelopes,8,48.01,7.93,0.1652
+ORD-50331,2025-01-28,West,Office Supplies,Paper,6,66.73,10.65,0.1596
+ORD-50332,2026-06-21,South,Office Supplies,Envelopes,4,36.93,6.68,0.1809
+ORD-50333,2026-04-02,West,Furniture,Bookcase,8,315.06,22.36,0.071
+ORD-50334,2025-01-04,North,Office Supplies,Envelopes,8,216.48,97.39,0.4499
+ORD-50335,2026-07-17,West,Office Supplies,Envelopes,2,87.63,16.9,0.1929
+ORD-50336,2025-08-13,East,Office Supplies,Stapler,2,123.8,33.62,0.2716
+ORD-50337,2026-03-24,North,Technology,Printer,5,439.4,38.84,0.0884
+ORD-50338,2026-05-18,South,Office Supplies,Envelopes,5,257.14,54.92,0.2136
+ORD-50339,2026-04-25,North,Office Supplies,Binder,2,95.6,12.74,0.1333
+ORD-50340,2025-12-15,South,Office Supplies,Envelopes,3,40.97,6.27,0.153
+ORD-50341,2026-04-01,South,Furniture,Table,6,641.78,-43.41,-0.0676
+ORD-50342,2025-10-20,South,Technology,Phone,1,470.45,24.88,0.0529
+ORD-50343,2026-08-11,East,Office Supplies,Labels,8,124.71,28.21,0.2262
+ORD-50344,2025-01-30,West,Technology,Phone,6,638.39,153.95,0.2412
+ORD-50345,2025-03-25,North,Technology,Phone,4,687.82,142.26,0.2068
+ORD-50346,2025-01-21,South,Technology,Phone,5,637.39,44.94,0.0705
+ORD-50347,2026-06-11,North,Furniture,Bookcase,1,234.85,18.68,0.0795
+ORD-50348,2025-08-01,South,Furniture,Office Chair,8,164.17,-43.32,-0.2639
+ORD-50349,2026-02-25,West,Furniture,Bookcase,3,726.04,112.62,0.1551
+ORD-50350,2026-06-27,West,Office Supplies,Envelopes,8,79.87,13.34,0.167
+ORD-50351,2026-07-24,West,Office Supplies,Stapler,1,102.82,21.0,0.2042
+ORD-50352,2025-05-07,East,Office Supplies,Envelopes,6,65.58,20.46,0.312
+ORD-50353,2026-05-24,South,Office Supplies,Paper,4,25.73,3.11,0.1209
+ORD-50354,2026-03-03,East,Technology,Printer,6,272.87,72.95,0.2673
+ORD-50355,2025-11-28,West,Furniture,Desk Lamp,7,933.59,-10.23,-0.011
+ORD-50356,2025-08-19,South,Office Supplies,Paper,1,54.06,12.84,0.2375
+ORD-50357,2026-01-30,East,Furniture,Bookcase,8,321.21,-2.21,-0.0069
+ORD-50358,2026-04-24,South,Furniture,Table,2,167.54,13.21,0.0788
+ORD-50359,2025-05-28,West,Office Supplies,Paper,3,63.08,21.89,0.347
+ORD-50360,2025-10-20,West,Office Supplies,Binder,5,69.22,6.51,0.094
+ORD-50361,2025-07-20,South,Office Supplies,Labels,2,75.77,7.5,0.099
+ORD-50362,2025-06-21,East,Office Supplies,Labels,1,82.79,11.03,0.1332
+ORD-50363,2025-03-31,West,Technology,Phone,1,401.46,75.81,0.1888
+ORD-50364,2025-03-01,South,Office Supplies,Labels,4,61.29,30.87,0.5037
+ORD-50365,2025-08-30,North,Furniture,Office Chair,3,400.28,-10.73,-0.0268
+ORD-50366,2026-07-28,North,Furniture,Desk Lamp,5,489.76,-99.33,-0.2028
+ORD-50367,2026-05-11,South,Furniture,Office Chair,3,370.51,-13.23,-0.0357
+ORD-50368,2025-05-06,South,Technology,Headset,5,1666.92,-62.55,-0.0375
+ORD-50369,2025-07-24,East,Furniture,Bookcase,2,456.27,-11.04,-0.0242
+ORD-50370,2025-04-25,West,Technology,Printer,5,645.22,100.2,0.1553
+ORD-50371,2026-06-14,North,Furniture,Office Chair,8,272.04,-19.62,-0.0721
+ORD-50372,2025-06-21,West,Office Supplies,Labels,7,160.0,14.62,0.0914
+ORD-50373,2025-04-28,West,Office Supplies,Envelopes,3,46.74,-2.41,-0.0516
+ORD-50374,2025-12-08,North,Office Supplies,Envelopes,8,32.71,6.39,0.1954
+ORD-50375,2026-01-24,West,Office Supplies,Envelopes,2,48.1,4.01,0.0834
+ORD-50376,2026-08-05,South,Furniture,Bookcase,8,584.12,101.78,0.1742
+ORD-50377,2025-05-21,West,Office Supplies,Envelopes,2,43.44,13.03,0.3
+ORD-50378,2026-06-29,North,Furniture,Office Chair,8,875.41,-53.35,-0.0609
+ORD-50379,2026-01-17,West,Furniture,Table,6,397.28,-0.32,-0.0008
+ORD-50380,2025-10-22,East,Technology,Phone,1,235.49,37.75,0.1603
+ORD-50381,2026-04-17,East,Office Supplies,Envelopes,4,75.2,19.93,0.265
+ORD-50382,2026-06-08,North,Office Supplies,Labels,3,251.52,-6.87,-0.0273
+ORD-50383,2026-06-12,North,Office Supplies,Binder,4,51.49,8.52,0.1655
+ORD-50384,2025-08-14,East,Technology,Laptop,1,266.42,100.78,0.3783
+ORD-50385,2026-04-03,South,Office Supplies,Envelopes,6,117.28,19.17,0.1635
+ORD-50386,2026-03-22,North,Office Supplies,Binder,7,188.83,37.94,0.2009
+ORD-50387,2025-03-27,North,Office Supplies,Stapler,6,158.67,27.69,0.1745
+ORD-50388,2025-02-04,East,Technology,Phone,8,479.86,5.28,0.011
+ORD-50389,2026-02-16,South,Office Supplies,Paper,4,96.49,27.87,0.2888
+ORD-50390,2025-01-06,East,Furniture,Bookcase,5,489.0,37.63,0.077
+ORD-50391,2025-06-26,East,Furniture,Office Chair,5,813.82,52.37,0.0644
+ORD-50392,2026-02-10,West,Technology,Printer,1,2121.14,513.71,0.2422
+ORD-50393,2025-10-31,East,Office Supplies,Paper,3,80.82,21.78,0.2695
+ORD-50394,2025-10-29,West,Technology,Headset,4,1274.19,-93.13,-0.0731
+ORD-50395,2025-03-26,East,Technology,Headset,4,475.38,101.23,0.2129
+ORD-50396,2026-06-01,East,Office Supplies,Envelopes,2,122.76,12.87,0.1048
+ORD-50397,2025-09-23,South,Furniture,Office Chair,6,229.84,14.78,0.0643
+ORD-50398,2026-01-05,East,Technology,Headset,5,369.47,25.59,0.0693
+ORD-50399,2026-01-31,West,Office Supplies,Binder,1,110.6,7.86,0.0711
+ORD-50400,2025-10-04,North,Office Supplies,Binder,5,50.34,14.59,0.2898
+ORD-50401,2025-03-10,East,Office Supplies,Envelopes,4,146.8,25.62,0.1745
+ORD-50402,2025-04-22,West,Office Supplies,Envelopes,3,61.96,8.77,0.1415
+ORD-50403,2025-12-20,North,Office Supplies,Envelopes,4,90.32,12.74,0.1411
+ORD-50404,2025-06-30,West,Office Supplies,Stapler,1,82.0,15.21,0.1855
+ORD-50405,2026-06-16,West,Office Supplies,Labels,3,70.58,12.28,0.174
+ORD-50406,2025-08-13,South,Office Supplies,Paper,4,93.26,-10.13,-0.1086
+ORD-50407,2025-11-13,East,Technology,Printer,5,1116.58,57.31,0.0513
+ORD-50408,2025-10-16,East,Technology,Laptop,7,3765.4,481.71,0.1279
+ORD-50409,2025-07-15,East,Office Supplies,Stapler,6,42.3,11.26,0.2662
+ORD-50410,2026-03-20,South,Office Supplies,Stapler,2,103.23,35.15,0.3405
+ORD-50411,2025-05-04,East,Technology,Laptop,6,525.93,23.4,0.0445
+ORD-50412,2025-12-18,North,Office Supplies,Envelopes,1,49.84,20.44,0.4101
+ORD-50413,2025-10-06,North,Technology,Printer,7,693.88,117.04,0.1687
+ORD-50414,2025-03-29,West,Furniture,Desk Lamp,1,237.48,25.26,0.1064
+ORD-50415,2025-08-25,East,Office Supplies,Stapler,5,82.27,9.34,0.1135
+ORD-50416,2025-07-02,East,Office Supplies,Labels,7,181.4,19.08,0.1052
+ORD-50417,2026-02-21,East,Technology,Headset,1,173.81,57.51,0.3309
+ORD-50418,2025-06-29,East,Technology,Headset,3,677.97,89.53,0.1321
+ORD-50419,2026-03-21,East,Furniture,Office Chair,2,526.03,19.05,0.0362
+ORD-50420,2026-08-15,South,Office Supplies,Labels,1,48.54,15.44,0.3181
+ORD-50421,2026-02-23,North,Office Supplies,Envelopes,6,118.06,45.59,0.3862
+ORD-50422,2025-11-29,North,Furniture,Table,4,496.83,-65.19,-0.1312
+ORD-50423,2026-03-31,South,Technology,Phone,1,473.98,64.74,0.1366
+ORD-50424,2025-11-10,West,Office Supplies,Envelopes,6,178.41,31.78,0.1781
+ORD-50425,2026-04-20,East,Technology,Phone,5,266.7,100.75,0.3778
+ORD-50426,2026-08-08,South,Furniture,Bookcase,5,591.81,204.95,0.3463
+ORD-50427,2026-03-12,West,Office Supplies,Labels,1,74.94,13.03,0.1739
+ORD-50428,2026-05-26,East,Office Supplies,Stapler,7,45.74,10.29,0.225
+ORD-50429,2025-05-31,North,Office Supplies,Paper,7,77.5,22.04,0.2844
+ORD-50430,2025-03-06,South,Office Supplies,Stapler,4,69.92,22.3,0.3189
+ORD-50431,2025-12-13,East,Office Supplies,Stapler,2,140.91,20.06,0.1424
+ORD-50432,2025-07-12,East,Office Supplies,Paper,6,35.15,9.98,0.2839
+ORD-50433,2025-08-23,North,Office Supplies,Labels,4,76.71,7.44,0.097
+ORD-50434,2025-05-29,North,Office Supplies,Labels,1,65.59,-9.22,-0.1406
+ORD-50435,2025-02-16,North,Technology,Printer,1,1501.35,-6.89,-0.0046
+ORD-50436,2025-12-03,North,Office Supplies,Labels,1,44.07,9.14,0.2074
+ORD-50437,2026-01-13,South,Office Supplies,Stapler,2,162.67,44.89,0.276
+ORD-50438,2026-07-01,West,Office Supplies,Labels,5,30.04,-2.7,-0.0899
+ORD-50439,2025-03-27,North,Office Supplies,Envelopes,4,105.88,-3.72,-0.0351
+ORD-50440,2025-04-02,South,Technology,Printer,6,537.8,85.3,0.1586
+ORD-50441,2026-02-16,South,Office Supplies,Labels,5,107.95,-24.16,-0.2238
+ORD-50442,2025-02-08,North,Technology,Phone,7,382.4,87.94,0.23
+ORD-50443,2025-11-19,West,Office Supplies,Labels,7,26.67,8.2,0.3075
+ORD-50444,2025-01-16,North,Technology,Laptop,1,230.47,-45.0,-0.1953
+ORD-50445,2025-02-12,South,Furniture,Bookcase,2,880.85,128.5,0.1459
+ORD-50446,2025-01-10,West,Technology,Phone,2,661.13,93.0,0.1407
+ORD-50447,2025-09-10,North,Technology,Phone,8,346.19,115.85,0.3346
+ORD-50448,2026-06-30,South,Office Supplies,Paper,8,147.12,32.1,0.2182
+ORD-50449,2025-11-25,North,Office Supplies,Paper,2,54.81,8.54,0.1558
+ORD-50450,2025-03-26,South,Office Supplies,Envelopes,3,54.98,10.95,0.1992
+ORD-50451,2025-05-30,East,Office Supplies,Binder,4,41.35,12.32,0.2979
+ORD-50452,2025-07-01,East,Office Supplies,Binder,8,173.46,36.1,0.2081
+ORD-50453,2026-07-13,South,Furniture,Desk Lamp,8,1295.97,78.13,0.0603
+ORD-50454,2025-09-29,East,Furniture,Bookcase,2,223.79,-26.41,-0.118
+ORD-50455,2026-07-25,East,Office Supplies,Labels,5,101.67,24.8,0.2439
+ORD-50456,2026-04-19,East,Office Supplies,Stapler,7,153.59,29.13,0.1897
+ORD-50457,2025-03-04,South,Technology,Phone,3,2059.33,797.81,0.3874
+ORD-50458,2026-08-08,East,Office Supplies,Paper,5,20.25,3.74,0.1847
+ORD-50459,2026-03-07,East,Technology,Phone,4,629.33,98.17,0.156
+ORD-50460,2025-06-17,South,Technology,Printer,8,851.27,77.65,0.0912
+ORD-50461,2025-09-14,South,Technology,Laptop,7,237.77,60.33,0.2537
+ORD-50462,2025-12-07,East,Technology,Laptop,1,737.64,104.93,0.1423
+ORD-50463,2026-05-16,South,Furniture,Table,7,447.43,-12.48,-0.0279
+ORD-50464,2025-07-12,East,Furniture,Office Chair,7,613.28,153.17,0.2498
+ORD-50465,2026-07-17,North,Furniture,Desk Lamp,1,280.06,76.0,0.2714
+ORD-50466,2025-03-06,North,Office Supplies,Paper,6,109.34,14.5,0.1326
+ORD-50467,2025-10-28,South,Furniture,Office Chair,5,276.13,-18.22,-0.066
+ORD-50468,2025-12-01,South,Furniture,Office Chair,4,571.01,110.26,0.1931
+ORD-50469,2026-01-16,East,Furniture,Table,4,436.42,-18.81,-0.0431
+ORD-50470,2026-02-18,South,Technology,Headset,5,459.71,233.24,0.5074
+ORD-50471,2025-08-09,South,Office Supplies,Labels,1,36.36,6.23,0.1713
+ORD-50472,2025-06-10,West,Office Supplies,Labels,1,228.51,69.37,0.3036
+ORD-50473,2026-02-04,West,Office Supplies,Labels,4,165.36,5.21,0.0315
+ORD-50474,2026-01-07,West,Office Supplies,Stapler,5,144.11,26.46,0.1836
+ORD-50475,2026-08-18,North,Technology,Phone,3,386.68,115.82,0.2995
+ORD-50476,2025-10-14,South,Office Supplies,Envelopes,2,68.88,16.59,0.2409
+ORD-50477,2025-07-19,East,Office Supplies,Envelopes,6,231.52,28.54,0.1233
+ORD-50478,2025-05-01,South,Furniture,Table,5,620.02,219.21,0.3536
+ORD-50479,2025-01-18,West,Office Supplies,Envelopes,1,50.99,14.13,0.2771
+ORD-50480,2026-08-16,North,Furniture,Office Chair,8,407.99,12.49,0.0306
+ORD-50481,2026-08-06,North,Office Supplies,Labels,4,92.58,10.68,0.1154
+ORD-50482,2025-10-22,West,Office Supplies,Labels,1,75.46,11.75,0.1557
+ORD-50483,2025-01-17,South,Office Supplies,Stapler,3,48.31,16.96,0.3511
+ORD-50484,2025-11-29,South,Office Supplies,Envelopes,3,180.71,17.23,0.0953
+ORD-50485,2026-02-17,South,Office Supplies,Binder,4,121.27,23.32,0.1923
+ORD-50486,2026-03-09,South,Technology,Printer,5,512.93,35.66,0.0695
+ORD-50487,2025-12-14,South,Furniture,Office Chair,4,154.75,32.43,0.2096
+ORD-50488,2025-02-24,East,Furniture,Table,6,280.33,10.88,0.0388
+ORD-50489,2025-08-31,West,Furniture,Office Chair,8,396.99,64.47,0.1624
+ORD-50490,2025-01-21,North,Technology,Phone,4,973.65,230.6,0.2368
+ORD-50491,2026-07-12,East,Office Supplies,Paper,6,68.4,8.1,0.1184
+ORD-50492,2026-07-06,South,Office Supplies,Labels,4,166.13,45.34,0.2729
+ORD-50493,2025-03-14,North,Technology,Headset,4,630.25,177.62,0.2818
+ORD-50494,2025-02-25,East,Furniture,Desk Lamp,1,255.33,-20.37,-0.0798
+ORD-50495,2025-05-24,West,Technology,Printer,3,108.56,27.5,0.2533
+ORD-50496,2025-04-21,East,Furniture,Office Chair,2,197.46,96.32,0.4878
+ORD-50497,2026-05-13,East,Office Supplies,Envelopes,4,35.02,5.35,0.1528
+ORD-50498,2026-04-12,West,Office Supplies,Envelopes,8,78.24,20.79,0.2657
+ORD-50499,2025-01-05,West,Technology,Printer,8,709.42,5.36,0.0076
+ORD-50500,2025-12-23,East,Furniture,Bookcase,8,921.77,105.23,0.1142
+ORD-50501,2025-06-07,West,Office Supplies,Binder,5,85.18,10.02,0.1176
+ORD-50502,2025-04-04,North,Furniture,Office Chair,6,199.98,30.26,0.1513
+ORD-50503,2025-04-12,West,Office Supplies,Binder,8,352.37,64.31,0.1825
+ORD-50504,2026-01-12,West,Technology,Laptop,6,702.15,18.63,0.0265
+ORD-50505,2025-09-10,West,Technology,Laptop,2,497.48,150.02,0.3016
+ORD-50506,2025-04-26,South,Office Supplies,Envelopes,1,73.48,11.95,0.1626
+ORD-50507,2026-03-18,South,Technology,Headset,5,259.09,11.92,0.046
+ORD-50508,2025-06-21,West,Technology,Printer,5,854.37,150.95,0.1767
+ORD-50509,2026-07-26,East,Office Supplies,Envelopes,6,107.75,7.75,0.0719
+ORD-50510,2025-10-16,South,Technology,Printer,6,1514.64,327.92,0.2165
+ORD-50511,2025-05-27,East,Office Supplies,Envelopes,7,166.97,30.23,0.1811
+ORD-50512,2025-11-04,West,Furniture,Office Chair,7,677.6,9.42,0.0139
+ORD-50513,2025-01-08,South,Office Supplies,Envelopes,1,183.57,49.44,0.2693
+ORD-50514,2026-01-26,South,Office Supplies,Binder,7,72.79,2.49,0.0342
+ORD-50515,2026-03-22,West,Office Supplies,Envelopes,4,66.18,20.27,0.3063
+ORD-50516,2026-05-09,East,Office Supplies,Envelopes,8,83.88,-4.52,-0.0539
+ORD-50517,2026-06-30,North,Furniture,Desk Lamp,7,191.04,48.37,0.2532
+ORD-50518,2026-06-22,North,Office Supplies,Labels,2,79.39,16.73,0.2107
+ORD-50519,2025-01-09,East,Technology,Printer,5,481.45,65.85,0.1368
+ORD-50520,2026-01-13,North,Office Supplies,Binder,5,129.38,12.89,0.0996
+ORD-50521,2026-01-04,West,Technology,Headset,2,582.28,136.83,0.235
+ORD-50522,2025-08-10,East,Office Supplies,Stapler,2,27.59,4.67,0.1693
+ORD-50523,2025-12-23,East,Technology,Headset,4,598.93,88.15,0.1472
+ORD-50524,2025-04-13,East,Furniture,Office Chair,4,947.59,174.12,0.1838
+ORD-50525,2025-11-30,South,Technology,Printer,5,195.72,22.73,0.1161
+ORD-50526,2025-02-26,East,Office Supplies,Binder,5,55.1,8.82,0.1601
+ORD-50527,2026-01-12,North,Technology,Headset,1,595.36,131.45,0.2208
+ORD-50528,2026-06-02,East,Office Supplies,Stapler,1,39.25,12.51,0.3187
+ORD-50529,2025-06-17,North,Office Supplies,Binder,4,62.6,10.68,0.1706
+ORD-50530,2025-06-08,South,Technology,Printer,7,610.36,114.8,0.1881
+ORD-50531,2026-06-21,South,Office Supplies,Binder,4,39.48,7.67,0.1943
+ORD-50532,2026-08-21,East,Office Supplies,Stapler,7,104.0,29.0,0.2788
+ORD-50533,2025-05-13,West,Technology,Headset,8,755.67,264.07,0.3495
+ORD-50534,2026-04-02,West,Furniture,Office Chair,5,190.26,-10.38,-0.0546
+ORD-50535,2026-07-22,East,Furniture,Bookcase,5,414.1,17.63,0.0426
+ORD-50536,2026-05-25,East,Office Supplies,Envelopes,2,166.99,30.57,0.1831
+ORD-50537,2026-07-25,South,Technology,Laptop,5,533.11,128.11,0.2403
+ORD-50538,2026-02-05,North,Office Supplies,Binder,1,113.58,42.11,0.3708
+ORD-50539,2026-05-14,West,Office Supplies,Binder,1,128.72,24.03,0.1867
+ORD-50540,2025-11-02,South,Furniture,Bookcase,2,354.86,30.0,0.0845
+ORD-50541,2025-08-21,East,Office Supplies,Envelopes,1,157.96,51.5,0.326
+ORD-50542,2025-10-05,North,Office Supplies,Paper,8,110.41,4.16,0.0377
+ORD-50543,2026-07-23,South,Office Supplies,Binder,4,48.38,4.61,0.0953
+ORD-50544,2025-04-10,South,Office Supplies,Labels,3,120.04,16.08,0.134
+ORD-50545,2025-05-09,East,Office Supplies,Envelopes,6,147.53,27.7,0.1878
+ORD-50546,2025-09-21,North,Technology,Phone,6,965.15,189.66,0.1965
+ORD-50547,2025-10-22,North,Office Supplies,Paper,2,59.74,7.5,0.1255
+ORD-50548,2025-11-06,North,Furniture,Bookcase,5,540.9,146.77,0.2713
+ORD-50549,2025-10-30,East,Office Supplies,Envelopes,5,200.58,20.6,0.1027
+ORD-50550,2025-02-16,West,Technology,Printer,3,685.66,98.63,0.1438
+ORD-50551,2025-03-25,East,Furniture,Desk Lamp,1,837.23,159.37,0.1904
+ORD-50552,2025-01-27,West,Office Supplies,Binder,5,192.49,54.32,0.2822
+ORD-50553,2026-08-15,North,Technology,Printer,3,585.25,97.49,0.1666
+ORD-50554,2026-01-23,South,Office Supplies,Binder,3,131.26,30.71,0.234
+ORD-50555,2025-04-19,East,Technology,Laptop,5,503.08,134.64,0.2676
+ORD-50556,2025-08-22,West,Furniture,Desk Lamp,2,783.11,44.31,0.0566
+ORD-50557,2025-10-15,North,Technology,Printer,3,567.71,140.17,0.2469
+ORD-50558,2026-05-18,East,Furniture,Desk Lamp,4,296.89,-15.89,-0.0535
+ORD-50559,2025-02-21,North,Furniture,Desk Lamp,4,406.81,27.03,0.0664
+ORD-50560,2025-05-12,West,Office Supplies,Stapler,8,84.78,-1.01,-0.0119
+ORD-50561,2025-06-18,East,Technology,Printer,6,755.17,44.58,0.059
+ORD-50562,2026-01-08,West,Technology,Headset,8,794.13,22.65,0.0285
+ORD-50563,2026-05-14,South,Technology,Laptop,2,298.73,95.4,0.3194
+ORD-50564,2025-08-30,West,Technology,Headset,6,406.62,45.05,0.1108
+ORD-50565,2026-02-12,East,Technology,Phone,6,746.29,151.73,0.2033
+ORD-50566,2025-06-27,North,Office Supplies,Stapler,8,118.46,8.81,0.0744
+ORD-50567,2025-08-07,East,Furniture,Desk Lamp,8,436.34,14.01,0.0321
+ORD-50568,2025-06-12,North,Technology,Printer,5,2925.06,388.02,0.1327
+ORD-50569,2026-01-25,South,Office Supplies,Envelopes,7,174.06,14.33,0.0823
+ORD-50570,2026-02-13,North,Office Supplies,Stapler,4,85.05,24.73,0.2908
+ORD-50571,2025-04-13,East,Office Supplies,Binder,4,137.95,-2.23,-0.0162
+ORD-50572,2025-12-10,East,Furniture,Bookcase,4,928.82,122.92,0.1323
+ORD-50573,2026-01-31,North,Furniture,Table,6,518.66,196.94,0.3797
+ORD-50574,2025-10-06,West,Office Supplies,Stapler,6,31.34,2.69,0.0858
+ORD-50575,2026-06-18,North,Office Supplies,Stapler,1,94.79,17.94,0.1893
+ORD-50576,2025-02-24,West,Office Supplies,Envelopes,4,92.26,-0.43,-0.0047
+ORD-50577,2025-01-09,West,Technology,Laptop,6,2182.7,352.83,0.1616
+ORD-50578,2026-04-02,West,Technology,Phone,3,201.71,-9.47,-0.0469
+ORD-50579,2025-06-29,East,Technology,Headset,6,1537.86,370.2,0.2407
+ORD-50580,2026-04-22,North,Office Supplies,Envelopes,1,81.77,10.12,0.1238
+ORD-50581,2025-06-04,North,Office Supplies,Paper,2,157.14,-6.55,-0.0417
+ORD-50582,2025-03-05,West,Office Supplies,Stapler,3,75.48,1.9,0.0252
+ORD-50583,2025-02-22,East,Furniture,Bookcase,4,466.66,-65.75,-0.1409
+ORD-50584,2025-06-04,North,Furniture,Table,8,828.89,14.52,0.0175
+ORD-50585,2026-07-04,West,Technology,Laptop,5,642.65,170.97,0.266
+ORD-50586,2026-02-13,North,Furniture,Desk Lamp,4,792.34,2.39,0.003
+ORD-50587,2026-02-18,West,Technology,Laptop,6,582.73,10.14,0.0174
+ORD-50588,2026-03-04,North,Office Supplies,Labels,2,70.61,5.56,0.0787
+ORD-50589,2026-01-05,East,Furniture,Desk Lamp,5,369.73,23.9,0.0646
+ORD-50590,2026-08-02,South,Office Supplies,Binder,7,66.84,-7.85,-0.1174
+ORD-50591,2026-01-03,East,Office Supplies,Envelopes,6,84.14,21.12,0.251
+ORD-50592,2026-06-15,South,Furniture,Office Chair,7,956.05,94.16,0.0985
+ORD-50593,2026-02-08,East,Office Supplies,Binder,7,44.86,-5.45,-0.1215
+ORD-50594,2026-03-24,South,Office Supplies,Stapler,1,33.44,10.79,0.3227
+ORD-50595,2025-06-21,North,Office Supplies,Paper,4,89.6,-1.98,-0.0221
+ORD-50596,2025-02-22,North,Office Supplies,Paper,6,249.08,37.63,0.1511
+ORD-50597,2025-05-01,South,Furniture,Bookcase,1,793.14,151.65,0.1912
+ORD-50598,2025-03-22,South,Office Supplies,Paper,5,200.67,-4.71,-0.0235
+ORD-50599,2025-02-16,West,Office Supplies,Envelopes,7,192.26,-9.54,-0.0496
+ORD-50600,2025-04-07,North,Technology,Laptop,4,397.5,7.61,0.0191
+ORD-50601,2025-04-04,South,Furniture,Desk Lamp,1,455.38,-39.5,-0.0867
+ORD-50602,2025-07-12,North,Furniture,Office Chair,8,85.97,2.46,0.0286
+ORD-50603,2025-04-30,South,Furniture,Bookcase,5,294.51,-5.57,-0.0189
+ORD-50604,2025-06-03,East,Furniture,Desk Lamp,6,611.48,-9.54,-0.0156
+ORD-50605,2026-04-24,East,Furniture,Office Chair,6,166.95,-2.33,-0.014
+ORD-50606,2026-01-15,West,Furniture,Bookcase,2,123.45,2.79,0.0226
+ORD-50607,2025-07-13,West,Furniture,Bookcase,7,195.08,-11.68,-0.0599
+ORD-50608,2026-02-17,West,Furniture,Desk Lamp,2,485.34,41.21,0.0849
+ORD-50609,2025-08-21,West,Office Supplies,Paper,5,183.94,32.08,0.1744
+ORD-50610,2026-02-19,East,Office Supplies,Stapler,8,431.48,21.61,0.0501
+ORD-50611,2026-03-20,West,Office Supplies,Envelopes,6,215.86,85.94,0.3981
+ORD-50612,2026-08-20,West,Furniture,Table,7,172.1,-19.1,-0.111
+ORD-50613,2026-08-05,West,Furniture,Desk Lamp,8,106.3,14.34,0.1349
+ORD-50614,2025-04-19,East,Office Supplies,Labels,1,100.4,8.39,0.0836
+ORD-50615,2025-03-04,North,Furniture,Office Chair,7,809.56,72.25,0.0892
+ORD-50616,2026-04-16,West,Office Supplies,Labels,5,34.83,8.33,0.2392
+ORD-50617,2025-12-19,South,Technology,Printer,3,456.14,119.0,0.2609
+ORD-50618,2025-06-15,North,Office Supplies,Paper,5,70.39,24.62,0.3498
+ORD-50619,2025-09-08,East,Furniture,Office Chair,8,439.75,-25.21,-0.0573
+ORD-50620,2025-08-19,East,Furniture,Office Chair,3,387.32,153.49,0.3963
+ORD-50621,2025-04-19,East,Furniture,Bookcase,6,588.92,56.53,0.096
+ORD-50622,2026-02-24,East,Office Supplies,Binder,5,174.85,13.47,0.077
+ORD-50623,2025-07-23,North,Office Supplies,Envelopes,3,96.9,1.02,0.0105
+ORD-50624,2025-01-02,East,Office Supplies,Labels,5,145.77,67.72,0.4646
+ORD-50625,2026-04-15,South,Furniture,Bookcase,3,1435.49,357.49,0.249
+ORD-50626,2025-01-14,North,Office Supplies,Binder,8,50.44,8.86,0.1757
+ORD-50627,2025-06-11,South,Office Supplies,Envelopes,4,49.71,13.49,0.2714
+ORD-50628,2026-02-09,East,Office Supplies,Envelopes,3,126.66,43.01,0.3396
+ORD-50629,2025-12-03,East,Office Supplies,Envelopes,5,283.83,54.08,0.1905
+ORD-50630,2025-09-18,West,Technology,Headset,7,700.53,74.72,0.1067
+ORD-50631,2025-10-01,South,Furniture,Bookcase,7,841.55,37.4,0.0444
+ORD-50632,2025-02-07,West,Furniture,Table,7,363.4,55.15,0.1518
+ORD-50633,2025-01-11,South,Office Supplies,Stapler,4,162.48,29.51,0.1816
+ORD-50634,2025-08-16,West,Office Supplies,Stapler,2,64.46,1.82,0.0282
+ORD-50635,2026-05-31,North,Technology,Phone,6,954.75,240.29,0.2517
+ORD-50636,2026-04-12,East,Technology,Laptop,1,808.38,-42.5,-0.0526
+ORD-50637,2026-06-02,East,Office Supplies,Envelopes,3,119.35,10.4,0.0871
+ORD-50638,2025-04-08,North,Technology,Headset,7,1460.07,454.28,0.3111
+ORD-50639,2026-05-17,South,Office Supplies,Paper,4,179.21,37.35,0.2084
+ORD-50640,2025-06-18,East,Furniture,Table,7,308.09,24.0,0.0779
+ORD-50641,2025-09-18,North,Office Supplies,Envelopes,3,161.06,30.97,0.1923
+ORD-50642,2025-09-19,East,Office Supplies,Envelopes,1,34.21,10.46,0.3058
+ORD-50643,2025-09-15,West,Office Supplies,Envelopes,4,171.89,29.73,0.173
+ORD-50644,2025-06-02,South,Furniture,Desk Lamp,3,2310.29,-439.14,-0.1901
+ORD-50645,2026-02-08,South,Furniture,Table,6,611.04,48.41,0.0792
+ORD-50646,2025-03-17,North,Technology,Phone,2,876.79,-190.26,-0.217
+ORD-50647,2026-08-15,South,Office Supplies,Paper,2,99.23,-7.2,-0.0726
+ORD-50648,2025-01-17,East,Technology,Headset,2,1068.42,377.46,0.3533
+ORD-50649,2025-10-27,North,Office Supplies,Labels,4,73.11,22.41,0.3065
+ORD-50650,2026-02-05,North,Office Supplies,Paper,1,143.59,17.52,0.122
+ORD-50651,2025-06-28,East,Furniture,Office Chair,6,381.22,15.13,0.0397
+ORD-50652,2025-06-27,West,Office Supplies,Paper,8,74.65,14.14,0.1894
+ORD-50653,2025-10-12,South,Technology,Headset,1,704.07,198.39,0.2818
+ORD-50654,2025-12-10,East,Technology,Phone,3,631.2,40.37,0.064
+ORD-50655,2025-12-10,East,Technology,Laptop,4,231.19,11.71,0.0507
+ORD-50656,2025-11-30,East,Office Supplies,Stapler,5,336.25,34.17,0.1016
+ORD-50657,2026-01-13,South,Office Supplies,Stapler,7,105.29,20.6,0.1957
+ORD-50658,2025-08-24,South,Furniture,Table,4,163.42,13.24,0.081
+ORD-50659,2026-07-18,South,Office Supplies,Envelopes,6,185.0,24.09,0.1302
+ORD-50660,2026-07-21,East,Furniture,Desk Lamp,1,444.74,63.09,0.1419
+ORD-50661,2025-12-13,North,Office Supplies,Paper,7,109.63,5.82,0.0531
+ORD-50662,2026-03-28,West,Office Supplies,Envelopes,5,148.24,25.08,0.1692
+ORD-50663,2026-05-09,North,Office Supplies,Envelopes,3,56.69,5.31,0.0937
+ORD-50664,2025-02-02,West,Office Supplies,Labels,6,16.59,0.91,0.0549
+ORD-50665,2025-10-11,West,Office Supplies,Stapler,5,91.37,30.07,0.3291
+ORD-50666,2026-07-04,West,Office Supplies,Binder,3,112.19,15.63,0.1393
+ORD-50667,2025-09-29,East,Office Supplies,Envelopes,3,177.08,9.75,0.0551
+ORD-50668,2025-08-29,East,Furniture,Table,1,287.52,15.37,0.0535
+ORD-50669,2026-06-28,South,Office Supplies,Envelopes,1,82.68,4.6,0.0556
+ORD-50670,2026-04-21,East,Technology,Printer,6,835.69,193.65,0.2317
+ORD-50671,2025-06-20,North,Technology,Headset,7,543.96,142.99,0.2629
+ORD-50672,2025-11-09,South,Office Supplies,Labels,1,83.54,25.44,0.3045
+ORD-50673,2025-07-01,East,Technology,Laptop,3,766.32,22.0,0.0287
+ORD-50674,2025-06-19,South,Technology,Phone,5,361.78,50.89,0.1407
+ORD-50675,2025-11-25,East,Furniture,Office Chair,6,1171.29,322.06,0.275
+ORD-50676,2025-01-04,East,Office Supplies,Binder,5,55.78,8.5,0.1524
+ORD-50677,2025-03-08,East,Office Supplies,Labels,7,99.13,33.1,0.3339
+ORD-50678,2025-05-13,West,Office Supplies,Envelopes,2,79.59,29.13,0.366
+ORD-50679,2025-04-09,West,Technology,Printer,7,429.78,-4.56,-0.0106
+ORD-50680,2025-05-31,West,Office Supplies,Envelopes,7,133.66,43.77,0.3275
+ORD-50681,2025-11-06,South,Office Supplies,Stapler,3,177.81,48.24,0.2713
+ORD-50682,2026-06-16,South,Office Supplies,Labels,6,232.15,66.52,0.2865
+ORD-50683,2026-01-20,West,Furniture,Table,7,641.19,164.38,0.2564
+ORD-50684,2025-08-10,West,Technology,Headset,2,501.77,108.13,0.2155
+ORD-50685,2026-08-11,South,Office Supplies,Paper,2,162.53,30.67,0.1887
+ORD-50686,2025-06-18,West,Furniture,Bookcase,7,189.94,23.57,0.1241
+ORD-50687,2025-03-09,West,Furniture,Desk Lamp,6,465.19,3.17,0.0068
+ORD-50688,2025-09-24,West,Office Supplies,Envelopes,2,132.38,31.76,0.2399
+ORD-50689,2025-01-26,West,Office Supplies,Envelopes,1,135.66,-9.2,-0.0678
+ORD-50690,2025-02-05,East,Office Supplies,Binder,5,48.41,18.94,0.3912
+ORD-50691,2026-02-17,South,Technology,Printer,7,266.35,25.01,0.0939
+ORD-50692,2025-11-25,East,Office Supplies,Envelopes,7,261.34,64.12,0.2454
+ORD-50693,2026-06-22,South,Technology,Laptop,1,480.39,94.8,0.1973
+ORD-50694,2026-04-30,South,Furniture,Table,3,167.17,10.33,0.0618
+ORD-50695,2025-02-25,West,Office Supplies,Labels,6,45.71,8.81,0.1927
+ORD-50696,2026-01-06,North,Furniture,Table,6,451.86,25.72,0.0569
+ORD-50697,2025-06-28,West,Office Supplies,Labels,6,194.77,-4.31,-0.0221
+ORD-50698,2025-10-17,East,Office Supplies,Stapler,6,95.69,10.71,0.1119
+ORD-50699,2026-02-13,North,Office Supplies,Envelopes,1,196.77,64.03,0.3254
+ORD-50700,2026-07-26,West,Technology,Printer,6,742.61,24.86,0.0335
+ORD-50701,2026-01-20,East,Office Supplies,Labels,5,126.83,6.27,0.0494
+ORD-50702,2026-06-06,East,Office Supplies,Labels,4,172.33,75.53,0.4383
+ORD-50703,2026-06-06,North,Office Supplies,Binder,6,76.11,24.88,0.3269
+ORD-50704,2025-05-21,North,Technology,Headset,1,771.48,270.36,0.3504
+ORD-50705,2026-02-02,West,Office Supplies,Envelopes,7,75.44,13.37,0.1772
+ORD-50706,2026-06-18,West,Office Supplies,Paper,2,64.91,13.74,0.2117
+ORD-50707,2026-07-23,South,Technology,Headset,8,955.17,240.79,0.2521
+ORD-50708,2026-07-20,North,Office Supplies,Labels,6,58.03,14.37,0.2476
+ORD-50709,2025-06-25,South,Office Supplies,Stapler,2,99.57,16.71,0.1678
+ORD-50710,2026-07-22,East,Office Supplies,Stapler,2,58.99,-0.05,-0.0008
+ORD-50711,2026-03-24,South,Technology,Phone,4,608.64,41.66,0.0684
+ORD-50712,2025-11-07,West,Technology,Laptop,6,467.46,-12.43,-0.0266
+ORD-50713,2025-12-20,East,Technology,Printer,3,1235.57,433.45,0.3508
+ORD-50714,2025-03-09,East,Furniture,Desk Lamp,2,462.23,-0.65,-0.0014
+ORD-50715,2025-08-25,South,Office Supplies,Paper,6,98.8,15.35,0.1554
+ORD-50716,2025-05-22,East,Technology,Headset,1,1716.51,329.72,0.1921
+ORD-50717,2026-03-09,South,Furniture,Bookcase,2,77.25,3.8,0.0492
+ORD-50718,2025-11-28,East,Technology,Phone,8,325.37,72.1,0.2216
+ORD-50719,2026-05-23,West,Office Supplies,Labels,5,18.07,1.81,0.1002
+ORD-50720,2026-03-05,East,Furniture,Bookcase,4,433.92,-60.73,-0.14
+ORD-50721,2025-12-14,South,Office Supplies,Labels,2,121.28,47.41,0.3909
+ORD-50722,2025-01-13,East,Furniture,Table,4,639.26,-26.15,-0.0409
+ORD-50723,2026-03-06,West,Office Supplies,Envelopes,2,109.22,12.88,0.1179
+ORD-50724,2025-09-01,East,Office Supplies,Labels,1,55.03,4.33,0.0787
+ORD-50725,2025-09-05,West,Furniture,Table,7,1238.98,-26.4,-0.0213
+ORD-50726,2026-07-23,East,Office Supplies,Labels,3,111.24,19.81,0.1781
+ORD-50727,2026-06-01,South,Technology,Printer,5,536.27,132.39,0.2469
+ORD-50728,2026-02-21,East,Furniture,Desk Lamp,4,220.11,-18.36,-0.0834
+ORD-50729,2025-08-19,North,Office Supplies,Stapler,7,118.82,25.02,0.2106
+ORD-50730,2026-06-01,East,Technology,Laptop,3,465.52,33.85,0.0727
+ORD-50731,2026-01-10,West,Office Supplies,Binder,6,70.34,22.63,0.3217
+ORD-50732,2026-05-24,South,Furniture,Desk Lamp,6,486.33,-51.37,-0.1056
+ORD-50733,2025-12-24,East,Technology,Laptop,7,710.35,118.55,0.1669
+ORD-50734,2026-08-18,North,Office Supplies,Labels,3,56.15,14.69,0.2616
+ORD-50735,2025-11-05,South,Office Supplies,Stapler,4,194.76,1.66,0.0085
+ORD-50736,2025-03-07,North,Office Supplies,Paper,8,50.29,9.44,0.1877
+ORD-50737,2026-07-05,North,Office Supplies,Stapler,1,46.91,9.0,0.1919
+ORD-50738,2026-06-17,West,Office Supplies,Binder,3,110.2,8.45,0.0767
+ORD-50739,2026-02-27,South,Furniture,Office Chair,8,461.16,8.06,0.0175
+ORD-50740,2025-05-21,East,Furniture,Table,1,445.23,73.22,0.1645
+ORD-50741,2025-12-20,North,Furniture,Bookcase,2,333.29,24.52,0.0736
+ORD-50742,2025-12-27,South,Furniture,Bookcase,6,437.38,-3.03,-0.0069
+ORD-50743,2026-03-04,East,Furniture,Office Chair,7,303.99,5.5,0.0181
+ORD-50744,2025-02-27,North,Office Supplies,Envelopes,5,33.94,7.73,0.2278
+ORD-50745,2026-03-02,South,Office Supplies,Binder,2,141.84,46.47,0.3276
+ORD-50746,2025-02-03,West,Office Supplies,Labels,7,49.66,13.4,0.2698
+ORD-50747,2025-07-18,South,Technology,Headset,5,538.68,130.34,0.242
+ORD-50748,2026-08-03,East,Furniture,Bookcase,8,659.57,153.79,0.2332
+ORD-50749,2025-07-09,North,Office Supplies,Paper,3,92.45,-1.36,-0.0147
+ORD-50750,2025-03-27,West,Furniture,Table,3,2203.28,-290.17,-0.1317
+ORD-50751,2026-01-01,West,Office Supplies,Paper,6,39.33,-4.06,-0.1032
+ORD-50752,2025-03-24,East,Furniture,Office Chair,8,271.17,38.96,0.1437
+ORD-50753,2025-03-25,West,Furniture,Table,1,447.79,-105.39,-0.2354
+ORD-50754,2025-11-15,West,Furniture,Table,3,958.07,35.35,0.0369
+ORD-50755,2026-05-02,North,Office Supplies,Paper,1,78.34,20.65,0.2636
+ORD-50756,2025-03-15,East,Technology,Laptop,1,261.0,-4.52,-0.0173
+ORD-50757,2026-04-07,East,Office Supplies,Stapler,4,180.45,16.56,0.0918
+ORD-50758,2025-02-04,East,Office Supplies,Paper,2,52.25,7.31,0.1399
+ORD-50759,2026-01-20,North,Furniture,Table,7,376.23,48.92,0.13
+ORD-50760,2026-01-01,West,Office Supplies,Envelopes,2,154.05,-1.89,-0.0123
+ORD-50761,2025-07-19,North,Office Supplies,Binder,4,60.72,12.76,0.2101
+ORD-50762,2026-03-16,North,Furniture,Desk Lamp,6,322.78,40.6,0.1258
+ORD-50763,2026-08-11,West,Office Supplies,Labels,1,121.49,22.91,0.1886
+ORD-50764,2025-09-22,North,Office Supplies,Envelopes,5,80.21,15.27,0.1904
+ORD-50765,2026-03-22,South,Technology,Printer,8,729.3,220.41,0.3022
+ORD-50766,2026-03-11,South,Furniture,Desk Lamp,6,239.53,16.26,0.0679
+ORD-50767,2026-06-01,East,Technology,Phone,1,571.35,84.74,0.1483
+ORD-50768,2025-06-20,North,Office Supplies,Paper,5,47.01,6.13,0.1304
+ORD-50769,2026-03-08,West,Office Supplies,Labels,3,35.53,8.87,0.2496
+ORD-50770,2026-03-20,South,Furniture,Desk Lamp,8,1210.15,7.22,0.006
+ORD-50771,2025-12-02,East,Technology,Phone,5,804.74,184.92,0.2298
+ORD-50772,2025-11-15,East,Office Supplies,Paper,8,156.64,28.65,0.1829
+ORD-50773,2025-06-20,South,Office Supplies,Envelopes,3,50.55,15.52,0.307
+ORD-50774,2025-07-06,West,Office Supplies,Stapler,2,88.79,6.68,0.0752
+ORD-50775,2025-04-19,East,Technology,Laptop,6,541.09,86.43,0.1597
+ORD-50776,2026-04-11,South,Office Supplies,Binder,5,38.5,8.19,0.2127
+ORD-50777,2026-05-05,West,Technology,Laptop,4,849.27,170.29,0.2005
+ORD-50778,2026-07-06,South,Furniture,Table,3,273.16,48.39,0.1771
+ORD-50779,2026-01-08,East,Office Supplies,Paper,7,79.92,17.43,0.2181
+ORD-50780,2025-06-10,North,Office Supplies,Labels,5,36.32,10.16,0.2797
+ORD-50781,2025-05-22,South,Office Supplies,Stapler,1,163.74,66.64,0.407
+ORD-50782,2026-06-05,East,Office Supplies,Labels,7,142.3,38.73,0.2722
+ORD-50783,2025-05-06,West,Office Supplies,Paper,7,114.19,4.92,0.0431
+ORD-50784,2026-05-07,East,Office Supplies,Labels,5,52.29,-0.07,-0.0013
+ORD-50785,2025-10-20,South,Office Supplies,Paper,8,65.3,16.41,0.2513
+ORD-50786,2026-05-31,West,Furniture,Office Chair,4,876.47,-4.27,-0.0049
+ORD-50787,2026-01-16,South,Office Supplies,Stapler,3,76.42,15.71,0.2056
+ORD-50788,2025-06-18,West,Office Supplies,Envelopes,8,105.89,15.84,0.1496
+ORD-50789,2026-04-03,South,Furniture,Office Chair,2,458.14,90.67,0.1979
+ORD-50790,2025-07-02,North,Office Supplies,Paper,2,46.11,14.52,0.3149
+ORD-50791,2025-10-16,West,Office Supplies,Envelopes,8,225.16,7.83,0.0348
+ORD-50792,2025-02-07,South,Furniture,Bookcase,6,128.04,9.39,0.0733
+ORD-50793,2025-05-31,North,Office Supplies,Binder,4,103.19,13.85,0.1342
+ORD-50794,2025-07-29,South,Furniture,Table,6,399.47,-46.81,-0.1172
+ORD-50795,2026-02-11,North,Office Supplies,Binder,4,34.18,8.49,0.2484
+ORD-50796,2026-05-09,South,Furniture,Office Chair,6,513.83,11.87,0.0231
+ORD-50797,2025-03-19,South,Furniture,Desk Lamp,5,575.23,53.88,0.0937
+ORD-50798,2025-12-10,East,Office Supplies,Labels,5,93.06,43.58,0.4683
+ORD-50799,2025-04-14,North,Office Supplies,Binder,5,54.9,18.12,0.3301
+ORD-50800,2026-05-20,West,Furniture,Desk Lamp,2,551.52,95.49,0.1731
+ORD-50801,2025-08-12,South,Technology,Printer,7,1193.61,120.89,0.1013
+ORD-50802,2025-06-21,West,Furniture,Table,1,480.78,-48.97,-0.1019
+ORD-50803,2025-12-04,West,Office Supplies,Stapler,6,253.83,81.33,0.3204
+ORD-50804,2025-12-26,South,Furniture,Bookcase,7,705.06,2.7,0.0038
+ORD-50805,2025-01-12,West,Office Supplies,Labels,6,143.18,25.15,0.1757
+ORD-50806,2025-10-14,East,Office Supplies,Envelopes,7,207.83,25.98,0.125
+ORD-50807,2025-03-23,North,Office Supplies,Binder,4,60.69,11.06,0.1822
+ORD-50808,2026-07-06,South,Office Supplies,Labels,4,66.02,30.34,0.4596
+ORD-50809,2026-03-01,South,Office Supplies,Labels,5,122.98,16.28,0.1324
+ORD-50810,2025-10-15,East,Office Supplies,Stapler,3,123.27,16.8,0.1363
+ORD-50811,2025-09-04,South,Office Supplies,Binder,7,223.28,43.43,0.1945
+ORD-50812,2025-12-07,North,Office Supplies,Binder,1,179.53,36.69,0.2044
+ORD-50813,2025-09-26,West,Furniture,Bookcase,7,468.28,-48.82,-0.1043
+ORD-50814,2025-05-08,South,Office Supplies,Labels,1,103.02,-4.47,-0.0434
+ORD-50815,2025-10-11,South,Office Supplies,Envelopes,5,76.64,7.65,0.0998
+ORD-50816,2025-10-12,West,Office Supplies,Paper,6,72.68,10.47,0.1441
+ORD-50817,2025-04-16,West,Office Supplies,Binder,5,69.03,5.17,0.0749
+ORD-50818,2025-07-15,South,Office Supplies,Stapler,3,155.82,7.61,0.0488
+ORD-50819,2026-08-02,East,Furniture,Table,3,318.89,-23.61,-0.074
+ORD-50820,2026-03-01,North,Office Supplies,Stapler,4,73.31,8.89,0.1213
+ORD-50821,2026-07-08,West,Furniture,Table,4,466.03,11.18,0.024
+ORD-50822,2025-09-16,South,Office Supplies,Stapler,7,66.78,-1.85,-0.0277
+ORD-50823,2026-01-16,South,Office Supplies,Binder,2,79.25,8.08,0.102
+ORD-50824,2026-05-25,East,Office Supplies,Labels,2,24.56,5.17,0.2105
+ORD-50825,2025-02-25,West,Furniture,Desk Lamp,4,532.06,12.05,0.0226
+ORD-50826,2025-03-31,South,Office Supplies,Envelopes,7,75.94,0.32,0.0042
+ORD-50827,2026-02-17,West,Technology,Laptop,1,694.64,72.56,0.1045
+ORD-50828,2025-05-28,West,Furniture,Bookcase,2,532.55,18.56,0.0349
+ORD-50829,2026-05-01,South,Office Supplies,Labels,3,30.11,7.81,0.2594
+ORD-50830,2025-10-05,South,Office Supplies,Labels,5,388.52,-10.94,-0.0282
+ORD-50831,2025-07-21,West,Office Supplies,Binder,3,101.57,25.29,0.249
+ORD-50832,2025-10-23,East,Office Supplies,Paper,6,103.3,11.5,0.1113
+ORD-50833,2025-04-01,East,Furniture,Bookcase,4,149.24,9.12,0.0611
+ORD-50834,2025-07-13,South,Office Supplies,Stapler,8,136.33,33.89,0.2486
+ORD-50835,2026-03-12,North,Furniture,Table,6,564.02,-38.28,-0.0679
+ORD-50836,2025-09-23,West,Technology,Headset,7,518.28,25.78,0.0497
+ORD-50837,2026-01-17,South,Technology,Laptop,1,750.33,99.62,0.1328
+ORD-50838,2025-01-22,South,Office Supplies,Binder,4,207.11,52.46,0.2533
+ORD-50839,2025-08-24,South,Office Supplies,Stapler,6,78.88,7.97,0.101
+ORD-50840,2025-05-24,South,Office Supplies,Envelopes,3,56.32,-0.19,-0.0034
+ORD-50841,2025-06-27,West,Technology,Headset,7,1465.23,91.72,0.0626
+ORD-50842,2026-01-29,North,Furniture,Table,2,534.04,43.73,0.0819
+ORD-50843,2026-07-12,North,Office Supplies,Paper,2,87.97,26.81,0.3048
+ORD-50844,2025-06-19,West,Office Supplies,Stapler,2,389.91,40.9,0.1049
+ORD-50845,2025-02-22,West,Technology,Phone,2,732.26,78.08,0.1066
+ORD-50846,2025-10-20,South,Office Supplies,Labels,1,88.55,12.74,0.1439
+ORD-50847,2025-07-06,South,Office Supplies,Binder,1,115.33,17.2,0.1491
+ORD-50848,2025-12-11,North,Furniture,Office Chair,4,360.55,-28.21,-0.0782
+ORD-50849,2025-10-15,West,Office Supplies,Stapler,6,111.76,12.54,0.1122
+ORD-50850,2025-02-27,North,Office Supplies,Stapler,5,107.44,20.49,0.1907
+ORD-50851,2025-12-20,West,Furniture,Desk Lamp,4,309.05,14.59,0.0472
+ORD-50852,2025-03-08,East,Office Supplies,Paper,7,83.94,14.06,0.1675
+ORD-50853,2025-06-03,East,Office Supplies,Envelopes,1,118.02,5.25,0.0445
+ORD-50854,2025-05-01,South,Office Supplies,Stapler,3,123.15,12.2,0.0991
+ORD-50855,2025-12-23,South,Office Supplies,Stapler,1,138.71,11.02,0.0794
+ORD-50856,2026-05-28,South,Office Supplies,Paper,4,156.49,45.45,0.2904
+ORD-50857,2025-03-09,East,Furniture,Bookcase,3,528.98,110.31,0.2085
+ORD-50858,2025-06-29,North,Office Supplies,Stapler,6,133.0,27.35,0.2056
+ORD-50859,2025-11-15,East,Technology,Phone,1,525.6,176.26,0.3354
+ORD-50860,2025-12-26,East,Office Supplies,Binder,7,83.43,10.83,0.1298
+ORD-50861,2025-02-21,South,Office Supplies,Paper,7,181.25,23.63,0.1304
+ORD-50862,2026-04-03,South,Office Supplies,Labels,8,29.68,0.3,0.0101
+ORD-50863,2025-08-22,West,Technology,Phone,2,820.32,141.52,0.1725
+ORD-50864,2025-10-06,North,Technology,Phone,3,4370.11,396.69,0.0908
+ORD-50865,2026-03-04,West,Office Supplies,Labels,7,31.79,5.6,0.1762
+ORD-50866,2026-01-01,East,Technology,Phone,6,1606.03,326.59,0.2034
+ORD-50867,2025-04-30,East,Technology,Laptop,1,226.9,26.41,0.1164
+ORD-50868,2025-04-04,South,Office Supplies,Labels,6,118.97,3.73,0.0314
+ORD-50869,2025-04-02,West,Office Supplies,Binder,3,252.75,40.46,0.1601
+ORD-50870,2025-12-15,West,Furniture,Office Chair,7,1082.52,29.03,0.0268
+ORD-50871,2026-08-03,South,Office Supplies,Envelopes,8,54.99,9.29,0.1689
+ORD-50872,2026-06-11,West,Office Supplies,Labels,4,43.3,10.65,0.246
+ORD-50873,2025-09-15,North,Technology,Laptop,2,269.5,32.38,0.1201
+ORD-50874,2025-09-30,North,Office Supplies,Binder,6,144.45,19.35,0.134
+ORD-50875,2025-02-04,South,Technology,Phone,1,502.53,177.03,0.3523
+ORD-50876,2026-05-12,East,Furniture,Desk Lamp,5,438.05,71.76,0.1638
+ORD-50877,2025-09-13,East,Technology,Headset,7,739.01,99.98,0.1353
+ORD-50878,2026-03-13,East,Technology,Phone,1,808.15,28.31,0.035
+ORD-50879,2025-06-13,West,Furniture,Desk Lamp,7,598.9,-9.98,-0.0167
+ORD-50880,2025-06-08,West,Office Supplies,Envelopes,4,100.11,21.21,0.2119
+ORD-50881,2026-05-06,West,Technology,Laptop,4,240.14,59.31,0.247
+ORD-50882,2025-07-19,West,Technology,Laptop,4,1505.74,652.21,0.4331
+ORD-50883,2026-06-12,North,Office Supplies,Labels,2,17.84,2.46,0.1379
+ORD-50884,2025-03-14,East,Furniture,Bookcase,6,907.17,50.4,0.0556
+ORD-50885,2026-04-03,West,Furniture,Office Chair,3,300.77,-1.41,-0.0047
+ORD-50886,2026-07-15,West,Furniture,Office Chair,5,383.32,18.18,0.0474
+ORD-50887,2026-02-09,West,Technology,Printer,4,457.83,46.94,0.1025
+ORD-50888,2025-02-21,North,Technology,Headset,3,501.46,10.61,0.0212
+ORD-50889,2025-12-09,East,Office Supplies,Envelopes,8,91.11,26.41,0.2899
+ORD-50890,2025-03-15,East,Technology,Headset,3,528.63,86.57,0.1638
+ORD-50891,2025-02-04,South,Technology,Printer,2,323.44,97.47,0.3014
+ORD-50892,2025-12-24,West,Office Supplies,Paper,2,153.45,16.73,0.109
+ORD-50893,2026-01-26,South,Technology,Laptop,6,441.04,79.5,0.1803
+ORD-50894,2025-01-09,North,Office Supplies,Binder,1,206.21,50.99,0.2473
+ORD-50895,2025-08-21,North,Office Supplies,Binder,6,84.02,-4.5,-0.0536
+ORD-50896,2025-04-07,West,Furniture,Office Chair,7,281.37,-32.98,-0.1172
+ORD-50897,2025-06-19,South,Furniture,Desk Lamp,7,558.43,71.91,0.1288
+ORD-50898,2026-05-16,North,Office Supplies,Stapler,8,156.85,28.5,0.1817
+ORD-50899,2025-12-05,East,Furniture,Office Chair,6,246.78,-43.91,-0.1779

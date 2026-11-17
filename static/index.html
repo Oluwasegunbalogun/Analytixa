@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analytixa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F5F3;--surface:#FFFFFF;--ink:#18282C;--ink2:#56666A;--ink3:#7D8B8E;--line:#DCE2DF;--line2:#EBEFED;
+  --lagoon:#0E5E63;--lagoon2:#0A4A4E;--lagoonT:#E2EEED;
+  --ochre:#A86A12;--ochreT:#FBF0DC;--go:#2C744A;--goT:#E3F1E8;--stop:#A63A2F;--stopT:#F8E6E3;--blue:#2F5C8A;--blueT:#E6EEF7;
+  --sans:"Instrument Sans","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:15px/1.5 var(--sans);color:var(--ink);background:var(--paper);font-variant-numeric:tabular-nums}
+a{color:var(--lagoon)}
+:focus-visible{outline:3px solid #7FB7B9;outline-offset:2px}
+button{font:inherit;cursor:pointer;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;font-weight:500}
+button:hover{border-color:#B9C5C1}
+button.primary{background:var(--lagoon);border-color:var(--lagoon);color:#fff}
+button.primary:hover{background:var(--lagoon2)}
+button.go{background:var(--go);border-color:var(--go);color:#fff}
+button.stop{color:var(--stop);border-color:#E2BDB7}
+button.link{border:none;background:none;padding:0;color:var(--lagoon);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+button.small{padding:5px 10px;font-size:13px}
+button:disabled{opacity:.55;cursor:not-allowed}
+input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:6px;padding:9px 11px;background:#fff;color:var(--ink);width:100%}
+textarea{resize:vertical;line-height:1.45}
+label.f{display:block;font-size:13px;font-weight:600;margin:0 0 5px}
+.hint{font-size:13px;color:var(--ink2)}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px}
+pre{background:#13272B;color:#D4E4E3;padding:12px 14px;border-radius:6px;overflow:auto;max-height:320px;white-space:pre-wrap;word-break:break-word}
+
+/* ── shell ─────────────────────────────── */
+header.bar{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.bar-in{max-width:1180px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex:none}
+.brand svg{flex:none}
+.brand b{font-weight:700;font-size:16px;letter-spacing:-.01em;display:block;line-height:1.1}
+.brand span{font-size:12px;color:var(--ink2);display:block}
+nav.main{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+nav.main a{padding:8px 12px;border-radius:6px;text-decoration:none;color:var(--ink2);font-weight:500;white-space:nowrap;display:flex;gap:7px;align-items:center}
+nav.main a:hover{color:var(--ink);background:var(--line2)}
+nav.main a[aria-current]{color:var(--lagoon);background:var(--lagoonT)}
+.count{background:var(--ochre);color:#fff;border-radius:999px;font-size:12px;font-weight:700;padding:0 7px;line-height:19px}
+.who{display:flex;align-items:center;gap:10px;flex:none;position:relative}
+.who button.me{display:flex;align-items:center;gap:9px;border:none;padding:4px 6px;background:none}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--lagoon);color:#fff;display:grid;place-items:center;font-weight:600;font-size:13px}
+.who .nm{text-align:left;line-height:1.2}.who .nm b{font-size:14px;display:block}.who .nm span{font-size:12px;color:var(--ink2)}
+.menu{position:absolute;right:0;top:48px;background:#fff;border:1px solid var(--line);border-radius:8px;min-width:220px;padding:6px;box-shadow:0 10px 30px rgba(16,40,44,.12)}
+.menu button{display:block;width:100%;text-align:left;border:none;padding:9px 10px;background:none}
+.menu button:hover{background:var(--line2)}
+.menu hr{border:none;border-top:1px solid var(--line);margin:6px 0}
+main{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+.narrow{max-width:760px}
+
+/* ── type ─────────────────────────────── */
+h1{font-size:26px;line-height:1.2;margin:0 0 6px;font-weight:600;letter-spacing:-.015em}
+h2{font-size:18px;margin:0 0 12px;font-weight:600}
+h3{font-size:15px;margin:20px 0 8px;font-weight:600}
+.lede{color:var(--ink2);margin:0 0 24px;max-width:68ch}
+.doc{font-family:var(--serif);font-size:17px;line-height:1.6;max-width:68ch}
+
+/* ── blocks ───────────────────────────── */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px 22px;margin-bottom:18px}
+.panel.flush{padding:0;overflow:hidden}
+.section-h{display:flex;align-items:baseline;gap:12px;margin:30px 0 12px}
+.section-h h2{margin:0}.section-h .hint{margin-left:auto}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.right{margin-left:auto}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.chip.wait{background:var(--ochreT);color:var(--ochre)}.chip.done{background:var(--goT);color:var(--go)}
+.chip.stop{background:var(--stopT);color:var(--stop)}.chip.work{background:var(--blueT);color:var(--blue)}
+.chip.quiet{background:var(--line2);color:var(--ink2)}
+.figure{display:block;font-size:24px;font-weight:600;letter-spacing:-.01em}
+.figure-l{font-size:13px;color:var(--ink2)}
+.empty{padding:28px;text-align:center;color:var(--ink2)}
+.notice{border-left:4px solid var(--ochre);background:var(--ochreT);padding:12px 16px;border-radius:0 6px 6px 0;margin:12px 0}
+.notice.bad{border-color:var(--stop);background:var(--stopT)}
+.notice.info{border-color:var(--lagoon);background:var(--lagoonT)}
+
+/* lists of things to do */
+.list{list-style:none;margin:0;padding:0}
+.list li{display:flex;gap:14px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line2)}
+.list li:last-child{border-bottom:none}
+.list li .main{flex:1;min-width:0}
+.list li .t{font-weight:600}
+.list li .s{font-size:13px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.list li.click{cursor:pointer}.list li.click:hover{background:#F8FAF9}
+
+/* quick tasks */
+.tasks{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.task{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:16px;text-align:left;display:block;width:100%}
+.task:hover{border-color:var(--lagoon)}
+.task b{display:block;margin-bottom:3px}.task span{font-size:13px;color:var(--ink2);font-weight:400}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{font-size:13px;color:var(--ink2);font-weight:600;background:#F8FAF9}
+td.n,th.n{text-align:right}
+tr.click{cursor:pointer}tr.click:hover td{background:#F8FAF9}
+
+/* ── task page ───────────────────────── */
+.task-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px}
+.task-head .meta{font-size:13px;color:var(--ink2);margin-top:4px}
+.steps{display:flex;list-style:none;margin:0 0 22px;padding:0;gap:4px;overflow-x:auto}
+.steps li{flex:1;min-width:92px;font-size:12.5px;color:var(--ink3);padding-top:9px;border-top:4px solid var(--line);line-height:1.3}
+.steps li.done{border-color:var(--lagoon);color:var(--ink2)}
+.steps li.running{border-color:var(--blue);color:var(--ink)}
+.steps li.waiting{border-color:var(--ochre);color:var(--ink);font-weight:600}
+.steps li.failed,.steps li.blocked{border-color:var(--stop);color:var(--stop)}
+.verdict{display:flex;gap:28px;align-items:center;flex-wrap:wrap;padding:18px 22px;border-radius:8px;margin-bottom:16px;background:var(--line2)}
+.verdict.approve{background:var(--goT)}.verdict.decline{background:var(--stopT)}.verdict.refer{background:var(--ochreT)}
+.verdict .word{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1;text-transform:capitalize}
+.verdict.approve .word{color:var(--go)}.verdict.decline .word{color:var(--stop)}.verdict.refer .word{color:var(--ochre)}
+.why li{margin-bottom:6px}
+.rule-fail td:first-child{border-left:3px solid var(--stop)}
+.bars .b{display:grid;grid-template-columns:minmax(90px,170px) 1fr 120px;gap:10px;align-items:center;font-size:13.5px;margin:5px 0}
+.bars .track{background:var(--line2);border-radius:3px;height:16px;overflow:hidden}
+.bars .fill{background:var(--lagoon);height:100%}
+.bars .v{text-align:right}
+
+/* the sign-off slip: the one place the design speaks up */
+.slip{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--ochre);border-radius:8px;margin:22px 0;position:relative}
+.slip-in{padding:22px 24px}
+.slip h2{font-family:var(--serif);font-size:24px;font-weight:600;margin:0 0 4px}
+.slip .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin:14px 0}
+.slip .opt{border:1px solid var(--line);border-radius:6px;padding:10px 12px;display:flex;gap:9px;align-items:flex-start;cursor:pointer;font-size:14px}
+.slip .opt input{width:auto;margin-top:3px}
+.slip .opt:has(input:checked){border-color:var(--lagoon);background:var(--lagoonT)}
+.slip .opt span small{display:block;color:var(--ink2);font-size:12.5px}
+.sign{border-top:1px dashed #C9D1CE;padding:18px 24px;display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap;background:#FAFBFA;border-radius:0 0 8px 8px}
+.sign .sig{flex:1;min-width:220px}
+.sign .sig .line{font-family:var(--serif);font-size:22px;border-bottom:1px solid var(--ink);padding-bottom:2px;display:inline-block;min-width:240px}
+.sign .sig small{display:block;font-size:12.5px;color:var(--ink2);margin-top:4px}
+
+/* discussion */
+.chat{display:flex;flex-direction:column;gap:10px;margin:10px 0;max-height:360px;overflow:auto}
+.msg{padding:10px 13px;border-radius:8px;max-width:88%;font-size:14px}
+.msg.h{align-self:flex-end;background:var(--lagoonT)}
+.msg.a{align-self:flex-start;background:var(--line2)}
+.msg small{display:block;font-size:12px;color:var(--ink2);margin-bottom:2px;font-weight:600}
+
+details.more{border:1px solid var(--line);border-radius:8px;background:var(--surface);margin-bottom:18px}
+details.more>summary{padding:14px 20px;cursor:pointer;font-weight:600;list-style:none;display:flex;gap:10px;align-items:center}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::before{content:"";width:8px;height:8px;border-right:2px solid var(--ink2);border-bottom:2px solid var(--ink2);transform:rotate(-45deg);transition:transform .15s}
+details.more[open]>summary::before{transform:rotate(45deg)}
+details.more>.body{padding:0 20px 18px}
+details.inline>summary{cursor:pointer;color:var(--lagoon);font-weight:500;margin:8px 0}
+.trail{list-style:none;margin:0;padding:0}
+.trail li{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--line2);font-size:14px}
+.trail .dot{width:12px;height:12px;border-radius:50%;margin-top:5px;background:var(--line)}
+.trail .dot.done{background:var(--lagoon)}.trail .dot.waiting{background:var(--ochre)}.trail .dot.running{background:var(--blue)}
+.trail .dot.failed,.trail .dot.blocked{background:var(--stop)}
+.kv{display:grid;grid-template-columns:200px 1fr;gap:6px 16px;font-size:14px}
+.kv>div:nth-child(odd){color:var(--ink2)}
+.tag{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background:var(--line2);border-radius:4px;padding:1px 5px}
+
+/* forms */
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:12px 0}
+.check{display:flex;gap:9px;align-items:center;font-size:14px}.check input{width:auto}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 18px;border-radius:8px;z-index:40;max-width:min(520px,92vw);font-size:14px}
+.modal{position:fixed;inset:0;background:rgba(15,32,35,.4);display:grid;place-items:center;z-index:30;padding:16px}
+.modal .box{background:#fff;border-radius:10px;padding:24px;width:min(520px,100%);max-height:90vh;overflow:auto}
+.tabs{display:flex;gap:4px;margin-bottom:18px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{border:none;background:none;border-bottom:3px solid transparent;border-radius:0;padding:9px 12px;color:var(--ink2);white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--lagoon);border-color:var(--lagoon)}
+.side-tabs{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:start}
+.side-tabs nav{display:flex;flex-direction:column;gap:2px;position:sticky;top:80px}
+.side-tabs nav button{border:none;background:none;text-align:left;padding:9px 12px;border-radius:6px;color:var(--ink2);display:flex;justify-content:space-between}
+.side-tabs nav button[aria-selected=true]{background:var(--lagoonT);color:var(--lagoon);font-weight:600}
+.layer{display:grid;grid-template-columns:210px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line2)}
+.layer b{font-size:14px}.layer div{font-size:14px;color:var(--ink2)}
+.layer.l7{background:var(--ochreT);margin:0 -22px;padding:12px 22px}
+
+/* waiting feedback */
+#topbar{position:fixed;left:0;right:0;top:0;height:3px;z-index:60;overflow:hidden;opacity:0;transition:opacity .15s}
+#topbar.on{opacity:1}
+#topbar::before{content:"";position:absolute;top:0;bottom:0;width:40%;background:var(--ochre);animation:slide 1.1s ease-in-out infinite}
+@keyframes slide{0%{left:-40%}100%{left:100%}}
+button.busy{position:relative;color:transparent!important;pointer-events:none}
+button.busy::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;
+  border:2px solid currentColor;border-color:var(--lagoon) transparent var(--lagoon) transparent;animation:spin .8s linear infinite}
+button.primary.busy::after,button.go.busy::after{border-color:#fff transparent #fff transparent}
+@keyframes spin{to{transform:rotate(360deg)}}
+.slow{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:61;background:var(--ochreT);color:var(--ink);border:1px solid #E9D3AE;
+  padding:9px 16px;border-radius:8px;font-size:14px;box-shadow:0 6px 20px rgba(16,40,44,.12);max-width:min(560px,92vw)}
+@media (prefers-reduced-motion:reduce){#topbar::before{animation:none;left:0;width:100%}button.busy::after{animation:none;border-color:var(--lagoon)}}
+
+/* your data */
+.drop{border:2px dashed #B9C5C1;border-radius:8px;padding:26px;text-align:center;background:#FAFBFA;cursor:pointer;display:block}
+.drop:hover,.drop.over{border-color:var(--lagoon);background:var(--lagoonT)}
+.drop b{display:block;font-size:16px;margin-bottom:4px}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
+.sugg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.sugg button{font-size:13px;padding:5px 11px;border-radius:999px;background:var(--line2);border-color:transparent;color:var(--ink)}
+.sugg button:hover{border-color:var(--lagoon)}
+.mask{color:var(--ink3);font-style:italic}
+.preview td,.preview th{white-space:nowrap;font-size:13px}
+.fields.upl{grid-template-columns:1fr auto;align-items:end}
+@media (max-width:600px){.fields.upl{grid-template-columns:1fr}}
+
+/* sign in */
+.login{min-height:100vh;display:grid;grid-template-columns:1fr minmax(320px,460px)}
+.login .art{background:var(--lagoon);color:#E7F1F0;padding:56px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.login .art h1{font-family:var(--serif);font-size:44px;font-weight:500;line-height:1.1;color:#fff;max-width:14ch;margin:0}
+.login .art p{max-width:46ch;color:#CFE3E1}
+.login .art svg.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px}
+.login .art>*{position:relative;z-index:1}.login .art svg.waves{z-index:0}
+.login form{padding:56px 44px;display:flex;flex-direction:column;justify-content:center;gap:16px;background:var(--surface)}
+
+.dash-filters{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;padding-bottom:14px;border-bottom:1px solid var(--line2)}
+.dash-filters label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--ink2);min-width:130px;flex:0 1 180px}
+.dash-filters select{padding:7px 9px}.dash-filters label.dash-show{flex:0 1 260px}.dash-actions{display:flex;gap:8px;margin-left:auto}
+.dash-scope{margin:12px 0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.tile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.tile.on{border-color:var(--lagoon);box-shadow:inset 0 0 0 1px var(--lagoon)}
+.tile .tl{font-size:13px;color:var(--ink2)}.tile .tv{font-size:24px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}.tile .ts{font-size:12px;color:var(--ink3)}
+.dash-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dash-card{border:1px solid var(--line2);border-radius:8px;padding:14px 16px;min-width:0}.dash-card.wide{grid-column:1/-1}.dash-card h3{margin:0 0 8px;font-size:15px}
+.dbars .b{grid-template-columns:minmax(80px,150px) 1fr 96px;cursor:pointer;border-radius:4px;padding:2px 4px;margin:2px 0}
+.dbars .b:hover{background:var(--line2)}.dbars .b.off .fill{background:#9FC3C5}.dbars .b.on{background:var(--lagoonT)}.dbars .b.on span{font-weight:600}
+.chart{position:relative;overflow:hidden}.chart svg{display:block}
+.chart .grid{stroke:var(--line2);stroke-width:1}.chart .ax{fill:var(--ink3);font-size:11px}
+.chart .ln{fill:none;stroke:var(--lagoon);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.chart .pt{fill:var(--lagoon);stroke:#fff;stroke-width:2}.chart .hot{fill:var(--lagoon);stroke:#fff;stroke-width:2}.chart .guide{stroke:var(--ink3);stroke-width:1;stroke-dasharray:3 3}
+.chart .tip{position:absolute;pointer-events:none;background:var(--ink);color:#fff;font-size:12.5px;line-height:1.4;padding:6px 9px;border-radius:5px;width:150px}
+.demo-box{border:1px solid var(--line);border-radius:10px;padding:18px;background:var(--lagoonT)}
+.demo-roles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.demo-role{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;padding:10px 12px;background:var(--surface)}
+.demo-role:hover{border-color:var(--lagoon)}.demo-role span{font-size:12.5px;color:var(--ink2);font-weight:400;line-height:1.35}
+.showcase{background:var(--blueT);color:var(--ink);font-size:13.5px;padding:8px 16px;text-align:center;border-bottom:1px solid #CBD9EA}
+@media (max-width:900px){.demo-roles{grid-template-columns:1fr}.dash-grid{grid-template-columns:1fr}.dash-actions{margin-left:0}.dash-filters label{flex:1 1 140px}}
+
+@media (max-width:900px){
+  .cols,.cols3,.side-tabs{grid-template-columns:1fr}.side-tabs nav{position:static;flex-direction:row;overflow-x:auto}
+  .login{grid-template-columns:1fr}.login .art{padding:32px;min-height:220px}.login .art h1{font-size:32px}.login form{padding:32px 20px}
+  .who .nm{display:none}.bar-in{gap:12px;padding:0 16px}.brand span{display:none}
+  main{padding:20px 16px 48px}.kv{grid-template-columns:1fr}.layer{grid-template-columns:1fr;gap:4px}
+  .bars .b{grid-template-columns:90px 1fr 90px}
+  .list li{flex-wrap:wrap;gap:8px 12px;padding:14px 16px}.list li .main{flex-basis:100%}.list li>.hint{display:none}
+  .task-head{flex-direction:column-reverse;gap:8px}.sign{flex-direction:column;align-items:stretch}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="modal"></div>
+<div id="topbar" role="progressbar" aria-label="Working" aria-hidden="true"></div>
+<script>
+/* ════════════ vocabulary ════════════ */
+const UC={upload:"Question about your data",credit:"Loan decision",bi:"Question about the bank",churn:"Customers likely to leave",aml:"Fraud and AML check",cash:"ATM cash plan"};
+const GATE={plan:"Approve the plan",data_review:"Check the application data",escalation:"Review low-confidence groups",
+  credit_decision:"Decide the loan",credit_exception:"Approve a credit exception",churn_strategy:"Approve the retention offers",
+  aml_case:"Review reports for filing",release:"Release the report",action:"Authorise an action",review:"Review a step",interpretation:"Confirm what you asked"};
+const ROLE_T={};
+const STATUS={running:["work","Working"],awaiting_approval:["wait","Waiting for a decision"],completed:["done","Done"],
+  failed:["stop","Failed"],stopped:["stop","Stopped by a safety check"],needs_input:["quiet","Needs more detail"],paused:["quiet","Paused"],cancelled:["quiet","Cancelled"]};
+const QUICK={
+  analyst:[["bi","What is the delinquency rate by branch in Lagos?","Delinquency by Lagos branch"],
+           ["bi","Complaints by topic last quarter","Complaints by topic, last quarter"],
+           ["churn","Which retail customers in Lagos are likely to leave in the next 90 days, why, and what should we do?","Find Lagos customers likely to leave"]],
+  loan_officer:[["apps","","Open the loan applications"],["bi","What is the delinquency rate by branch?","Delinquency by branch"]],
+  credit_manager:[["apps","","Open the loan applications"],["bi","What is the NPL ratio by region?","NPL ratio by region"],["bi","Loan book by product","Loan book by product"]],
+  compliance_officer:[["aml","Run AML and fraud surveillance on the last 7 days of transactions","Check the last 7 days for fraud and AML"]],
+  retail_manager:[["churn","Which retail customers in Lagos are likely to leave in the next 90 days, why, and what should we do?","Find Lagos customers likely to leave"],
+                  ["bi","Complaints by topic last quarter","Complaints by topic, last quarter"]],
+  branch_ops:[["cash","Plan ATM cash replenishment for next week","Plan next week's ATM cash"],["bi","ATM withdrawals by branch last month","ATM withdrawals by branch"]],
+  admin:[["page","staff","Manage staff accounts"],["page","policies","Edit bank policies"],["page","audit","Check the audit trail"]]};
+const SUGGEST={
+  credit:["Should we give the loan for APP-1010?"],
+  bi:["What is the delinquency rate by branch in Lagos?","Show deposit inflow by month","Complaints by topic last quarter","Loan book by product"],
+  churn:["Which retail customers in Lagos are likely to leave in the next 90 days, why, and what should we do?"],
+  aml:["Run AML and fraud surveillance on the last 7 days of transactions"],
+  cash:["Plan ATM cash replenishment for next week"]};
+const ROLE_UC={analyst:["bi","churn"],loan_officer:["credit","bi"],credit_manager:["credit","bi"],compliance_officer:["aml","bi"],
+  retail_manager:["churn","bi"],branch_ops:["cash","bi"],admin:["bi"]};
+
+/* ════════════ helpers ════════════ */
+const S={me:null,meta:null,inbox:0,timer:null,run:null};
+const $=id=>document.getElementById(id);
+function h(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function ngn(v){return v==null||v===""?"":"₦"+Number(v).toLocaleString("en-NG",{maximumFractionDigits:0})}
+function pct(v,d=1){return v==null?"":(v*100).toFixed(d)+"%"}
+function when(t){if(!t)return"";const d=new Date(t.replace(" ","T").replace(/\+00$/,"Z"));if(isNaN(d))return t;
+  const s=(Date.now()-d)/1000;if(s<60)return"just now";if(s<3600)return Math.floor(s/60)+" min ago";if(s<86400)return Math.floor(s/3600)+" h ago";
+  return d.toLocaleDateString("en-GB",{day:"numeric",month:"short"})+" "+d.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"})}
+function roleT(r){return ROLE_T[r]||String(r||"").replace(/_/g," ")}
+function chip(st){const [c,t]=STATUS[st]||["quiet",st];return `<span class="chip ${c}">${t}</span>`}
+function toast(m){document.querySelectorAll(".toast").forEach(e=>e.remove());const d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),4500)}
+/* waiting feedback: the button you pressed shows a spinner, a bar runs along the top, and a note appears when it is slow */
+const W={n:0,act:0,btn:null,bar:null,slow:null};
+document.addEventListener("click",e=>{const b=e.target.closest("button");W.act=Date.now();W.btn=b&&!b.closest(".menu")?b:null},true);
+document.addEventListener("submit",e=>{W.act=Date.now();W.btn=e.submitter||e.target.querySelector('button[type=submit],button:not([type])')},true);
+window.addEventListener("hashchange",()=>{W.act=Date.now();W.btn=null});
+function waitStart(){const user=Date.now()-W.act<600,btn=user?W.btn:null;W.btn=null;
+  if(btn&&!btn.disabled){btn.classList.add("busy");btn.setAttribute("aria-busy","true")}
+  if(user){W.n++;clearTimeout(W.bar);W.bar=setTimeout(()=>$("topbar").classList.add("on"),200);
+    clearTimeout(W.slow);W.slow=setTimeout(()=>{if(!document.querySelector(".slow")){const d=document.createElement("div");d.className="slow";d.setAttribute("role","status");
+      d.textContent="Still working. The database is responding slowly. A free database that has been idle can take up to a minute to wake.";document.body.appendChild(d)}},6000)}
+  return {btn,user}}
+function waitEnd(w){if(w.btn){w.btn.classList.remove("busy");w.btn.removeAttribute("aria-busy")}
+  if(w.user&&--W.n<=0){W.n=0;clearTimeout(W.bar);clearTimeout(W.slow);$("topbar").classList.remove("on");document.querySelectorAll(".slow").forEach(x=>x.remove())}}
+async function api(path,opt={}){const w=waitStart();
+  try{let r;
+    try{r=await fetch(path,{headers:{"Content-Type":"application/json"},credentials:"same-origin",...opt})}
+    catch(e){throw new Error("Cannot reach Analytixa. Check that the server window is still open, then try again.")}
+    const j=await r.json().catch(()=>({}));
+    if(r.status==401&&!path.includes("/login")){S.me=null;renderLogin();throw new Error("Signed out")}
+    if(!r.ok)throw new Error(j.detail||(r.status>=500?"Something went wrong on the server. An administrator can find the details under Diagnostic log.":r.statusText));return j}
+  finally{waitEnd(w)}}
+const post=(p,b)=>api(p,{method:"POST",body:JSON.stringify(b||{})});
+function cap(t){t=String(t||"");return t.charAt(0).toUpperCase()+t.slice(1)}
+function initials(n){return n.split(/\s+/).map(x=>x[0]).slice(0,2).join("").toUpperCase()}
+function runTitle(r){const p=r.params||{dataset_name:r.dataset_name};const m=(r.prompt||"").match(/APP-\d{4}/i);
+  if(r.use_case=="upload")return "Question about "+(p.dataset_name||"your data");
+  if(r.use_case=="credit"&&(p.app_id||m))return "Loan decision for "+(p.app_id||m[0].toUpperCase());return UC[r.use_case]||r.use_case}
+function speaker(s){if(!s.startsWith("human"))return "Credit agent";const p=s.split(":");
+  if(S.me&&p[2]==S.me.email)return "You";return roleT(p[1])+(p[2]?" ("+p[2].split("@")[0]+")":"")}
+const LOGO=`<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="7" fill="#0E5E63"/><path d="M5 19c3-3 5-3 8 0s5 3 8 0 4-2 4-2" stroke="#E9C46A" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M5 13c3-3 5-3 8 0s5 3 8 0 4-2 4-2" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".85"/></svg>`;
+
+/* ════════════ sign in ════════════ */
+function renderLogin(){clearTimeout(S.timer);
+  $("app").innerHTML=`<div class="login"><div class="art"><div class="row" style="gap:12px"><span style="display:inline-flex;border:1.5px solid rgba(255,255,255,.5);border-radius:9px">${LOGO}</span><b style="color:#fff;font-size:17px">Analytixa</b></div>
+   <div><h1>Analytics that waits for the right person.</h1><p>Agents prepare the analysis. The bank's policies decide when a person must look, and every decision carries the name of the person who made it.</p></div>
+   <p style="font-size:13px">All customers and transactions in this system are synthetic.</p>
+   <svg class="waves" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60c50-30 100-30 150 0s100 30 150 0 100-30 150 0 100 30 150 0v60H0z" fill="#0A4A4E"/></svg></div>
+  <form id="lf" novalidate><div id="demo"></div><div><h2 style="font-size:24px;margin-bottom:4px">Sign in</h2><p class="hint" style="margin:0">Use the account your administrator created for you.</p></div>
+   <div><label class="f" for="em">Email</label><input id="em" type="email" autocomplete="username" required></div>
+   <div><label class="f" for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required></div>
+   <div id="lerr" role="alert" class="hint" style="color:var(--stop);min-height:20px"></div>
+   <button class="primary" type="submit" style="padding:11px">Sign in</button>
+   <p class="hint">Forgot your password? Ask your administrator to set a new one.</p></form></div>`;
+  fetch("/api/public").then(r=>r.ok?r.json():null).then(p=>{if(!p||!p.showcase||!p.demo.length||!$("demo"))return;
+    $("demo").innerHTML=`<div class="demo-box"><h2 style="font-size:22px;margin:0 0 4px">Try the demo</h2><p class="hint" style="margin:0 0 12px">No password needed. Pick a role to see what that person sees. Every record is synthetic.</p>
+     <div class="demo-roles">${p.demo.map(d=>`<button type="button" class="demo-role" data-role="${h(d.role)}"><b>${h(d.title)}</b><span>${h(d.description)}</span></button>`).join("")}</div>
+     <p class="hint" style="margin:14px 0 0">Or sign in with an account below.</p></div>`;
+    document.querySelectorAll(".demo-role").forEach(b=>b.onclick=async()=>{document.querySelectorAll(".demo-role").forEach(x=>x.disabled=true);b.querySelector("span").textContent="Signing in…";
+      try{S.me=await post("/api/demo-login",{role:b.dataset.role});await start()}catch(x){$("lerr").textContent=x.message;document.querySelectorAll(".demo-role").forEach(x=>x.disabled=false)}})}).catch(()=>{});
+  $("lf").onsubmit=async e=>{e.preventDefault();$("lerr").textContent="";const b=$("lf").querySelector("button[type=submit]");
+    if(!$("em").value.trim()||!$("pw").value){$("lerr").textContent="Enter your email and password.";return}
+    b.disabled=true;b.textContent="Signing in…";const note=setTimeout(()=>{$("lerr").style.color="var(--ink2)";$("lerr").textContent="Connecting to the database. This can take a moment the first time."},2500);
+    try{S.me=await post("/api/login",{email:$("em").value,password:$("pw").value});b.textContent="Loading your work…";await start()}
+    catch(x){$("lerr").style.color="var(--stop)";$("lerr").textContent=x.message;b.disabled=false;b.textContent="Sign in"}finally{clearTimeout(note)}};
+  $("em").focus()}
+
+/* ════════════ shell and routing ════════════ */
+function pages(){const r=S.me.role,p=[["home","Home"],["ask","Ask"]];
+  if(S.meta.uploads?.allowed)p.push(["data","Your data"]);p.push(["approvals","Approvals"]);
+  if(["loan_officer","credit_manager"].includes(r))p.push(["applications","Loan applications"]);
+  p.push(["activity","Activity"]);
+  if(r=="admin")p.push(["staff","Staff"]);
+  p.push(["policies","Policies"]);
+  return p}
+async function start(){
+  S.meta=await api("/api/meta");S.me=S.meta.user;S.meta.roles.forEach(r=>ROLE_T[r.id]=r.title);
+  document.title="Analytixa · "+S.meta.company.name;
+  window.onhashchange=route;route();pollInbox();clearInterval(S.poll);S.poll=setInterval(pollInbox,8000)}
+function shell(active){const n=S.inbox;
+  return `<header class="bar"><div class="bar-in"><a class="brand" href="#/home">${LOGO}<div><b>Analytixa</b><span>${h(S.meta.company.name)}</span></div></a>
+   <nav class="main" aria-label="Main">${pages().map(([k,t])=>`<a href="#/${k}" ${active==k?'aria-current="page"':""}>${t}${k=="approvals"&&n?`<span class="count" aria-label="${n} waiting">${n}</span>`:""}</a>`).join("")}</nav>
+   <div class="who"><button class="me" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu(this)"><span class="avatar">${initials(S.me.full_name)}</span><span class="nm"><b>${h(S.me.full_name)}</b><span>${h(S.me.role_title)}</span></span></button></div></div></header>
+   ${S.meta.showcase?`<div class="showcase">Public demo. Every customer and transaction is synthetic, and visitors share these demo accounts. Do not upload real or personal data. Uploads and open decisions are cleared every day. Settings, policies and staff accounts are read-only.</div>`:""}<div id="mine"></div><main id="view"></main>`}
+function toggleMenu(b){const ex=document.querySelector(".menu");if(ex){ex.remove();b.setAttribute("aria-expanded","false");return}
+  const m=document.createElement("div");m.className="menu";m.setAttribute("role","menu");
+  m.innerHTML=`<div style="padding:8px 10px"><b>${h(S.me.full_name)}</b><div class="hint">${h(S.me.email)}</div></div><hr>
+   <button role="menuitem" onclick="go('audit')">Audit trail</button><button role="menuitem" onclick="go('about')">How the system works</button>
+   ${S.me.role=="admin"?`<button role="menuitem" onclick="openSettings()">Language model settings</button><button role="menuitem" onclick="openDiagnostics()">Diagnostic log</button>`:""}<hr>
+   <button role="menuitem" onclick="signOut()">Sign out</button>`;
+  b.parentElement.appendChild(m);b.setAttribute("aria-expanded","true");
+  setTimeout(()=>document.addEventListener("click",function c(e){if(!m.contains(e.target)){m.remove();b.setAttribute("aria-expanded","false");document.removeEventListener("click",c)}}),0)}
+function go(p){document.querySelector(".menu")?.remove();location.hash="#/"+p}
+async function signOut(){await post("/api/logout");S.me=null;location.hash="";renderLogin()}
+function mineStrip(items){const box=$("mine");if(!box)return;const here=location.hash.split("/")[2];
+  const show=(items||[]).filter(c=>c.run_id!=here&&location.hash!="#/approvals");
+  box.innerHTML=show.length?`<div style="background:var(--ochreT);border-bottom:1px solid #E9D3AE"><div style="max-width:1180px;margin:0 auto;padding:8px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px">
+    <b>${show.length==1?"A decision is waiting for you:":show.length+" decisions are waiting for you:"}</b>${show.slice(0,3).map(c=>`<a href="#/task/${c.run_id}">${h(GATE[c.kind]||c.kind)} (${h(runTitle(c))})</a>`).join(", ")}${show.length>3?` <a href="#/approvals">and more</a>`:""}</div></div>`:""}
+async function pollInbox(){if(!S.me)return;try{const i=await api("/api/inbox");const n=i.mine.length;S.mineItems=i.mine;mineStrip(i.mine);
+  if(n!=S.inbox){S.inbox=n;const a=document.querySelector('nav.main a[href="#/approvals"]');
+    if(a)a.innerHTML="Approvals"+(n?`<span class="count" aria-label="${n} waiting">${n}</span>`:"")}}catch(e){}}
+function route(){clearTimeout(S.timer);const [_,page,arg]=(location.hash||"#/home").split("/");const p=page||"home";
+  $("app").innerHTML=shell(p=="task"?"":p);const v=$("view");mineStrip(S.mineItems);
+  const views={home:viewHome,ask:viewAsk,approvals:viewApprovals,applications:viewApplications,activity:viewActivity,
+    staff:viewStaff,policies:viewPolicies,audit:viewAudit,about:viewAbout,task:()=>viewTask(arg),
+    data:v=>arg?viewDataset(v,arg):viewData(v)};
+  (views[p]||viewHome)(v).catch?.(e=>{if(e.message!="Signed out")v.innerHTML=`<div class="notice bad">${h(e.message)}</div>`});
+  window.scrollTo(0,0)}
+
+/* ════════════ Home ════════════ */
+async function viewHome(v){
+  const hm=await api("/api/home");const hr=new Date().getHours();
+  const greet=hr<12?"Good morning":hr<17?"Good afternoon":"Good evening";const n=hm.waiting.length;
+  v.innerHTML=`<h1>${greet}, ${h(S.me.full_name.split(" ")[0])}</h1>
+   <p class="lede">${n?`${n} ${n==1?"item is":"items are"} waiting for your decision.`:"Nothing is waiting for you right now."}${hm.pending_applications?` ${hm.pending_applications} loan applications are pending.`:""}</p>
+   ${n?`<div class="section-h"><h2>Waiting for you</h2><a class="hint" href="#/approvals">See all approvals</a></div>
+   <div class="panel flush"><ul class="list">${hm.waiting.slice(0,5).map(c=>`<li class="click" onclick="location.hash='#/task/${c.run_id}'">
+     <div class="main"><div class="t">${h(runTitle(c))}</div><div class="s">${h(GATE[c.kind]||c.title)}, opened ${when(c.created_at)}</div></div>
+     <button class="primary small">Review</button></li>`).join("")}</ul></div>`:""}
+   <div class="section-h"><h2>Start something</h2></div>
+   <div class="tasks">${(QUICK[S.me.role]||[]).map(([k,p,t],i)=>`<button class="task" onclick="quick(${i})"><b>${h(t)}</b><span>${k=="apps"?"Pick an application and get a policy check":k=="page"?"Open":h(p)}</span></button>`).join("")}
+    ${S.meta.uploads?.allowed?`<button class="task" onclick="location.hash='#/data'"><b>Analyse your own data</b><span>Upload a spreadsheet and ask questions about it</span></button>`:""}
+    <button class="task" onclick="location.hash='#/ask'"><b>Ask something else</b><span>Type a question or task in plain words</span></button></div>
+   <div class="section-h"><h2>Your recent tasks</h2><a class="hint" href="#/activity">All activity</a></div>
+   ${hm.recent.length?`<div class="panel flush"><ul class="list">${hm.recent.map(r=>`<li class="click" onclick="location.hash='#/task/${r.run_id}'">
+     <div class="main"><div class="t">${h(runTitle(r))}</div><div class="s">${h(r.prompt)}</div></div><span class="hint">${when(r.created_at)}</span>${chip(r.status)}</li>`).join("")}</ul></div>`
+     :`<div class="panel empty">Tasks you start appear here.</div>`}`}
+async function quick(i){const [k,p]=QUICK[S.me.role][i];
+  if(k=="apps")return location.hash="#/applications";if(k=="page")return location.hash="#/"+p;
+  await startRun(p,k)}
+async function startRun(prompt,uc){try{const r=await post("/api/runs",{prompt,use_case:uc||""});location.hash="#/task/"+r.run_id}catch(e){toast(e.message)}}
+
+/* ════════════ Ask ════════════ */
+async function viewAsk(v){const mine=ROLE_UC[S.me.role]||["bi"];
+  v.innerHTML=`<div class="narrow"><h1>Ask</h1><p class="lede">Ask a question about the bank or give the agents a task. They plan the work, use only approved data and tools, and stop for a person wherever the bank's policy requires it.</p>
+   <form id="af" class="panel"><label class="f" for="q">Your question or task</label>
+    <textarea id="q" rows="3" placeholder="For example: What is the delinquency rate by branch in Lagos?"></textarea>
+    <div class="row" style="margin-top:12px"><span class="hint">The task type is detected from your words. For a full analysis or a dashboard, name the data, such as loans, transactions or ATM cash.${S.meta.uploads?.allowed?` To ask about a spreadsheet of your own, use <a href="#/data">Your data</a>.`:""}</span><button class="primary right" type="submit">Start</button></div></form>
+   <h2>Suggestions for your role</h2>
+   <div class="panel flush"><ul class="list">${mine.flatMap(k=>SUGGEST[k].map(s=>[k,s])).map(([k,s])=>`<li class="click" onclick="$('q').value=this.dataset.q;$('q').focus()" data-q="${h(s)}"><div class="main"><div>${h(s)}</div><div class="s">${UC[k]}</div></div></li>`).join("")}</ul></div></div>`;
+  $("af").onsubmit=e=>{e.preventDefault();const q=$("q").value.trim();if(!q){toast("Type a question or task first.");return $("q").focus()}startRun(q)};
+  $("q").onkeydown=e=>{if(e.key=="Enter"&&(e.ctrlKey||e.metaKey))$("af").requestSubmit()};$("q").focus()}
+
+/* ════════════ Loan applications ════════════ */
+async function viewApplications(v){S.appStatus=S.appStatus||"pending";
+  const apps=await api("/api/applications?status="+S.appStatus);
+  v.innerHTML=`<h1>Loan applications</h1><p class="lede">Choose an application. The credit agent checks it against the bank's loan policy and prepares a recommendation for you to decide.</p>
+   <div class="row" style="margin-bottom:12px"><input id="fs" placeholder="Search by application, name or branch" style="max-width:340px" aria-label="Search applications">
+    <select id="st" style="width:auto" aria-label="Status"><option value="pending">Pending</option><option value="all">All</option><option value="approved">Approved</option><option value="declined">Declined</option><option value="referred">Referred</option></select>
+    <span class="hint right" id="ac"></span></div>
+   <div class="panel flush" style="overflow-x:auto"><table><thead><tr><th>Application</th><th>Customer</th><th>Branch</th><th>Purpose</th><th class="n">Amount</th><th class="n">Months</th><th>Received</th><th></th></tr></thead><tbody id="ab"></tbody></table></div>`;
+  $("st").value=S.appStatus;$("st").onchange=e=>{S.appStatus=e.target.value;viewApplications(v)};
+  const draw=()=>{const q=$("fs").value.toLowerCase();const rows=apps.filter(a=>!q||[a.app_id,a.name,a.branch].join(" ").toLowerCase().includes(q));
+    $("ac").textContent=`${rows.length} of ${apps.length}`;
+    $("ab").innerHTML=rows.length?rows.map(a=>`<tr><td><b>${a.app_id}</b></td><td>${h(a.name)}</td><td>${h(a.branch)}</td><td>${h(a.purpose)}</td><td class="n">${ngn(a.amount)}</td><td class="n">${a.tenor_months}</td><td>${h(a.applied_on)}</td>
+      <td>${a.status=="pending"?`<button class="small primary" onclick="startRun('Should we give the loan for ${a.app_id}?','credit')">Assess</button>`:`<span class="chip ${a.status=="approved"?"done":a.status=="declined"?"stop":"quiet"}">${a.status}</span>`}</td></tr>`).join("")
+      :`<tr><td colspan="8" class="empty">No application matches.</td></tr>`};
+  $("fs").oninput=draw;draw()}
+
+/* ════════════ Approvals ════════════ */
+async function viewApprovals(v){const ib=await api("/api/inbox");S.inbox=ib.mine.length;
+  v.innerHTML=`<h1>Approvals</h1><p class="lede">Decisions the bank's policy sends to ${h(S.me.role_title.toLowerCase())}s. Each task stays paused until someone in this role decides.</p>
+   <div class="panel flush">${ib.mine.length?`<ul class="list">${ib.mine.map(c=>`<li class="click" onclick="location.hash='#/task/${c.run_id}'"><div class="main"><div class="t">${h(runTitle(c))}</div>
+     <div class="s">${GATE[c.kind]||c.kind}: ${h(c.prompt)}</div></div><span class="hint">${when(c.created_at)}</span><button class="primary small">Review</button></li>`).join("")}</ul>`
+     :`<div class="empty">Nothing is waiting for your role. New items appear here automatically.</div>`}</div>
+   <div class="section-h"><h2>Recently decided</h2></div>
+   <div class="panel flush">${ib.done.length?`<table><tr><th>Item</th><th>Decision</th><th>By</th><th>When</th></tr>${ib.done.map(c=>`<tr class="click" onclick="location.hash='#/task/${c.run_id}'"><td>${h(c.title)}<div class="hint">${UC[c.use_case]}</div></td>
+     <td><span class="chip ${c.decision=="approve"?"done":"stop"}">${c.decision=="approve"?"Approved":"Rejected"}</span></td><td>${h(c.decided_by)}</td><td>${when(c.decided_at)}</td></tr>`).join("")}</table>`
+     :`<div class="empty">No decisions yet.</div>`}</div>`}
+
+/* ════════════ Activity ════════════ */
+async function viewActivity(v){S.actMine=S.actMine??1;const runs=await api("/api/runs?mine="+S.actMine);
+  v.innerHTML=`<h1>Activity</h1><p class="lede">Every task the agents have worked on, newest first.</p>
+   <div class="tabs" role="tablist"><button role="tab" aria-selected="${S.actMine==1}" onclick="S.actMine=1;viewActivity($('view'))">Started by me</button><button role="tab" aria-selected="${S.actMine==0}" onclick="S.actMine=0;viewActivity($('view'))">Everyone</button></div>
+   <div class="panel flush">${runs.length?`<table><tr><th>Task</th><th>Started by</th><th>When</th><th>Status</th></tr>${runs.map(r=>`<tr class="click" onclick="location.hash='#/task/${r.run_id}'">
+    <td><b>${h(runTitle(r))}</b><div class="hint">${h(r.prompt)}</div></td><td>${h(r.full_name||roleT(r.role))}</td><td>${when(r.created_at)}</td><td>${chip(r.status)}</td></tr>`).join("")}</table>`
+    :`<div class="empty">No tasks yet. <a href="#/ask">Ask something</a> to start one.</div>`}</div>`}
+
+/* ════════════ Task page ════════════ */
+async function viewTask(id,v){v=$("view");S.runId=id;S.sig=null;
+  v.innerHTML=`<div class="empty">Loading the task…</div>`;await refreshTask(true)}
+async function refreshTask(force){clearTimeout(S.timer);const id=S.runId;if(!$("view")||!location.hash.includes(id))return;
+  let r;try{r=await api("/api/runs/"+id)}catch(e){if(e.message!="Signed out")$("view").innerHTML=`<div class="notice bad">${h(e.message)}</div>`;return}
+  const sig=[r.status,r.checkpoint?.cp_id,r.dialogue.length,(r.plan.find(n=>n.status=="running")||{}).id,r.checkpoint?JSON.stringify(r.checkpoint.evidence).length:0].join("|");
+  if(force||sig!=S.sig){const keep=capture();$("view").innerHTML=taskHTML(r);restore(keep);S.sig=sig;S.run=r;wire(r)}
+  const next=r.status=="running"?1200:["awaiting_approval","paused"].includes(r.status)?5000:0;
+  if(next)S.timer=setTimeout(()=>refreshTask(false),next)}
+function capture(){const o={};document.querySelectorAll("#view [data-keep]").forEach(e=>o[e.dataset.keep]=e.type=="checkbox"||e.type=="radio"?e.checked:e.value);
+  o._open=[...document.querySelectorAll("#view details[data-k]")].filter(d=>d.open).map(d=>d.dataset.k);return o}
+function restore(o){Object.entries(o).forEach(([k,v])=>{if(k=="_open")return;const e=document.querySelector(`#view [data-keep="${k}"]`);if(e){if(e.type=="checkbox"||e.type=="radio")e.checked=v;else e.value=v}});
+  (o._open||[]).forEach(k=>{const d=document.querySelector(`#view details[data-k="${k}"]`);if(d)d.open=true})}
+function statusLine(r){const c=r.checkpoint;
+  if(r.status=="awaiting_approval"&&c)return c.mine?`Waiting for you: ${h(GATE[c.kind]||c.kind).toLowerCase()}.`:`Waiting for a ${h(roleT(c.assigned_role).toLowerCase())} to ${h((GATE[c.kind]||"decide").toLowerCase())}.`;
+  if(r.status=="running"){const n=r.plan.find(n=>n.status=="running")||r.plan.find(n=>n.status=="pending");return `Working: ${h(n?n.title.toLowerCase():"finishing")}.`}
+  if(r.status=="completed")return "Done.";if(r.status=="stopped")return "Stopped by a safety check. Nothing was sent to an outside system after this point.";
+  if(r.status=="needs_input")return "The agent needs more detail to answer.";if(r.status=="failed")return "Something went wrong. The details are below.";
+  if(r.status=="paused")return "Paused. Resume from “How this was produced”.";if(r.status=="cancelled")return "Cancelled. The dataset was deleted, so open decisions were withdrawn.";return ""}
+function taskHTML(r){
+  return `<div class="task-head"><div style="flex:1;min-width:0"><a href="javascript:history.back()" class="hint">Back</a>
+    <h1 style="margin-top:6px">${h(runTitle(r))}</h1><div class="meta">${r.prompt.length>280?`${h(r.prompt.slice(0,280))}… <details class="inline" data-k="prompt" style="display:inline"><summary style="display:inline">Show the full request</summary><div style="white-space:pre-wrap;margin-top:6px">${h(r.prompt)}</div></details>`:h(r.prompt)}</div>
+    <div class="meta">Started by ${h(r.created_by||roleT(r.role))}, ${when(r.created_at)}</div></div>${chip(r.status)}</div>
+   <p aria-live="polite" style="font-size:17px;margin:0 0 14px">${statusLine(r)}</p>
+   <ol class="steps" aria-label="Steps">${r.plan.map(n=>`<li class="${n.status}" title="${h(n.summary||"")}">${h(n.title)}</li>`).join("")}</ol>
+   ${r.blocked_reason?`<div class="notice bad"><b>Why it stopped.</b> ${h(r.blocked_reason)}</div>`:""}
+   ${r.status=="failed"&&r.error?`<div class="notice bad"><b>Error.</b> ${h(String(r.error).split("\n").filter(Boolean).slice(-1)[0])}</div>`:""}
+   ${r.checkpoint?gateHTML(r):""}
+   ${r.result?resultHTML(r):""}
+   ${r.status=="running"&&!r.result?`<div class="panel empty">The agents are working. This page updates by itself.</div>`:""}
+   ${detailsHTML(r)}`}
+
+/* ── how this was produced ── */
+function detailsHTML(r){const steer=steerable(r.params||{});
+  return `<details class="more" data-k="how"><summary>How this was produced</summary><div class="body">
+   <h3 style="margin-top:0">Steps</h3><ul class="trail">${r.plan.map(n=>`<li><span class="dot ${n.status}"></span><div><b>${h(n.title)}</b> <span class="hint">${h(S.meta.agents[n.agent]||n.agent)}</span>
+     ${n.summary?`<div class="hint">${h(n.summary)}</div>`:""}${(n.blocked||[]).map(b=>`<div style="color:var(--stop);font-size:13px">Safety check blocked ${h(b.tool)}: ${h(b.reason)}</div>`).join("")}</div></li>`).join("")}</ul>
+   <h3>People who decided</h3>${r.history.length?`<table><tr><th>Decision point</th><th>Role</th><th>Outcome</th></tr>${r.history.map(c=>`<tr><td>${h(GATE[c.kind]||c.kind)}<div class="hint">${h(c.title)}</div></td><td>${h(roleT(c.assigned_role))}</td>
+     <td>${c.status=="open"?'<span class="chip wait">Open</span>':c.status=="superseded"?'<span class="chip quiet">Replaced</span>':`<span class="chip ${c.decision=="approve"?"done":"stop"}">${c.decision=="approve"?"Approved":"Rejected"}</span> <span class="hint">${h(c.decided_by||"")}</span>`}
+     ${c.comment?`<div class="hint">“${h(c.comment)}”</div>`:""}</td></tr>`).join("")}</table>`:`<p class="hint">No person has been asked to decide anything in this task.</p>`}
+   <details class="inline" data-k="calls"><summary>Tool calls checked by the safety layer (${r.calls.length})</summary><table><tr><th>Agent</th><th>Tool</th><th>Type</th><th>Autonomy</th></tr>
+     ${r.calls.map(c=>`<tr><td>${h(S.meta.agents[c.actor]||c.actor)}</td><td>${c.event=="tool_blocked"?`<span style="color:var(--stop)">Blocked ${h(c.tool_id||"")}</span>`:`<span class="tag">${c.tool_id}</span> ${h(toolName(c.tool_id))}`}</td><td>${h(c.action_class||"")}</td><td>${h(c.level||"")}</td></tr>`).join("")}</table></details>
+   <p class="hint">Policies used: ${Object.entries(r.policy_versions||{}).filter(([k])=>["loan_policy","aml_policy","churn_policy","cash_policy","envelopes","autonomy"].includes(k)).map(([k,v])=>`${k.replace(/_/g," ")} v${v}`).join(", ")}. Task ${r.run_id}. <a href="#/audit" onclick="S.ledRun='${r.run_id}'">Open in the audit trail</a></p>
+   ${["running","awaiting_approval","paused","completed"].includes(r.status)&&Object.keys(steer).length?`<h3>Change settings and run again</h3>
+     <p class="hint">Earlier steps keep their results. Later steps run again, and any decisions after that point are asked again.</p>
+     <div class="fields">${Object.entries(steer).map(([k,val])=>`<div><label class="f" for="st_${k}">${h(PARAM[k]||k)}</label>${typeof val=="boolean"?`<label class="check"><input type="checkbox" id="st_${k}" data-st="${k}" ${val?"checked":""}> Yes</label>`:`<input id="st_${k}" data-st="${k}" data-keep="st_${k}" value="${h(Array.isArray(val)?val.join(", "):val)}">`}</div>`).join("")}
+      <div><label class="f" for="stNode">Run again from</label><select id="stNode">${r.plan.map(n=>`<option value="${n.id}">${h(n.title)}</option>`).join("")}</select></div></div>
+     <div class="row"><button onclick="steerRun()">Run again from this step</button>${["running","awaiting_approval"].includes(r.status)?`<button class="link" onclick="pauseRun()">Pause at the next step</button>`:""}</div>`:""}
+   ${r.error?`<details class="inline" data-k="err"><summary>Technical error details</summary><pre>${h(r.error)}</pre></details>`:""}</div></details>`}
+const PARAM={app_id:"Application",city:"City",segment:"Segment",min_tenure:"Minimum tenure (months)",threshold:"Risk threshold (0 to 1)",budget:"Budget (₦)",days:"Days to cover",launch:"Launch outreach",exclude_branches:"Exclude branches"};
+function steerable(p){const o={};for(const k of Object.keys(PARAM))if(p[k]!==undefined)o[k]=p[k];return o}
+function toolName(id){const t=S.meta.tools.find(t=>t.id==id);return t?t.name:""}
+async function pauseRun(){await post(`/api/runs/${S.runId}/pause`);toast("The task will pause at the next step.");refreshTask(true)}
+async function steerRun(){const p={};document.querySelectorAll("[data-st]").forEach(e=>{const k=e.dataset.st,orig=steerable(S.run.params)[k];
+  if(e.type=="checkbox")p[k]=e.checked;else if(Array.isArray(orig))p[k]=e.value.split(",").map(x=>x.trim()).filter(Boolean);
+  else if(typeof orig=="number")p[k]=Number(e.value);else p[k]=e.value});
+  try{await post(`/api/runs/${S.runId}/steer`,{node_id:$("stNode").value,params:p});toast("Running again from the chosen step.");refreshTask(true)}catch(e){toast(e.message)}}
+
+/* ── decision points ── */
+function gateHTML(r){const c=r.checkpoint,ev=c.evidence;
+  if(!c.mine)return `<div class="notice"><b>${h(c.title)}.</b> ${c.personal?`This decision belongs to ${h(r.created_by)}, who asked. The task continues when they decide.`:`This decision belongs to a ${h(roleT(c.assigned_role).toLowerCase())}. It is in their Approvals list. The task continues when they decide.`}</div>
+    ${["credit_decision","credit_exception"].includes(c.kind)?`<details class="more" data-k="ev"><summary>See the evidence they will review</summary><div class="body">${creditEvidence(ev)}</div></details>`:""}`;
+  if(c.kind=="interpretation")return interpretGate(r);
+  const credit=["credit_decision","credit_exception"].includes(c.kind);
+  return `${credit?creditEvidence(ev,c.kind)+discussHTML(r):`<div class="panel"><h2>${h(c.title.replace(/: authorise this action$/,""))}</h2>${gateBody(c.kind,ev)}</div>`}${slipHTML(r)}`}
+function gateBody(kind,ev){
+  if(kind=="plan")return `<p class="hint">The agents will follow this plan once you approve it.</p><div class="kv">${Object.entries(ev.plan).map(([k,v])=>`<div>${h(k.replace(/_/g," "))}</div><div>${Array.isArray(v)?v.map(x=>h(x)).join("<br>"):typeof v=="object"?h(JSON.stringify(v)):h(v)}</div>`).join("")}</div>`;
+  if(kind=="data_review")return `<p>${h(ev.instruction||"The application has data problems.")}</p><table><tr><th>Field</th><th>Problem</th><th>Severity</th></tr>${(ev.issues||[]).map(i=>`<tr><td>${h(i.field)}</td><td>${h(i.issue)}</td><td><span class="chip ${i.severity=="blocking"?"stop":"wait"}">${h(i.severity)}</span></td></tr>`).join("")}</table>`;
+  if(kind=="escalation")return `<p>${h(ev.options)}</p><table><tr><th>Branch</th><th class="n">Customers</th><th class="n">At risk</th><th class="n">Confidence</th><th>Weakest signal</th></tr>${ev.segments.map(s=>`<tr><td>${h(s.branch)}</td><td class="n">${s.customers}</td><td class="n">${s.at_risk}</td><td class="n">${s.confidence.score}</td><td>${h(s.confidence.weakest)}</td></tr>`).join("")}</table>`;
+  if(kind=="churn_strategy")return `<div class="cols3"><div><span class="figure">${ev.customers}</span><span class="figure-l">customers would get an offer</span></div><div><span class="figure">${ngn(ev.spent)}</span><span class="figure-l">of the ${ngn(ev.budget)} budget</span></div>
+     <div><span class="figure">${ev.suppressed}</span><span class="figure-l">left out by policy (${h(Object.entries(ev.suppression_reasons||{}).map(([k,v])=>k+" "+v).join(", ")||"none")})</span></div></div>
+     <table style="margin-top:16px"><tr><th>Offer</th><th class="n">Customers</th><th class="n">Cost</th></tr>${ev.by_offer.map(o=>{const id=(ev.offers||[]).find(x=>x.name==o.offer);return `<tr><td>${id?`<span class="tag">${id.id}</span> `:""}${h(o.offer)}</td><td class="n">${o.customers}</td><td class="n">${ngn(o.cost)}</td></tr>`}).join("")}</table>
+     <p class="hint">Fairness: ${fairText(ev.fairness)}.</p>`;
+  if(kind=="aml_case")return `<p class="hint">Ticked reports are filed with the financial intelligence unit under your name. Untick any report that should not be filed.</p>${ev.drafts.map(d=>`<div style="border-top:1px solid var(--line2);padding:14px 0">
+     <label class="check"><input type="checkbox" data-file="${d.case_id}" data-keep="f_${d.case_id}" checked><b>${d.case_id}</b> <span class="chip stop">${h(d.typology.replace(/_/g," "))}</span><span class="hint">risk ${d.score}</span></label>
+     <ul class="hint" style="margin:8px 0 4px">${d.grounds.map(g=>`<li>${h(g)}</li>`).join("")}</ul><details class="inline" data-k="d_${d.case_id}"><summary>Read the draft report</summary><p class="doc" style="font-size:15px">${h(d.draft)}</p></details></div>`).join("")}`;
+  if(kind=="action")return `<p>The agent wants to do something outside this system. This is exactly what will happen if you authorise it.</p><div class="kv">${Object.entries(ev.dry_run||{}).map(([k,v])=>`<div>${h(k.charAt(0).toUpperCase()+k.slice(1).replace(/_/g," "))}</div><div>${h(typeof v=="number"&&/amount|cost|total/.test(k)?ngn(v):String(v).replace(/NGN /g,"₦"))}</div>`).join("")}<div>Why it needs you</div><div>${/outside/i.test(ev.envelope||"")?"It is above the limit the bank lets agents act on alone.":/always/i.test(ev.envelope||"")?"Bank policy says a person must always approve this.":h(ev.envelope||"Bank policy requires approval.")}</div></div>`;
+  if(kind=="release")return `<p class="doc">${h(ev.summary||"")}</p>`;
+  return `<pre>${h(JSON.stringify(ev,null,1))}</pre>`}
+const EDIT={budget:"Budget (₦)",remove_offers:"Offers to remove (IDs, comma separated)",launch:"Send the offers after approval"};
+function slipHTML(r){const c=r.checkpoint,ev=c.evidence,credit=c.kind=="credit_decision",exc=c.kind=="credit_exception";
+  const ed=Object.entries(ev.editable||{}).filter(([k])=>k!="file_cases");
+  const apLabel={action:"Authorise",aml_case:"File the ticked reports",release:"Release",plan:"Approve the plan",churn_strategy:"Approve the offers",data_review:"Continue anyway",escalation:"Continue"}[c.kind]||"Approve";
+  const rjLabel={credit_decision:"Return without a decision",credit_exception:"Refuse the exception",data_review:"Return the application",action:"Do not authorise",aml_case:"File none",plan:"Reject the plan"}[c.kind]||"Reject";
+  return `<section class="slip" aria-labelledby="slipH"><div class="slip-in"><h2 id="slipH">${exc?"Approve the exception?":"Your decision"}</h2>
+   <p class="hint" style="margin:0">${credit?"The agent recommends, you decide. If you depart from the recommendation, say why. A credit manager then reviews it as an exception.":exc?`${h(ev.exception_reason)}. The officer chose <b>${h(ev.officer_decision?.decision)}</b>: “${h(ev.officer_decision?.comment||"no comment")}”.`:"Nothing after this point happens until you decide."}</p>
+   ${credit?`<div class="opts" role="radiogroup" aria-label="Final decision">${[["","Accept the recommendation",ev.recommendation],["approve","Approve",""],["decline","Decline",""],["refer","Refer to committee",""]].map(([v,t,s],i)=>
+     `<label class="opt"><input type="radio" name="fd" value="${v}" data-keep="fd_${i}" ${i==0?"checked":""}><span>${t}${s?`<small>${h(s)}</small>`:""}</span></label>`).join("")}</div>`:""}
+   ${ed.length?`<div class="fields">${ed.map(([k,v])=>`<div>${typeof v=="boolean"?`<label class="check" style="margin-top:22px"><input type="checkbox" data-ed="${k}" data-keep="ed_${k}" ${v?"checked":""}>${h(EDIT[k]||k)}</label>`:`<label class="f" for="ed_${k}">${h(EDIT[k]||k.replace(/_/g," "))}</label><input id="ed_${k}" data-ed="${k}" data-keep="ed_${k}" value="${h(v??"")}">`}</div>`).join("")}</div>`:""}
+   <label class="f" for="gc" style="margin-top:12px">Reason${credit||exc?"":" (optional)"}</label><textarea id="gc" data-keep="gc" rows="2" placeholder="${credit?"For example: payslip confirms the new salary":"Recorded with your decision"}"></textarea></div>
+   <div class="sign"><div class="sig"><span class="line">${h(S.me.full_name)}</span><small>${h(S.me.role_title)}. Your name and reason go into the audit trail.</small></div>
+    <button class="stop" onclick="decide('reject')">${rjLabel}</button><button class="${credit||exc?"go":"primary"}" onclick="decide('approve')">${credit?"Sign the decision":exc?"Approve the exception":apLabel}</button></div></section>`}
+async function decide(decision){const c=S.run.checkpoint,edits={};
+  document.querySelectorAll("[data-ed]").forEach(e=>edits[e.dataset.ed]=e.type=="checkbox"?e.checked:e.value);
+  const files=[...document.querySelectorAll("[data-file]")];if(files.length)edits.file_cases=files.filter(e=>e.checked).map(e=>e.dataset.file).join(",");
+  const fd=document.querySelector('input[name="fd"]:checked');if(fd&&fd.value)edits.final_decision=fd.value;
+  const comment=($("gc")||{value:""}).value.trim();
+  if(((fd&&fd.value)||c.kind=="credit_exception")&&!comment){toast("Give a reason for this decision.");return $("gc").focus()}
+  document.querySelectorAll(".sign button").forEach(b=>b.disabled=true);
+  try{await post(`/api/checkpoints/${c.cp_id}/decide`,{decision,comment,edits});toast(decision=="approve"?"Decision signed. The task continues.":"Rejected. The task has been told.");pollInbox();setTimeout(()=>refreshTask(true),400)}
+  catch(e){toast(e.message);document.querySelectorAll(".sign button").forEach(b=>b.disabled=false)}}
+
+/* ── did the agent understand the question? (HITL on meaning) ── */
+function understoodHTML(r,x){const mine=r.asked_by_me,conf=r.interpretation_confirmed;
+  const talk=r.dialogue.length?`<div class="chat">${r.dialogue.map(d=>`<div class="msg ${d.speaker.startsWith("human")?"h":"a"}"><small>${h(speaker(d.speaker).replace("Credit agent","Analytics agent"))}</small>${h(d.text)}</div>`).join("")}</div>`:"";
+  return `<div class="slip" style="margin-top:0"><div class="slip-in"><div class="figure-l">How I understood your question</div>
+    <p style="font-size:18px;margin:4px 0 0"><b>${h(x.interpretation||"")}</b>${x.plan_version?` <span class="hint" style="font-size:13px">Plan version ${x.plan_version}</span>`:""}</p>
+    ${(x.notes||[]).map(n=>`<p class="hint" style="margin:6px 0 0">${h(n)}</p>`).join("")}${talk}
+    ${conf?`<p class="hint" style="margin:10px 0 0">Confirmed by ${h(conf)}.</p>`:mine?`<p class="hint" style="margin:10px 0 0">If this is not what you meant, correct it. The agent reruns the question with your correction, and the change is recorded.</p>
+    <div class="row" style="margin-top:12px"><button class="primary" onclick="confirmUnderstood()">Yes, that is what I asked</button><button onclick="openCorrect()">No, correct it</button></div><div id="corr"></div>`:""}</div></div>`}
+function interpretGate(r){const ev=r.checkpoint.evidence,cf=ev.conflicts||[];
+  return `<section class="slip"><div class="slip-in"><h2>${cf.length?"Your correction and the plan disagree":"Is this what you asked?"}</h2><p class="hint" style="margin:0">${h(ev.why||"")}</p>
+    <div class="kv" style="margin-top:14px"><div>You asked</div><div>${h(ev.question)}</div><div>I understood${ev.plan_version?` (plan version ${ev.plan_version})`:""}</div><div><b>${h(ev.interpretation)}</b></div></div>
+    ${(ev.notes||[]).map(n=>`<p class="hint" style="margin:8px 0 0">${h(n)}</p>`).join("")}
+    ${cf.length?`<div class="notice bad"><b>This plan cannot be confirmed.</b> ${cf.map(h).join(" ")} Correct it below or restate what you need.</div>`:""}
+    <div class="row" style="margin-top:16px">${cf.length?"":`<button class="go" onclick="decide('approve')">Yes, run it</button>`}<button ${cf.length?'class="primary"':""} onclick="openCorrect()">${cf.length?"Correct the plan":"No, correct it"}</button></div><div id="corr"></div></div>
+    <div class="sign"><div class="sig"><span class="line">${h(S.me.full_name)}</span><small>You asked the question, so you confirm what it means.</small></div></div></section>`}
+async function confirmUnderstood(){const x=S.run.result||{};
+  try{await post(`/api/runs/${S.runId}/confirm`,{plan_version:x.plan_version??null,plan_hash:x.plan_hash??null});toast("Confirmed"+(x.plan_version?` for plan version ${x.plan_version}`:"")+". Recorded in the audit trail.");refreshTask(true)}
+  catch(e){toast(e.message);refreshTask(true)}}
+async function openCorrect(){const box=$("corr");if(!box)return;if(box.innerHTML){box.innerHTML="";return}
+  if(S.run.use_case=="upload")return openCorrectDS(box);
+  if(!S.sem)S.sem=await api("/api/semantic");const sem=S.sem,it=(S.run.result&&S.run.result.intent)||S.run.checkpoint?.evidence?.intent||S.run.params?.intent||{};
+  const f=it.filters||{},fv=k=>{const v=f[k];if(v==null)return{op:"is",vals:[]};const neg=typeof v=="object"&&!Array.isArray(v)&&"not" in v;const x=neg?v.not:v;return{op:neg?"not":"is",vals:Array.isArray(x)?x:[x]}};
+  const filt=k=>{const c=fv(k);return `<div><label class="f">${cap(k)}</label><div class="row" style="flex-wrap:nowrap"><select data-op="${k}" style="width:auto"><option value="is" ${c.op=="is"?"selected":""}>is</option><option value="not" ${c.op=="not"?"selected":""}>is not</option></select>
+    <select data-vals="${k}" multiple size="3" aria-label="${k} values">${sem.values[k].map(v=>`<option ${c.vals.includes(v)?"selected":""}>${v}</option>`).join("")}</select></div></div>`};
+  box.innerHTML=`<div style="border-top:1px dashed #C9D1CE;margin-top:16px;padding-top:16px"><label class="f" for="ctext">Tell the agent what you meant</label>
+   <div class="row" style="flex-wrap:nowrap"><input id="ctext" placeholder="For example: I meant every city except Lagos"><button class="primary" onclick="sendCorrect(false)">Send correction</button></div>
+   <details class="inline"><summary>Or set it exactly</summary>
+    <div class="fields"><div><label class="f" for="cm">Measure</label><select id="cm">${sem.metrics.map(m=>`<option value="${m.id}" ${m.id==it.metric?"selected":""}>${h(m.label)}</option>`).join("")}</select></div>
+     <div><label class="f" for="cd">Break down by</label><select id="cd" multiple size="4">${["branch","city","region","segment","product","channel","month","topic"].map(d=>`<option ${(it.dimensions||[]).includes(d)?"selected":""}>${d}</option>`).join("")}</select></div>
+     <div><label class="f" for="cp">Period</label><select id="cp"><option value="">All available data</option>${sem.periods.map(p=>`<option ${p==it.period?"selected":""}>${p}</option>`).join("")}</select></div></div>
+    <div class="fields">${filt("city")}${filt("segment")}${filt("region")}</div><p class="hint">Hold Ctrl to pick several values. Leave a list empty for no filter.</p>
+    <button onclick="sendCorrect(true)">Run with these settings</button></details></div>`;$("ctext").focus()}
+async function sendCorrect(structured){let b;
+  if(structured){const filters={};["city","segment","region"].forEach(k=>{const vals=[...document.querySelector(`[data-vals="${k}"]`).selectedOptions].map(o=>o.value);if(!vals.length)return;
+      const v=vals.length>1?vals:vals[0];filters[k]=document.querySelector(`[data-op="${k}"]`).value=="not"?{not:v}:v});
+    b={text:"",intent:{metric:$("cm").value,dimensions:[...$("cd").selectedOptions].map(o=>o.value),filters,period:$("cp").value||null}}}
+  else{const t=$("ctext").value.trim();if(!t){toast("Say what the agent got wrong.");return $("ctext").focus()}b={text:t}}
+  try{const r=await post(`/api/runs/${S.runId}/correct`,b);toast(r.unchanged?"That gives the same plan as before. Say what is still wrong, or set it exactly.":"Rerunning as: "+r.interpretation);refreshTask(true)}catch(e){toast(e.message)}}
+
+/* ── credit evidence and discussion ── */
+function fairText(f){if(!f)return"";return Object.entries(f).filter(([k,v])=>v&&typeof v=="object"&&!Array.isArray(v)).map(([k,v])=>`${k} ratio ${v.ratio}`).join(", ")+(f.pass?". Protected attributes pass":". A protected attribute is below "+f.threshold)+((f.watch||[]).length?". Watch: "+f.watch.join(", "):"")}
+function creditEvidence(ev){const rec=ev.recommendation,ver=ev.verification||{},fails=ev.rules.filter(x=>!x.pass);
+  return `<div class="verdict ${rec}"><div><div class="figure-l">The agent recommends</div><div class="word">${h(rec)}</div></div>
+    <div><div class="figure-l">Chance of default</div><span class="figure">${pct(ev.pd)}</span></div>
+    <div style="flex:1;min-width:220px"><div class="figure-l">Applicant</div><b>${h(ev.customer.name)}</b>, ${h(ev.customer.segment)}, ${h(ev.customer.branch)}<div class="hint">${ngn(ev.application.amount)} over ${ev.application.tenor_months} months for ${h(String(ev.application.purpose).toLowerCase())}</div></div>
+    ${ver.confidence?`<div><div class="figure-l">Agent confidence</div><span class="figure">${pct(ver.confidence.score,0)}</span></div>`:""}</div>
+   ${ev.escalated?`<div class="notice">The agent is not confident enough to recommend on its own for a decision this risky. Weakest signal: ${h(ver.confidence?.weakest)}.</div>`:""}
+   ${Object.keys(ev.asserted_facts||{}).length?`<div class="notice">This recommendation uses facts stated by an officer, not yet in the bank's records: ${h(Object.entries(ev.asserted_facts).map(([k,v])=>k.replace(/_/g," ")+" "+(typeof v=="number"&&v>1000?ngn(v):v)).join(", "))}. Keep the evidence on file.</div>`:""}
+   <div class="panel"><div class="cols"><div><h2>Why</h2>${fails.length?`<p style="margin-top:0">${fails.length} of ${ev.rules.length} policy rules fail:</p><ul class="why">${fails.map(x=>`<li><b>${h(x.name)}</b>: ${h(x.value)} against a limit of ${h(x.threshold)}</li>`).join("")}</ul>`:`<p style="margin-top:0">All ${ev.rules.length} policy rules pass.</p>`}
+     <h3>What would change the outcome</h3>${(ev.counterfactuals||[]).length?`<ul class="why">${ev.counterfactuals.map(c=>`<li>${h(c.text)}</li>`).join("")}</ul>`:`<p class="hint">Nothing within policy, or no change is needed.</p>`}</div>
+    <div><h2>What the model weighed</h2><h3 style="margin-top:0">Against</h3>${(ev.reasons?.adverse||[]).map(x=>`<div>${h(x.reason)}</div>`).join("")||'<p class="hint">Nothing material.</p>'}
+     <h3>For</h3>${(ev.reasons?.supporting||[]).map(x=>`<div>${h(x.reason)}</div>`).join("")||'<p class="hint">Nothing material.</p>'}</div></div>
+   <details class="inline" data-k="rules"><summary>All ${ev.rules.length} policy rules and checks</summary><div style="overflow-x:auto"><table><tr><th>Rule</th><th>Value</th><th>Limit</th><th>Result</th><th>Source</th></tr>
+    ${ev.rules.map(x=>`<tr class="${x.pass?"":"rule-fail"}"><td><b>${x.id}</b> ${h(x.name)} <span class="hint">${x.kind}</span></td><td>${h(x.value)}</td><td>${h(x.threshold)}</td><td>${x.pass?'<span class="chip done">Pass</span>':'<span class="chip stop">Fail</span>'}</td><td class="hint">${h(x.evidence)}</td></tr>`).join("")}</table></div>
+    <div class="kv" style="margin-top:12px"><div>Independent check</div><div>${ver.agree?"Agrees (debt-to-income "+pct(ver.independent_dti)+")":"Disagrees"}</div>
+    <div>Explanation quality</div><div>Faithful: ${ver.explanation?.faithful?"yes":"no"}. Stability ${ver.explanation?.stability}</div>
+    <div>Portfolio fairness</div><div>${fairText(ev.fairness)}</div><div>Officer limit</div><div>${ngn(ev.officer_limit)}</div></div></details></div>`}
+function discussHTML(r){return `<div class="panel"><h2>Discuss with the credit agent</h2>
+  <p class="hint" style="margin-top:-6px">Tell it something it may have missed, such as a new salary, a smaller amount, a longer term, collateral or a repaid loan. It checks every rule again and answers.</p>
+  <div class="chat" id="chat">${r.dialogue.map(d=>`<div class="msg ${d.speaker.startsWith("human")?"h":"a"}"><small>${h(speaker(d.speaker))}</small>${h(d.text)}</div>`).join("")}</div>
+  ${r.checkpoint.mine?`<form class="row" id="cf"><input id="chal" data-keep="chal" placeholder="For example: his salary rose to ₦900,000 last month" style="flex:1" aria-label="Message to the credit agent"><button type="submit">Send</button></form>`:""}</div>`}
+async function sendChallenge(e){e.preventDefault();const i=$("chal"),t=i.value.trim();if(!t)return;i.disabled=true;
+  try{await post(`/api/runs/${S.runId}/challenge`,{text:t});i.value="";await refreshTask(true)}catch(x){toast(x.message);i.disabled=false}}
+function wire(r){const f=$("cf");if(f)f.onsubmit=sendChallenge;if(r.result?.type=="dashboard")dashDraw();const ch=$("chat");if(ch)ch.scrollTop=ch.scrollHeight}
+
+
+/* ════════════ Your data ════════════ */
+const ROLE_W={measure:"Number to measure",category:"Group",identifier:"Identifier",date:"Date",personal:"Personal, masked",empty:"Empty"};
+function num(v){if(v==null||v==="")return"";const n=Number(v);if(isNaN(n))return h(v);return n.toLocaleString("en-GB",{maximumFractionDigits:Math.abs(n)<100?2:0})}
+async function viewData(v){const all=await api("/api/datasets"),u=S.meta.uploads,ds=all.filter(d=>!d.bank),bank=all.filter(d=>d.bank);
+  v.innerHTML=`<h1>Your data</h1><p class="lede">Upload a spreadsheet of your own and ask questions about it in plain words. The same safety layer checks every step: only you can see the data, personal columns are hidden before anything is stored, and each question, check and correction goes into the audit trail.</p>
+   <div class="panel"><h2>Upload a file</h2>
+    <label class="drop" id="drop" for="file"><b>Choose a file, or drop it here</b><span class="hint">CSV or Excel (.xlsx), up to ${u.max_file_mb} MB and ${Number(u.max_rows).toLocaleString()} rows. The first row should hold the column names.</span>
+     <input type="file" id="file" accept=".csv,.txt,.tsv,.xlsx,.xlsm"></label>
+    <div class="fields upl"><div><label class="f" for="dsn">Name (optional)</label><input id="dsn" placeholder="For example: Branch loan portfolio, September"></div>
+     <button class="primary" id="upb" disabled>Upload and check</button></div>
+    <p class="hint" id="upf" aria-live="polite">No file chosen.</p></div>
+   <div class="section-h"><h2>Your datasets</h2><span class="hint">Visible only to you</span></div>
+   ${ds.length?`<div class="panel flush"><ul class="list">${ds.map(d=>`<li class="click" onclick="location.hash='#/data/${d.dataset_id}'"><div class="main"><div class="t">${h(d.name)}</div>
+     <div class="s">${Number(d.row_count).toLocaleString()} rows, ${d.columns} columns, uploaded ${when(d.uploaded_at)}</div></div>
+     ${d.warnings?`<span class="chip wait">${d.warnings} data ${d.warnings==1?"warning":"warnings"}</span>`:`<span class="chip done">No warnings</span>`}<button class="small">Open</button></li>`).join("")}</ul></div>`
+     :`<div class="panel empty">Datasets you upload appear here.</div>`}
+   ${bank.length?`<div class="section-h"><h2>Bank data</h2><span class="hint">Live, read-only, for your role</span></div>
+    <div class="panel flush"><ul class="list">${bank.map(d=>`<li class="click" onclick="location.hash='#/data/${d.dataset_id}'"><div class="main"><div class="t">${h(d.name)}</div>
+     <div class="s">${h(d.about)} ${Number(d.row_count).toLocaleString()} rows.</div></div><button class="small">Open</button></li>`).join("")}</ul></div>
+    <p class="hint">Ask questions, request a full analysis or create a dashboard, as with your own files. Personal details are left out.</p>`:""}`;
+  let file=null;const set=f=>{if(f&&f.size>u.max_file_mb*1048576){file=null;$("upf").textContent=`${f.name} is ${(f.size/1048576).toFixed(1)} MB. The limit here is ${u.max_file_mb} MB.`;$("upb").disabled=true;return}
+    file=f;$("upf").textContent=f?`${f.name}, ${(f.size/1048576).toFixed(f.size<1048576?2:1)} MB`:"No file chosen.";$("upb").disabled=!f};
+  $("file").onchange=e=>set(e.target.files[0]);const dz=$("drop");
+  dz.ondragover=e=>{e.preventDefault();dz.classList.add("over")};dz.ondragleave=()=>dz.classList.remove("over");
+  dz.ondrop=e=>{e.preventDefault();dz.classList.remove("over");if(e.dataTransfer.files[0])set(e.dataTransfer.files[0])};
+  $("upb").onclick=async()=>{if(!file)return;$("upb").disabled=true;$("upf").textContent="Uploading and checking the data…";
+    try{const r=await fetch("/api/datasets?name="+encodeURIComponent($("dsn").value.trim()),{method:"POST",credentials:"same-origin",
+        headers:{"Content-Type":"application/octet-stream","X-File-Name":encodeURIComponent(file.name)},body:file});
+      const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.detail||(r.status>=500?"Something went wrong on the server. An administrator can find the details under Diagnostic log.":r.statusText));
+      toast("Uploaded. "+Number(j.row_count).toLocaleString()+" rows checked.");location.hash="#/data/"+j.dataset_id}
+    catch(e){$("upf").textContent=e instanceof TypeError?"Cannot reach Analytixa. Check that the server window is still open, then try again.":e.message;$("upb").disabled=false}}}
+async function viewDataset(v,id){const d=await api("/api/datasets/"+id);S.ds=d;const p=d.profile,warn=p.issues.filter(i=>i.severity=="warning");
+  const cols=d.columns,pcol=Object.fromEntries(p.columns.map(c=>[c.name,c]));
+  const summ=c=>{const x=pcol[c.name]||{};if(c.role=="personal")return `<span class="mask">Hidden. Stored as tokens.</span>`;
+    if(c.type=="number")return x.min!=null?`${num(x.min)} to ${num(x.max)}, average ${num(x.mean)}`:"";if(c.type=="date")return x.min?`${h(x.min)} to ${h(x.max)}`:"";
+    return (x.top||[]).slice(0,4).map(t=>`${h(t.value)} (${t.count})`).join(", ")+(x.distinct>4?`, and ${x.distinct-4} more`:"")};
+  v.innerHTML=`<a href="#/data" class="hint">Your data</a><h1 style="margin-top:6px">${h(d.name)}</h1>
+   <p class="lede">${d.dataset_id.startsWith("BANK-")?`${h(d.file_name)} ${Number(d.row_count).toLocaleString()} rows and ${cols.length} columns. Live data: every question reads the current records. Staff in permitted roles can use it.`:`${h(d.file_name)}. ${Number(d.row_count).toLocaleString()} rows and ${cols.length} columns, uploaded ${when(d.uploaded_at)}. Only you can see it.`}</p>
+   <form class="panel" id="dq"><h2>Ask about this data</h2><label class="f" for="q">Your question</label>
+    <textarea id="q" rows="2" placeholder="${h(d.suggestions[0]?"For example: "+d.suggestions[0]:"Type a question")}"></textarea>
+    ${d.suggestions.length?`<div class="sugg" aria-label="Suggestions">${d.suggestions.map(x=>`<button type="button" data-q="${h(x)}" onclick="$('q').value=this.dataset.q;$('q').focus()">${h(x)}</button>`).join("")}</div>`:""}
+    <div class="row" style="margin-top:12px"><span class="hint">You see how the question was understood, and you can correct it.</span><button class="primary right" type="submit">Ask</button></div></form>
+   <div class="panel"><h2>Data check</h2><div class="cols3" style="margin-bottom:14px"><div><span class="figure">${Number(d.row_count).toLocaleString()}</span><span class="figure-l">rows</span></div>
+     <div><span class="figure">${cols.length}</span><span class="figure-l">columns, ${cols.filter(c=>c.role=="personal").length} hidden as personal data</span></div>
+     <div><span class="figure">${warn.length}</span><span class="figure-l">${warn.length==1?"warning":"warnings"} to know before you rely on an answer</span></div></div>
+    ${p.issues.length?`<table><tr><th>Column</th><th>Finding</th><th></th></tr>${p.issues.map(i=>`<tr><td>${h(i.column=="(all)"?"Whole file":i.column)}</td><td>${h(i.issue)}</td><td><span class="chip ${i.severity=="warning"?"wait":"quiet"}">${i.severity=="warning"?"Warning":"Note"}</span></td></tr>`).join("")}</table>`:`<p class="hint">No problems found.</p>`}</div>
+   <div class="panel flush" style="overflow-x:auto"><table><tr><th>Column</th><th>Read as</th><th>Used as</th><th class="n">Missing</th><th>Values</th></tr>
+    ${cols.map(c=>`<tr><td><b>${h(c.label)}</b></td><td>${{number:"Number",date:"Date",text:"Text"}[c.type]}</td><td>${ROLE_W[c.role]||c.role}</td><td class="n">${pcol[c.name]?.missing||0}</td><td class="hint">${summ(c)}</td></tr>`).join("")}</table></div>
+   <details class="more" data-k="prev"><summary>First ${d.preview.length} rows</summary><div class="body" style="overflow-x:auto"><table class="preview"><tr>${cols.map(c=>`<th>${h(c.label)}</th>`).join("")}</tr>
+    ${d.preview.map(r=>`<tr>${cols.map(c=>`<td class="${c.type=="number"?"n":""} ${c.role=="personal"?"mask":""}">${c.type=="number"?num(r[c.name]):h(r[c.name]??"")}</td>`).join("")}</tr>`).join("")}</table></div></details>
+   ${d.questions.length?`<div class="section-h"><h2>Your questions about this data</h2></div><div class="panel flush"><ul class="list">${d.questions.map(r=>`<li class="click" onclick="location.hash='#/task/${r.run_id}'"><div class="main"><div class="t">${h(r.prompt)}</div></div><span class="hint">${when(r.created_at)}</span>${chip(r.status)}</li>`).join("")}</ul></div>`:""}
+   ${d.dataset_id.startsWith("BANK-")?`<p class="hint" style="margin-top:22px">Built from the bank's core tables. Every question on it is recorded in the audit trail.</p>`:`<p class="hint" style="margin-top:22px">File fingerprint ${h(d.sha256.slice(0,16))}, recorded in the audit trail. <button class="link" style="color:var(--stop)" onclick="deleteDataset('${d.dataset_id}')">Delete this dataset</button></p>`}`;
+  $("dq").onsubmit=async e=>{e.preventDefault();const q=$("q").value.trim();if(!q){toast("Type a question first.");return $("q").focus()}
+    try{const r=await post("/api/runs",{prompt:q,use_case:"upload",params:{dataset_id:d.dataset_id}});location.hash="#/task/"+r.run_id}catch(x){toast(x.message)}};
+  $("q").onkeydown=e=>{if(e.key=="Enter"&&(e.ctrlKey||e.metaKey))$("dq").requestSubmit()}}
+async function deleteDataset(id){if(!confirm("Delete this dataset? The data is removed. Its audit entries stay."))return;
+  try{await api("/api/datasets/"+id,{method:"DELETE"});toast("Dataset deleted.");location.hash="#/data"}catch(e){toast(e.message)}}
+function dsHTML(x,r){const res=x.result,rows=res.rows,dims=res.dims,warn=(x.checks.data_warnings||[]),ms=res.metrics||[{alias:"value",label:res.label}];
+  const fmt=x.intent?.output_format,one=ms.length==1,chart=one&&dims.length==1&&rows.length>1&&rows.length<=40&&fmt!="table";
+  return `${understoodHTML(r,x)}<div class="panel"><p class="doc" style="margin-top:0">${h(x.answer)}</p>
+   ${chart?bars(rows.map(r=>({k:r[dims[0]]??"(blank)",v:r[ms[0].alias]})),num):""}
+   ${!chart&&rows.length?`<div style="overflow-x:auto"><table><tr>${dims.map(d=>`<th>${h(d)}</th>`).join("")}${ms.map(m=>`<th class="n">${h(m.label)}</th>`).join("")}</tr>${rows.map(r=>`<tr>${dims.map(d=>`<td>${h(r[d]??"(blank)")}</td>`).join("")}${ms.map(m=>`<td class="n">${num(r[m.alias])}</td>`).join("")}</tr>`).join("")}</table></div>`:""}
+   ${warn.length?`<div class="notice"><b>Data warnings for this answer.</b> ${warn.map(w=>h((w.column=="(all)"?"":w.column+": ")+w.issue)).join(". ")}.</div>`:""}
+   <p class="hint">Dataset: <a href="#/data/${h(x.dataset_id)}">${h(x.dataset_name||res.dataset)}</a>, ${Number(res.rows_in_dataset).toLocaleString()} rows. Plan version ${h(x.plan_version)}.</p></div>
+   <details class="more" data-k="sql"><summary>Check how this answer was calculated</summary><div class="body">
+    <div class="kv"><div>Plan</div><div>${h(x.interpretation)}</div><div>Measures</div><div>${(x.intent?.metrics||[]).map(m=>`<span class="tag">${h(m.alias)}</span> ${h(m.agg.toUpperCase())}(${h(m.column||"*")})`).join("<br>")}</div>
+     <div>Query check</div><div>${h(res.sql_check||"")}</div><div>Checks</div><div>${x.checks.checks.map(c=>(c.pass?"Passed: ":"Failed: ")+c.check).join(". ")}. Confidence ${x.checks.confidence.score}</div><div>Answer written by</div><div>${x.answer_source=="llm"?"the language model":"a template"}</div></div>
+    ${(x.history||[]).length>1?`<h3>Plan versions</h3><table><tr><th>Version</th><th>How</th><th>Plan</th></tr>${x.history.map(v=>`<tr><td>${v.version}</td><td>${h({question:"Your question",replace:"Replaced",restate:"Restated",update:"Corrected",form:"Set in the form",llm:"Corrected"}[v.how]||v.how)}${v.text&&v.how!="question"?`<div class="hint">“${h(v.text)}”</div>`:""}</td><td>${h(v.plan)}</td></tr>`).join("")}</table>`:""}
+    <p class="hint">The query is compiled only from the plan and checked against it before it runs. Personal columns cannot be used.</p><pre>${h(res.sql)}\n-- values: ${h(JSON.stringify(res.params))}</pre></div></details>`}
+async function openCorrectDS(box){const it=(S.run.result&&S.run.result.intent)||S.run.checkpoint?.evidence?.intent||S.run.params?.intent||{};
+  if(["dashboard","report"].includes(it.type)){const dash=it.type=="dashboard";
+    box.innerHTML=`<div style="border-top:1px dashed #C9D1CE;margin-top:16px;padding-top:16px"><label class="f" for="ctext">Tell the agent what to change</label>
+     <div class="row" style="flex-wrap:nowrap"><input id="ctext" placeholder="${dash?"For example: add Status, remove Gender, show it weekly":"Restate the analysis you need"}"><button class="primary" onclick="sendCorrect(false)">Send correction</button></div>
+     <p class="hint">${dash?"Name columns to add them. Say remove, drop or without to take them off. Say only to keep just the ones you name. Daily, weekly, monthly or quarterly sets the time grain. A new formula such as NAME = total X divided by total Y adds a ratio.":"The agent builds a new plan from your words and asks you to approve it."}</p></div>`;
+    $("ctext").focus();return}
+  const id=S.run.params.dataset_id;if(!S.dsm||S.dsm.dataset_id!=id)S.dsm=await api("/api/datasets/"+id);const d=S.dsm,cols=d.columns;
+  const meas=cols.filter(c=>c.role=="measure"),cats=cols.filter(c=>["category","identifier"].includes(c.role)),dates=cols.filter(c=>c.role=="date"),groups=cols.filter(c=>c.role=="category");
+  const ms=(it.metrics||(it.measure?[it.measure]:[])).slice(0,4),f=it.filters||{};
+  const dimOpts=[...cats.map(c=>[c.name,c.label]),...dates.flatMap(c=>["month","quarter","year"].map(g=>[c.name+":"+g,c.label+" by "+g]))];
+  const catF=Object.entries(f).filter(([k,v])=>groups.some(c=>c.name==k)&&!(v&&typeof v=="object"&&!Array.isArray(v)&&!("not" in v)));
+  const numF=Object.entries(f).filter(([k,v])=>v&&typeof v=="object"&&!Array.isArray(v)&&!("not" in v));
+  const frow=(i,k,v)=>{const neg=v&&typeof v=="object"&&!Array.isArray(v)&&"not" in v,x=neg?v.not:v,vals=x==null?[]:Array.isArray(x)?x:[x];
+    return `<div class="row" style="flex-wrap:nowrap;margin-bottom:8px"><select data-fc="${i}" style="width:auto" onchange="fillVals(${i})"><option value="">No filter</option>${groups.map(c=>`<option value="${c.name}" ${c.name==k?"selected":""}>${h(c.label)}</option>`).join("")}</select>
+      <select data-fo="${i}" style="width:auto"><option value="is">is</option><option value="not" ${neg?"selected":""}>is not</option></select>
+      <select data-fv="${i}" multiple size="3" aria-label="Values">${(d.values[k]||[]).map(o=>`<option ${vals.includes(o)?"selected":""}>${h(o)}</option>`).join("")}</select></div>`};
+  const nf=numF[0]||["",{}],[nop,nval]=Object.entries(nf[1])[0]||["gt",""];
+  box.innerHTML=`<div style="border-top:1px dashed #C9D1CE;margin-top:16px;padding-top:16px"><label class="f" for="ctext">Tell the agent what you meant</label>
+   <div class="row" style="flex-wrap:nowrap"><input id="ctext" placeholder="For example: I meant by product, and leave out Lagos"><button class="primary" onclick="sendCorrect(false)">Send correction</button></div>
+   <details class="inline"><summary>Or set it exactly</summary>
+    <label class="f">Measures</label>${[0,1,2,3].map(i=>{const m=ms[i]||{};return `<div class="row" style="flex-wrap:nowrap;margin-bottom:8px"><select data-ma="${i}" style="width:auto" aria-label="How to measure ${i+1}"><option value="">${i?"No more measures":"Choose"}</option>${[["sum","Total"],["avg","Average"],["median","Median"],["min","Smallest"],["max","Largest"],["count","Number of rows"],["count_distinct","Number of distinct values"]].map(([a,t])=>`<option value="${a}" ${a==m.agg?"selected":""}>${t}</option>`).join("")}</select>
+      <select data-mc="${i}" aria-label="Column ${i+1}"><option value="">(none, for number of rows)</option>${[...meas,...cats,...dates].map(c=>`<option value="${c.name}" ${c.name==m.column?"selected":""}>${h(c.label)}</option>`).join("")}</select></div>`}).join("")}
+    <div class="fields"><div><label class="f" for="cdim">Break down by</label><select id="cdim" multiple size="4">${dimOpts.map(([v,t])=>`<option value="${h(v)}" ${(it.dimensions||[]).includes(v)?"selected":""}>${h(t)}</option>`).join("")}</select></div></div>
+    <label class="f">Filters</label>${[0,1].map(i=>frow(i,(catF[i]||[])[0],(catF[i]||[])[1])).join("")}
+    ${meas.length?`<div class="row" style="flex-wrap:nowrap;margin-bottom:8px"><select id="cnc" style="width:auto"><option value="">No number condition</option>${meas.map(c=>`<option value="${c.name}" ${c.name==nf[0]?"selected":""}>${h(c.label)}</option>`).join("")}</select>
+      <select id="cno" style="width:auto">${[["gt","above"],["gte","at least"],["lt","below"],["lte","at most"],["eq","exactly"]].map(([o,t])=>`<option value="${o}" ${o==nop?"selected":""}>${t}</option>`).join("")}</select><input id="cnv" type="number" value="${h(nval)}" style="max-width:180px" aria-label="Number"></div>`:""}
+    <div class="fields">${dates.length?`<div><label class="f" for="cpf">${h(dates[0].label)} from</label><input id="cpf" type="date" value="${h(it.period?.from||"")}"></div><div><label class="f" for="cpt">to</label><input id="cpt" type="date" value="${h(it.period?.to||"")}"></div>`:""}
+     <div><label class="f" for="clim">Show only the top</label><input id="clim" type="number" min="1" max="100" value="${h(it.limit||"")}" placeholder="All"></div></div>
+    <p class="hint">Hold Ctrl to pick several values. Leave a list empty for no filter.</p>
+    <button onclick="sendCorrectDS()">Run with these settings</button></details></div>`;$("ctext").focus()}
+function fillVals(i){const k=document.querySelector(`[data-fc="${i}"]`).value;document.querySelector(`[data-fv="${i}"]`).innerHTML=(S.dsm.values[k]||[]).map(o=>`<option>${h(o)}</option>`).join("")}
+async function sendCorrectDS(){const filters={};
+  [0,1].forEach(i=>{const k=document.querySelector(`[data-fc="${i}"]`).value;if(!k)return;const vals=[...document.querySelector(`[data-fv="${i}"]`).selectedOptions].map(o=>o.value);if(!vals.length)return;
+    const v=vals.length>1?vals:vals[0];filters[k]=document.querySelector(`[data-fo="${i}"]`).value=="not"?{not:v}:v});
+  if($("cnc")&&$("cnc").value&&$("cnv").value!=="")filters[$("cnc").value]={[$("cno").value]:Number($("cnv").value)};
+  const dates=S.dsm.columns.filter(c=>c.role=="date");let period=null;
+  if(dates.length&&$("cpf").value&&$("cpt").value)period={column:dates[0].name,from:$("cpf").value,to:$("cpt").value,label:$("cpf").value+" to "+$("cpt").value};
+  const lim=Number($("clim").value)||null;
+  const metrics=[0,1,2,3].map(i=>({agg:document.querySelector(`[data-ma="${i}"]`).value,column:document.querySelector(`[data-mc="${i}"]`).value||null})).filter(m=>m.agg);
+  if(!metrics.length){toast("Choose at least one measure.");return}
+  const prev=(S.run.result&&S.run.result.intent)||S.run.params?.intent||{};
+  const intent={metrics,dimensions:[...$("cdim").selectedOptions].map(o=>o.value),filters,period,limit:lim,sort:lim?{direction:"desc"}:null,
+    output_format:prev.output_format||"auto",explain:!!prev.explain};
+  try{const r=await post(`/api/runs/${S.runId}/correct`,{text:"",intent});toast("Rerunning as: "+r.interpretation);refreshTask(true)}catch(e){toast(e.message)}}
+
+/* ── full analysis report ── */
+function rtable(t,k){const max=25,rows=t.rows||[];if(!rows.length)return t.title?`<h3>${h(t.title)}</h3><p class="hint">None.</p>`:"";
+  const head=`<tr>${t.columns.map(c=>`<th>${h(c)}</th>`).join("")}</tr>`,row=r=>`<tr>${r.map(v=>typeof v=="number"?`<td class="n">${num(v)}</td>`:`<td>${h(v??"")}</td>`).join("")}</tr>`;
+  return `${t.title?`<h3>${h(t.title)}</h3>`:""}<div style="overflow-x:auto"><table>${head}${rows.slice(0,max).map(row).join("")}</table></div>
+   ${rows.length>max?`<details class="inline" data-k="${k}"><summary>Show all ${rows.length} rows</summary><div style="overflow-x:auto"><table>${head}${rows.slice(max).map(row).join("")}</table></div></details>`:""}`}
+function reportHTML(x,r){const rp=x.report;
+  return `${understoodHTML(r,x)}
+   <div class="row" style="margin:0 0 14px"><span class="hint">${Number(x.rows_in_dataset||rp.rows).toLocaleString()} rows of <a href="#/data/${h(x.dataset_id)}">${h(x.dataset_name||"your data")}</a>. ${x.checks.checks.map(c=>(c.pass?"Checked: ":"Failed: ")+c.check).join(". ")}.</span>
+    <button class="right" onclick="downloadReport()">Download report</button></div>
+   <div id="report">${rp.sections.map((s,i)=>`<section class="panel"><h2>${i+1}. ${h(s.title)}</h2>
+     ${(s.text||[]).length?`<ul class="why">${s.text.map(t=>`<li>${h(t)}</li>`).join("")}</ul>`:""}
+     ${(s.tables||[]).map((t,j)=>rtable(t,`t${i}_${j}`)).join("")}
+     ${(s.recommendations||[]).length?`<ol style="padding-left:20px">${s.recommendations.map(c=>`<li style="margin-bottom:14px"><b>${h(c.title)}</b>
+       <div class="kv" style="margin-top:6px"><div>Evidence</div><div>${h(c.evidence)}</div><div>Affected</div><div>${h(c.affected)}</div><div>Action</div><div>${h(c.action)}</div>
+       <div>Expected direction</div><div>${h(c.impact)}</div><div>Confidence</div><div>${h(c.confidence)}</div><div>Data needed</div><div>${h(c.data_needed)}</div></div></li>`).join("")}</ol>`:(s.id=="recommendations"?`<p class="hint">The data does not support a recommendation.</p>`:"")}
+     ${(s.limitations||[]).length?`<h3>Limitations</h3><ul class="why">${s.limitations.map(t=>`<li>${h(t)}</li>`).join("")}</ul>`:""}</section>`).join("")}</div>
+   <details class="more" data-k="plan"><summary>The approved plan</summary><div class="body"><div class="kv">${(x.plan_details||[]).map(([k,v])=>`<div>${h(k)}</div><div>${h(v)}</div>`).join("")}</div></div></details>`}
+function downloadReport(){const x=S.run.result,el=$("report");if(!el)return;
+  const css="body{font:14px/1.5 Arial,sans-serif;max-width:1100px;margin:24px auto;padding:0 16px;color:#18282C}table{border-collapse:collapse;width:100%;margin:8px 0 16px}th,td{border:1px solid #DCE2DF;padding:5px 8px;text-align:left;font-size:13px}td.n{text-align:right}h2{margin-top:28px}.kv{display:grid;grid-template-columns:160px 1fr;gap:4px 12px}details>summary{display:none}details{display:block}";
+  const html=`<!doctype html><html><head><meta charset="utf-8"><title>Analysis of ${h(x.dataset_name||"dataset")}</title><style>${css}</style></head><body><h1>Analysis of ${h(x.dataset_name||"dataset")}</h1><p>Plan version ${x.plan_version}: ${h(x.interpretation)}</p>${el.innerHTML.replace(/<details[^>]*>/g,"<div>").replace(/<\/details>/g,"</div>")}</body></html>`;
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([html],{type:"text/html"}));a.download=`analysis-${(x.dataset_name||"dataset").replace(/\W+/g,"-")}.html`;a.click();URL.revokeObjectURL(a.href)}
+
+/* ── dashboard on an uploaded dataset: the page filters and recomputes from the server's cube ── */
+function dashboardHTML(x,r){const d=x.dashboard;
+  if(!S.dash||S.dash.run!=S.runId)S.dash={run:S.runId,from:"",to:"",f:{},metric:d.ratios.length?"r:"+d.ratios[0].name:d.measures.length?"m:"+d.measures[0].name:"rows"};
+  const st=S.dash,per=d.date?d.date.periods.filter(p=>p!="No date"):[],o=(v,t,s)=>`<option value="${h(v)}"${s?" selected":""}>${h(t)}</option>`;
+  const metrics=[...d.measures.map(m=>["m:"+m.name,"Total "+m.label]),...d.ratios.map(q=>["r:"+q.name,q.label]),["rows","Number of rows"]];
+  return `${understoodHTML(r,x)}
+   <section class="panel dash" id="dash"><div class="dash-filters" role="group" aria-label="Dashboard filters">
+    ${d.date?`<label>From<select onchange="dashSet('from',this.value)">${o("","Start",!st.from)}${per.map(p=>o(p,p,p==st.from)).join("")}</select></label>
+     <label>To<select onchange="dashSet('to',this.value)">${o("","End",!st.to)}${per.map(p=>o(p,p,p==st.to)).join("")}</select></label>`:""}
+    ${d.dims.map((m,i)=>`<label>${h(m.label)}<select data-dim="${i}" onchange="dashFilter(${i},this.value)">${o("","All",st.f[i]==null)}${m.values.map((v,j)=>o(j,v,st.f[i]===j)).join("")}</select></label>`).join("")}
+    <label class="dash-show">Show<select onchange="dashSet('metric',this.value)">${metrics.map(([v,t])=>o(v,t,v==st.metric)).join("")}</select></label>
+    <div class="dash-actions"><button class="small" onclick="dashReset()">Clear filters</button><button class="small" onclick="dashCSV()">Download data</button></div></div>
+    <div id="dash-body"></div></section>
+   <details class="more" data-k="plan"><summary>How this dashboard was built</summary><div class="body"><div class="kv">${(x.plan_details||[]).map(([k,v])=>`<div>${h(k)}</div><div>${h(v)}</div>`).join("")}
+    <div>Checks</div><div>${x.checks.checks.map(c=>(c.pass?"Passed: ":"Failed: ")+c.check).join(". ")}.</div>
+    <div>Dataset</div><div><a href="#/data/${h(x.dataset_id)}">${h(x.dataset_name||"your data")}</a>, ${Number(x.rows_in_dataset).toLocaleString()} rows. Plan version ${h(x.plan_version)}.</div></div>
+    <p class="hint">Every tile, line and bar is a sum of stored rows, recomputed on this page for the filters you choose. Ratios are ratios of sums, so filtering never averages averages.</p></div></details>`}
+function dashSet(k,v){S.dash[k]=v;dashDraw()}
+function dashFilter(i,v){if(v===""||S.dash.f[i]===Number(v))delete S.dash.f[i];else S.dash.f[i]=Number(v);
+  const s=document.querySelector(`#dash select[data-dim="${i}"]`);if(s)s.value=S.dash.f[i]??"";dashDraw()}
+function dashReset(){S.dash.from=S.dash.to="";S.dash.f={};document.querySelectorAll("#dash select").forEach(s=>{if(!s.getAttribute("onchange").includes("metric"))s.value=""});dashDraw()}
+function dashMeta(){const d=S.run.result.dashboard,hp=!!d.date,nk=(hp?1:0)+d.dims.length,M=d.measures.length;
+  return {d,hp,nk,M,ncol:M+2*d.ratios.length+1}}
+function dashKeep(row,off,skip){const {d,hp}=dashMeta(),st=S.dash,per=hp?d.date.periods:[];
+  if(hp&&(st.from||st.to)){const p=row[off];if(per[p]=="No date")return false;if(st.from&&p<per.indexOf(st.from))return false;if(st.to&&p>per.indexOf(st.to))return false}
+  for(const [k,v] of Object.entries(st.f)){if(+k===skip)continue;if(row[off+(hp?1:0)+(+k)]!==v)return false}return true}
+function dashSum(rows,base,ncol){const s=new Array(ncol).fill(0);rows.forEach(r=>{for(let i=0;i<ncol;i++)s[i]+=r[base+i]||0});return s}
+function dashGroup(rows,key,base,ncol){const g=new Map();rows.forEach(r=>{const k=r[key];let s=g.get(k);if(!s){s=new Array(ncol).fill(0);g.set(k,s)}for(let i=0;i<ncol;i++)s[i]+=r[base+i]||0});return g}
+function dashVal(s,metric){const {d,M}=dashMeta();if(metric=="rows")return s[s.length-1];
+  if(metric.startsWith("m:"))return s[d.measures.findIndex(m=>"m:"+m.name==metric)];
+  const j=d.ratios.findIndex(q=>"r:"+q.name==metric),q=d.ratios[j],n=s[M+2*j],den=s[M+2*j+1];return den?n/den*q.mult:null}
+function dashLabel(metric){const {d}=dashMeta();if(metric=="rows")return "Number of rows";if(metric.startsWith("m:"))return "Total "+d.measures.find(m=>"m:"+m.name==metric).label;
+  const q=d.ratios.find(q=>"r:"+q.name==metric);return q.label}
+function dashRatio(metric){const {d}=dashMeta();return metric.startsWith("r:")?d.ratios.find(q=>"r:"+q.name==metric):null}
+function fmtC(v){if(v==null||isNaN(v))return "";const a=Math.abs(v);return a>=1e9?(v/1e9).toFixed(a>=1e10?0:1)+"B":a>=1e6?(v/1e6).toFixed(a>=1e7?0:1)+"M":a>=1e4?(v/1e3).toFixed(0)+"K":num(v)}
+function fmtR(v){return v==null?"Undefined":Number(v).toLocaleString("en-GB",{maximumFractionDigits:Math.abs(v)<10?3:2})}
+function dashDraw(){const box=$("dash-body");if(!box||!S.run?.result?.dashboard)return;const {d,hp,nk,ncol}=dashMeta(),st=S.dash,met=st.metric,rq=dashRatio(met),fv=rq?fmtR:num;
+  const all=dashSum(d.cube.rows,nk,ncol),rows=d.cube.rows.filter(r=>dashKeep(r,0,-1)),cur=dashSum(rows,nk,ncol),filtered=rows.length!=d.cube.rows.length;
+  const tiles=[...d.measures.map(m=>["m:"+m.name,"Total "+m.label]),...d.ratios.map(q=>["r:"+q.name,q.label]),["rows","Rows"]].map(([k,t])=>{const v=dashVal(cur,k),a=dashVal(all,k),q=dashRatio(k);
+    return `<button class="tile${k==met?" on":""}" onclick="dashSet('metric','${k}');document.querySelector('#dash select[onchange*=metric]').value='${k}'" title="${h(q?q.formula:"")}">
+     <span class="tl">${h(t)}</span><span class="tv" title="${q?fmtR(v):num(v)}">${q?fmtR(v):fmtC(v)}</span>
+     <span class="ts">${q?`${q.better=="lower"?"Lower":"Higher"} is better${filtered?`. All rows: ${fmtR(a)}`:""}`:filtered&&a?`${(v/a*100).toFixed(1)}% of all rows`:"All rows"}</span></button>`}).join("");
+  let trend="";if(hp){const per=d.date.periods,g=dashGroup(rows,0,nk,ncol),lo=st.from?per.indexOf(st.from):0,hi=st.to?per.indexOf(st.to):per.length-1,idx=[];
+    for(let i=lo;i<=hi;i++)if(per[i]!="No date")idx.push(i);
+    const pts=idx.map(i=>({k:per[i],v:g.has(i)?dashVal(g.get(i),met):rq?null:0})),nodate=per.indexOf("No date"),nd=nodate>=0&&g.has(nodate)?g.get(nodate)[ncol-1]:0;
+    S.dashPts=pts;trend=`<div class="dash-card wide"><h3>${h(dashLabel(met))} by ${h(d.date.grain)} of ${h(d.date.label)}</h3><div class="chart" id="dtrend"></div>
+      ${nd&&!(st.from||st.to)?`<p class="hint">${nd.toLocaleString()} rows have no ${h(d.date.label)}. They count in the tiles, not in this line.</p>`:""}
+      <details class="inline" data-k="dtrend-t"><summary>Show as table</summary><div style="overflow-x:auto;max-height:320px"><table><tr><th>${h(d.date.grain)}</th><th class="n">${h(dashLabel(met))}</th></tr>${pts.map(p=>`<tr><td>${h(p.k)}</td><td class="n">${fv(p.v)}</td></tr>`).join("")}</table></div></details></div>`}
+  const breaks=d.dims.map((m,i)=>{const sub=d.cube.rows.filter(r=>dashKeep(r,0,i)),g=dashGroup(sub,(hp?1:0)+i,nk,ncol);
+    let items=[...g.entries()].map(([k,s])=>({k,label:m.values[k],v:dashVal(s,met)}));
+    items.sort((a,b)=>(b.v??-Infinity)-(a.v??-Infinity));const shown=items.slice(0,12),rest=items.length-shown.length;
+    const max=Math.max(...shown.map(x=>Math.abs(x.v||0)),1e-12),sel=st.f[i];
+    return `<div class="dash-card"><h3>${h(dashLabel(met))} by ${h(m.label)}</h3>${rq?`<p class="hint" style="margin:-4px 0 6px">${rq.better=="lower"?"Lower":"Higher"} is better.</p>`:""}
+     <div class="bars dbars">${shown.map(x=>`<div class="b${sel==null?"":sel===x.k?" on":" off"}" role="button" tabindex="0" title="Filter by ${h(x.label)}" onclick="dashFilter(${i},${x.k})" onkeydown="if(event.key=='Enter'||event.key==' '){event.preventDefault();dashFilter(${i},${x.k})}">
+       <span>${h(x.label)}</span><div class="track">${x.v==null?"":`<div class="fill" style="width:${(Math.abs(x.v)/max*100).toFixed(1)}%"></div>`}</div><span class="v">${rq?fmtR(x.v):num(x.v)}</span></div>`).join("")}</div>
+     ${rest>0?`<p class="hint">${rest} more values. Pick one in the ${h(m.label)} filter.</p>`:""}</div>`}).join("");
+  let top="";if(d.items){const it=d.items,ik=1+(hp?1:0)+d.dims.length,ir=it.rows.filter(r=>dashKeep(r,1,-1)),g=dashGroup(ir,0,ik,ncol),th=d.thresholds;
+    let list=[...g.entries()].map(([k,s])=>({k,s,v:dashVal(s,met)}));
+    let floor=th.min_denominator;
+    if(rq){const j=d.ratios.indexOf(rq),dens=list.map(x=>x.s[d.measures.length+2*j+1]).sort((a,b)=>a-b),med=dens.length?dens[Math.floor(dens.length/2)]:0;
+      floor=Math.min(th.min_denominator,med);list=list.filter(x=>x.s[d.measures.length+2*j+1]>=floor&&x.v!=null);list.sort((a,b)=>rq.better=="lower"?a.v-b.v:b.v-a.v)}else list.sort((a,b)=>b.v-a.v);
+    list=list.slice(0,th.top_n);
+    top=`<div class="dash-card wide"><h3>Top ${th.top_n} ${h(it.label)} by ${h(dashLabel(met))}${rq?` (${rq.better} is better)`:""}</h3>
+     ${list.length?`<div style="overflow-x:auto"><table><tr><th>${h(it.label)}</th>${d.measures.map(m=>`<th class="n">${h(m.label)}</th>`).join("")}${d.ratios.map(q=>`<th class="n">${h(q.name)}</th>`).join("")}<th class="n">Rows</th></tr>
+      ${list.map(x=>`<tr><td>${h(it.values[x.k])}</td>${d.measures.map((m,j)=>`<td class="n">${num(x.s[j])}</td>`).join("")}${d.ratios.map(q=>`<td class="n">${fmtR(dashVal(x.s,"r:"+q.name))}</td>`).join("")}<td class="n">${num(x.s[ncol-1])}</td></tr>`).join("")}</table></div>`:`<p class="hint">No ${h(it.label)} values match the filters${rq?` with at least ${num(floor)} ${h(d.measures.find(m=>m.name==rq.den).label)}`:""}.</p>`}
+     <p class="hint">${it.covered<it.total_distinct?`Ranked among the ${it.covered.toLocaleString()} largest of ${it.total_distinct.toLocaleString()} ${h(it.label)} values. `:""}${rq?`Ratios are ranked only where ${h(d.measures.find(m=>m.name==rq.den).label)} is at least ${num(floor)}, the lower of ${num(th.min_denominator)} and the median, so tiny values do not top the list.`:""}</p></div>`}
+  const iss=(d.issues||[]).length?`<div class="dash-card wide"><h3>Data to know about</h3><ul class="why">${d.issues.map(i=>`<li>${h((i.column&&i.column!="(all)"?i.column+": ":"")+i.issue)}</li>`).join("")}</ul></div>`:"";
+  const chips=[...(st.from||st.to?[`${h(d.date.label)} ${h(st.from||"start")} to ${h(st.to||"end")}`]:[]),...Object.entries(st.f).map(([k,v])=>`${h(d.dims[k].label)}: ${h(d.dims[k].values[v])}`)];
+  box.innerHTML=`<p class="hint dash-scope">${filtered?`Showing ${cur[ncol-1].toLocaleString()} of ${all[ncol-1].toLocaleString()} rows. ${chips.join(", ")}.`:`All ${all[ncol-1].toLocaleString()} rows. Click a bar to filter by it.`}</p>
+   <div class="tiles">${tiles}</div><div class="dash-grid">${trend}${breaks}${top}${iss}</div>`;
+  if(hp)lineChart($("dtrend"),S.dashPts,rq?fmtR:num,dashLabel(met))}
+function niceTicks(lo,hi,n){if(hi==lo){hi=lo+1}const step0=(hi-lo)/n,p=Math.pow(10,Math.floor(Math.log10(step0))),e=step0/p,step=(e<1.5?1:e<3?2:e<7?5:10)*p;
+  const a=Math.floor(lo/step),b=Math.ceil(hi/step),t=[];for(let k=a;k<=b;k++)t.push(+(k*step).toPrecision(12));return t}
+function lineChart(el,pts,fv,label){if(!el)return;const W=Math.max(el.clientWidth||700,280),H=260,m={l:58,r:14,t:12,b:34},iw=W-m.l-m.r,ih=H-m.t-m.b;
+  const vals=pts.map(p=>p.v).filter(v=>v!=null);if(!vals.length){el.innerHTML=`<p class="hint">No values for these filters.</p>`;return}
+  const ticks=niceTicks(Math.min(0,...vals),Math.max(...vals),4),y0=ticks[0],y1=ticks[ticks.length-1],n=pts.length;
+  const X=i=>m.l+(n==1?iw/2:i/(n-1)*iw),Y=v=>m.t+ih-(v-y0)/(y1-y0||1)*ih;
+  let path="",pen=false;pts.forEach((p,i)=>{if(p.v==null){pen=false;return}path+=(pen?"L":"M")+X(i).toFixed(1)+","+Y(p.v).toFixed(1);pen=true});
+  const every=Math.max(1,Math.ceil(n/Math.max(2,Math.floor(iw/90))));
+  el.innerHTML=`<svg width="${W}" height="${H}" role="img" aria-label="${h(label)} over time">
+   ${ticks.map(t=>`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(t)}" y2="${Y(t)}" class="grid"/><text x="${m.l-8}" y="${Y(t)+4}" text-anchor="end" class="ax">${h(fmtC(t))}</text>`).join("")}
+   ${(()=>{const show=[];for(let i=0;i<n;i+=every)show.push(i);if(show[show.length-1]!=n-1){if(n-1-show[show.length-1]<every)show.pop();show.push(n-1)}return show})().map(i=>[pts[i],i]).map(([p,i])=>`<text x="${X(i)}" y="${H-10}" text-anchor="${n>1&&i==0?"start":n>1&&i==n-1?"end":"middle"}" class="ax">${h(p.k)}</text>`).join("")}
+   <path d="${path}" class="ln"/>${n<=60?pts.map((p,i)=>p.v==null?"":`<circle cx="${X(i)}" cy="${Y(p.v)}" r="3.5" class="pt"/>`).join(""):""}
+   <line class="guide" y1="${m.t}" y2="${m.t+ih}" style="display:none"/><circle class="hot" r="5" style="display:none"/>
+   <rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" class="hit"/></svg><div class="tip" style="display:none"></div>`;
+  const svg=el.querySelector("svg"),tip=el.querySelector(".tip"),g=svg.querySelector(".guide"),hot=svg.querySelector(".hot");
+  const show=e=>{const b=svg.getBoundingClientRect(),x=e.clientX-b.left,i=Math.max(0,Math.min(n-1,Math.round((x-m.l)/(iw||1)*(n-1)))),p=pts[i];
+    g.setAttribute("x1",X(i));g.setAttribute("x2",X(i));g.style.display="";if(p.v!=null){hot.setAttribute("cx",X(i));hot.setAttribute("cy",Y(p.v));hot.style.display=""}else hot.style.display="none";
+    tip.innerHTML=`<b>${h(p.k)}</b><br>${h(label)}: ${fv(p.v)}`;tip.style.display="";const tx=X(i)+12+150>W?X(i)-162:X(i)+12;tip.style.left=tx+"px";tip.style.top=(p.v!=null?Math.max(0,Y(p.v)-30):m.t)+"px"};
+  const hide=()=>{g.style.display="none";hot.style.display="none";tip.style.display="none"};
+  const hit=svg.querySelector(".hit");hit.addEventListener("mousemove",show);hit.addEventListener("mouseleave",hide);hit.addEventListener("touchstart",e=>show(e.touches[0]),{passive:true})}
+function dashCSV(){const {d,hp,nk,ncol}=dashMeta(),rows=d.cube.rows.filter(r=>dashKeep(r,0,-1)),q=v=>{const s=v==null?"":String(v);return /[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s};
+  const head=[...(hp?[d.date.grain+" of "+d.date.label]:[]),...d.dims.map(m=>m.label),...d.measures.map(m=>"Total "+m.label),...d.ratios.map(r=>r.name),"Rows"];
+  const lines=rows.map(r=>[...(hp?[d.date.periods[r[0]]]:[]),...d.dims.map((m,i)=>m.values[r[(hp?1:0)+i]]),...d.measures.map((m,j)=>r[nk+j]),...d.ratios.map(x=>dashVal(r.slice(nk,nk+ncol),"r:"+x.name)),r[nk+ncol-1]].map(q).join(","));
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([[head.map(q).join(","),...lines].join("\n")],{type:"text/csv"}));
+  a.download=`dashboard-${(S.run.result.dataset_name||"dataset").replace(/\W+/g,"-")}.csv`;a.click();URL.revokeObjectURL(a.href)}
+addEventListener("resize",()=>{clearTimeout(S.dashT);S.dashT=setTimeout(()=>{if($("dtrend"))dashDraw()},150)});
+
+/* ── results ── */
+function resultHTML(r){const x=r.result;
+  if(x.type=="credit")return `<div class="verdict ${x.final.decision}"><div><div class="figure-l">Final decision</div><div class="word">${h(x.final.decision)}</div></div>
+     <div style="flex:1"><div class="figure-l">Decided by</div><b>${h(x.final.by)}</b>${x.final.exception_approved_by?`<div class="hint">Exception approved by ${h(x.final.exception_approved_by)}</div>`:""}${x.final.comment?`<div class="hint">“${h(x.final.comment)}”</div>`:""}</div></div>
+     <div class="panel"><h2>Credit memo</h2><p class="doc">${h(x.memo)}</p><p class="hint">Written by ${x.memo_source=="llm"?"the language model":"a template"} from the decision record.</p></div>
+     <details class="more" data-k="fullev"><summary>Evidence behind the decision</summary><div class="body">${creditEvidence(x.evidence)}</div></details>`;
+  if(x.type=="bi")return biHTML(x,r);
+  if(x.type=="dataset")return dsHTML(x,r);
+  if(x.type=="report")return reportHTML(x,r);
+  if(x.type=="dashboard")return dashboardHTML(x,r);
+  if(x.type=="clarify")return `<div class="notice info"><b>The agent needs more detail.</b> ${h(x.question)}</div><p><a href="#/ask">Ask again</a> with the missing detail.</p>`;
+  if(x.type=="churn")return churnHTML(x);if(x.type=="aml")return amlHTML(x);if(x.type=="cash")return cashHTML(x);return ""}
+function bars(rows,fmt){const max=Math.max(...rows.map(r=>Math.abs(r.v)||0),1);
+  return `<div class="bars">${rows.map(r=>`<div class="b"><span>${h(r.k)}</span><div class="track"><div class="fill" style="width:${(Math.abs(r.v)/max*100).toFixed(1)}%"></div></div><span class="v">${fmt(r.v)}</span></div>`).join("")}</div>`}
+function biHTML(x,r){const res=x.result,rows=res.rows,dims=rows.length?Object.keys(rows[0]).filter(k=>k!="value"):[];
+  const f=res.unit=="%"?v=>Number(v).toFixed(1)+"%":res.unit=="NGN"?ngn:v=>Number(v).toLocaleString();
+  return `${understoodHTML(r,x)}<div class="panel"><p class="doc" style="margin-top:0">${h(x.answer)}</p>
+   ${dims.length==1&&rows.length<=40?bars(rows.map(r=>({k:r[dims[0]],v:r.value})),f):""}
+   ${dims.length>1||rows.length>40?`<div style="overflow-x:auto"><table><tr>${dims.map(d=>`<th>${d}</th>`).join("")}<th class="n">${h(res.label)}</th></tr>${rows.map(r=>`<tr>${dims.map(d=>`<td>${h(r[d])}</td>`).join("")}<td class="n">${f(r.value)}</td></tr>`).join("")}</table></div>`:""}
+   <p class="hint">Period: ${res.period?res.period.join(" to "):"all available data"}.${res.note?" "+h(res.note):""}</p></div>
+   <details class="more" data-k="sql"><summary>Check how this answer was calculated</summary><div class="body">
+    <div class="kv"><div>Understood as</div><div>${h(JSON.stringify(x.intent))}</div><div>Checks</div><div>${x.checks.checks.map(c=>(c.pass?"Passed: ":"Failed: ")+c.check).join(". ")}. Confidence ${x.checks.confidence.score}</div><div>Answer written by</div><div>${x.answer_source=="llm"?"the language model":"a template"}</div></div>
+    <p class="hint">The query is built only from metric definitions the bank approved in its semantic layer.</p><pre>${h(res.sql)}\n-- values: ${h(JSON.stringify(res.params))}</pre></div></details>`}
+function churnHTML(x){const s=x.strategy,a=x.analysis,hd=x.headline;
+  return `<div class="panel"><div class="cols3"><div><span class="figure">${hd.at_risk} of ${hd.cohort}</span><span class="figure-l">customers at ${pct(hd.threshold,0)} risk or more</span></div>
+    <div><span class="figure">${s.chosen.length}</span><span class="figure-l">offers funded for ${ngn(s.spent)}</span></div>
+    <div><span class="figure">${x.outreach&&x.outreach.sent?x.outreach.sent:0}</span><span class="figure-l">offers scheduled${x.outreach&&!x.outreach.sent?" ("+h(x.outreach.note||"not launched")+")":""}</span></div></div>
+   <p class="doc">${h(x.summary)}</p></div>
+   <div class="cols"><div class="panel"><h2>Why they may leave</h2><table><tr><th>Signal</th><th class="n">At risk</th><th class="n">Others</th></tr>${a.drivers.map(d=>`<tr><td>${h(cap(d.feature))}</td><td class="n">${d.at_risk_mean}</td><td class="n">${d.others_mean}</td></tr>`).join("")}</table>
+     <p class="hint">Each signal differs significantly between the groups (Welch t-test). Model held-out AUC ${a.backtest.auc_holdout}. Fairness: ${fairText(a.fairness)}.</p></div>
+    <div class="panel"><h2>Offers</h2><table><tr><th>Offer</th><th class="n">Customers</th><th class="n">Cost</th></tr>${s.by_offer.map(o=>`<tr><td>${h(o.offer)}</td><td class="n">${o.customers}</td><td class="n">${ngn(o.cost)}</td></tr>`).join("")}</table>
+     <p class="hint">${s.suppressed.length} customers were left out because of do-not-disturb, missing consent or an open investigation.</p></div></div>
+   <details class="more" data-k="top"><summary>Highest-risk customers with an offer (${x.top.length})</summary><div class="body" style="overflow-x:auto"><table><tr><th>Customer</th><th class="n">Risk</th><th>Signals</th><th>Offer</th></tr>${x.top.map(c=>`<tr><td>${h(c.name)} <span class="hint">${c.customer_id}</span></td><td class="n">${pct(c.p,0)}</td><td>${h(c.drivers.join(", "))}</td><td>${h(c.offer)}</td></tr>`).join("")}</table></div></details>`}
+function amlHTML(x){return `<div class="panel"><div class="cols3"><div><span class="figure">${x.stats.transactions.toLocaleString()}</span><span class="figure-l">transactions checked</span></div>
+   <div><span class="figure">${x.stats.alerts}</span><span class="figure-l">cases opened</span></div><div><span class="figure">${x.filed.length}</span><span class="figure-l">reports filed by a named officer</span></div></div></div>
+   <div class="panel flush" style="overflow-x:auto"><table><tr><th>Customer</th><th>Pattern</th><th class="n">Risk</th><th>Why</th></tr>${x.alerts.map(a=>`<tr><td>${a.customer_id}</td><td><span class="chip ${a.typology=="anomaly"?"wait":"stop"}">${h(a.typology.replace(/_/g," "))}</span></td><td class="n">${a.score}</td><td class="hint">${h(a.hit.conditions.join("; "))}</td></tr>`).join("")}</table></div>
+   <details class="more" data-k="holds"><summary>Temporary payment holds (${x.holds.length})</summary><div class="body">${x.holds.length?`<table><tr><th>Transaction</th><th>Customer</th><th class="n">Amount</th><th>Authority</th></tr>${x.holds.map(o=>`<tr><td>${o.txn_id}</td><td>${o.customer_id}</td><td class="n">${ngn(o.amount)}</td><td>${o.within_envelope?"Within the bank's limit":"Compliance officer approval"}</td></tr>`).join("")}</table>`:'<p class="hint">None.</p>'}</div></details>
+   ${x.watchlist&&x.watchlist.length?`<details class="more" data-k="watch"><summary>Watchlist: ${x.stats.watchlist} unusual items below the alert level</summary><div class="body"><table><tr><th>Customer</th><th class="n">Score</th><th>Why</th></tr>${x.watchlist.map(a=>`<tr><td>${a.customer_id}</td><td class="n">${a.score}</td><td class="hint">${h(a.hit.conditions.join("; "))}</td></tr>`).join("")}</table></div></details>`:""}
+   <details class="more" data-k="strs"><summary>Suspicious transaction report drafts (${x.drafts.length})</summary><div class="body">${x.drafts.map(d=>`<p><b>${d.case_id}</b> ${x.filed.includes(d.case_id)?'<span class="chip done">Filed</span>':'<span class="chip quiet">Not filed</span>'}</p><p class="doc" style="font-size:15px">${h(d.draft)}</p>`).join("")}</div></details>`}
+function cashHTML(x){const tot=x.orders.reduce((s,o)=>s+o.amount,0);
+  return `<div class="panel"><div class="cols3"><div><span class="figure">${x.orders.length}</span><span class="figure-l">cash orders placed</span></div><div><span class="figure">${ngn(tot)}</span><span class="figure-l">total cash ordered</span></div>
+   <div><span class="figure">${pct(x.backtest.reduce((s,b)=>s+b.coverage,0)/x.backtest.length,0)}</span><span class="figure-l">of past days fell inside the forecast range</span></div></div>
+   ${x.summary?`<p class="doc">${h(x.summary)}</p>`:""}</div>
+   <div class="panel flush" style="overflow-x:auto"><table><tr><th>ATM</th><th class="n">Cash now</th><th class="n">Next 7 days</th><th>Runs low</th><th class="n">Order</th><th>Delivery</th><th>Authority</th></tr>
+   ${x.plans.map(p=>`<tr><td>${p.atm_id} <span class="hint">${h(p.location)}</span></td><td class="n">${ngn(p.balance)}</td><td class="n">${ngn(p.week_forecast)}</td><td>${p.breach_day||"No"}</td><td class="n">${p.order?ngn(p.order.amount):""}</td><td>${p.order?p.order.delivery_date:""}</td><td>${p.order?(p.order.amount<=x.envelope.max_order_per_atm?"Within the bank's limit":"Branch operations"):""}</td></tr>`).join("")}</table></div>`}
+
+/* ════════════ Policies ════════════ */
+const POL={loan_policy:["Loan policy","Rules every loan is checked against"],aml_policy:["AML and fraud","Alert scores, typologies and filing"],churn_policy:["Customer retention","Risk threshold, offers and budget"],
+  cash_policy:["ATM cash","Buffers and delivery lead times"],fairness:["Fairness","Protected and monitored attributes"],envelopes:["Action limits","What agents may do without asking"],
+  autonomy:["Decision points","Where a person must approve"],routing:["Who decides","Which role gets each decision"],entitlements:["Data access","Which roles see which metrics"],semantic_layer:["Metrics","Approved definitions for questions"]};
+async function viewPolicies(v){const pols=await api("/api/policies");S.pols=pols;S.polTab=S.polTab||"loan_policy";const k=S.polTab,p=pols[k],admin=S.me.role=="admin";
+  const hist=await api(`/api/policies/${k}/history`);
+  v.innerHTML=`<h1>Policies</h1><p class="lede">The bank's own rules. Agents read them but cannot change them. ${admin?"Each save creates a new version and an audit entry.":"Only an administrator can change them."}</p>
+   <div class="side-tabs"><nav role="tablist" aria-label="Policies">${Object.keys(pols).map(x=>`<button role="tab" aria-selected="${x==k}" onclick="S.polTab='${x}';viewPolicies($('view'))"><span>${POL[x]?.[0]||x}</span><span class="hint">v${pols[x].version}</span></button>`).join("")}</nav>
+   <div><div class="panel"><h2>${POL[k]?.[0]||k}</h2><p class="hint" style="margin-top:-6px">${POL[k]?.[1]||""}. Version ${p.version}.</p>
+     ${k=="loan_policy"?loanEditor(p.body,admin):k=="semantic_layer"?semanticView(p.body):""}
+     ${k!="loan_policy"?`<details class="inline" ${k=="semantic_layer"?"":"open"}><summary>${admin?"Edit":"View"} as policy code</summary><textarea id="polJson" rows="18" ${admin?"":"readonly"} style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px">${h(JSON.stringify(p.body,null,2))}</textarea><p class="hint">Values can change. The structure is checked when you save.</p></details>`:""}
+     ${admin?`<div class="fields" style="grid-template-columns:1fr auto auto;align-items:end"><div><label class="f" for="polNote">Reason for the change</label><input id="polNote" placeholder="Required"></div><button class="primary" onclick="savePolicy()">Save version ${p.version+1}</button><button class="link" onclick="resetPolicy()">Restore defaults</button></div>`:""}</div>
+    <div class="panel"><h2>History</h2>${hist.map(x=>`<div style="padding:6px 0;border-bottom:1px solid var(--line2)"><b>Version ${x.version}</b> <span class="hint">${when(x.created_at)}, ${h(x.created_by.split(":").slice(-1)[0])}</span><div class="hint">${h(x.note)}</div></div>`).join("")}</div></div></div>`}
+function loanEditor(b,admin){const dis=admin?"":"disabled";
+  return `<p>${h(b.description)}</p><div style="overflow-x:auto"><table><tr><th>On</th><th>Rule</th><th>Type</th><th>Limits</th></tr>
+  ${b.rules.map((r,i)=>`<tr><td><input type="checkbox" aria-label="${h(r.name)} on" ${r.enabled?"checked":""} ${dis} data-rule="${i}" data-f="enabled" style="width:auto"></td><td><b>${r.id} ${h(r.name)}</b><div class="hint">${h(r.text)}</div></td>
+   <td><select ${dis} data-rule="${i}" data-f="kind" style="width:90px" aria-label="${h(r.name)} type"><option value="hard" ${r.kind=="hard"?"selected":""}>Hard</option><option value="soft" ${r.kind=="soft"?"selected":""}>Soft</option></select></td>
+   <td>${Object.entries(r.params).map(([k,v])=>`<label class="hint" style="display:block">${k.replace(/_/g," ")}</label><input ${dis} data-rule="${i}" data-p="${k}" value="${v}" style="max-width:150px">`).join("")||'<span class="hint">None</span>'}</td></tr>`).join("")}</table></div>
+  <p class="hint">A hard rule that fails means decline. A soft rule that fails means refer.</p>
+  <div class="fields"><div><label class="f" for="lp_rate">Interest rate (annual, flat)</label><input ${dis} id="lp_rate" value="${b.interest_rate_annual}"></div>
+  <div><label class="f" for="lp_limit">Loan officer limit (₦)</label><input ${dis} id="lp_limit" value="${b.officer_delegated_limit}"></div></div>
+  <h3>Decide small loans without a person</h3><p class="hint">${h(b.auto_decision_envelope.note)}</p><div class="fields">
+  <div><label class="check" style="margin-top:22px"><input type="checkbox" ${dis} id="env_on" ${b.auto_decision_envelope.enabled?"checked":""}> Turned on</label></div>
+  <div><label class="f" for="env_amt">Largest amount (₦)</label><input ${dis} id="env_amt" value="${b.auto_decision_envelope.max_amount}"></div><div><label class="f" for="env_pd">Highest chance of default</label><input ${dis} id="env_pd" value="${b.auto_decision_envelope.max_pd}"></div></div>`}
+function semanticView(b){return `<div style="overflow-x:auto"><table><tr><th>Metric</th><th>Definition</th></tr>${Object.entries(b.metrics).map(([k,m])=>`<tr><td><b>${h(m.label)}</b></td><td>${h(m.definition)}<div><code>${h(m.sql)}</code></div></td></tr>`).join("")}</table></div>
+  <p class="hint">People can break these down by ${Object.keys(b.dimensions).join(", ")}.</p>`}
+function collectLoan(){const b=JSON.parse(JSON.stringify(S.pols.loan_policy.body));
+  document.querySelectorAll("[data-rule]").forEach(e=>{const r=b.rules[+e.dataset.rule];if(e.dataset.f=="enabled")r.enabled=e.checked;else if(e.dataset.f=="kind")r.kind=e.value;else if(e.dataset.p)r.params[e.dataset.p]=Number(e.value)});
+  b.interest_rate_annual=Number($("lp_rate").value);b.officer_delegated_limit=Number($("lp_limit").value);
+  b.auto_decision_envelope.enabled=$("env_on").checked;b.auto_decision_envelope.max_amount=Number($("env_amt").value);b.auto_decision_envelope.max_pd=Number($("env_pd").value);return b}
+async function savePolicy(){const k=S.polTab,note=$("polNote").value.trim();if(!note){toast("Give a reason for the change.");return $("polNote").focus()}
+  let body;try{body=k=="loan_policy"?collectLoan():JSON.parse($("polJson").value)}catch(e){return toast("The policy code is not valid JSON: "+e.message)}
+  try{const r=await api(`/api/policies/${k}`,{method:"PUT",body:JSON.stringify({body,note})});toast(`Saved. ${POL[k]?.[0]||k} is now version ${r.version}.`);viewPolicies($("view"))}catch(e){toast(e.message)}}
+async function resetPolicy(){if(!confirm("Restore the default values as a new version?"))return;try{await post(`/api/policies/${S.polTab}/reset`);toast("Defaults restored as a new version.");viewPolicies($("view"))}catch(e){toast(e.message)}}
+
+/* ════════════ Staff ════════════ */
+async function viewStaff(v){const us=await api("/api/users");
+  v.innerHTML=`<h1>Staff</h1><p class="lede">People who can sign in. Each person has one role, and decisions go to roles. Changing a role or password signs that person out.</p>
+   <div class="panel flush" style="overflow-x:auto"><table><tr><th>Name</th><th>Role</th><th>Last sign-in</th><th>Status</th><th></th></tr>${us.map(u=>`<tr><td><b>${h(u.full_name)}</b><div class="hint">${h(u.email)}</div></td>
+    <td><select aria-label="Role for ${h(u.full_name)}" onchange="editUser(${u.user_id},{role:this.value})" style="width:auto">${S.meta.roles.map(r=>`<option value="${r.id}" ${r.id==u.role?"selected":""}>${r.title}</option>`).join("")}</select></td>
+    <td>${u.last_login?when(u.last_login):'<span class="hint">Never</span>'}</td><td>${u.active?'<span class="chip done">Active</span>':'<span class="chip quiet">Turned off</span>'}</td>
+    <td class="n" style="white-space:nowrap"><button class="small" onclick="resetPw(${u.user_id},'${h(u.full_name)}')">Set password</button> <button class="small ${u.active?"stop":""}" onclick="editUser(${u.user_id},{active:${!u.active}})">${u.active?"Turn off":"Turn on"}</button></td></tr>`).join("")}</table></div>
+   <div class="section-h"><h2>Add a person</h2></div>
+   <form class="panel" id="uf"><div class="fields"><div><label class="f" for="un">Full name</label><input id="un" required></div><div><label class="f" for="ue">Email</label><input id="ue" type="email" required></div>
+    <div><label class="f" for="ur">Role</label><select id="ur">${S.meta.roles.map(r=>`<option value="${r.id}">${r.title}</option>`).join("")}</select></div>
+    <div><label class="f" for="up">First password</label><input id="up" type="password" minlength="8" placeholder="At least 8 characters" autocomplete="new-password"></div></div>
+    <p class="hint" id="rd"></p><button class="primary" type="submit">Add person</button></form>`;
+  const desc=()=>$("rd").textContent=S.meta.roles.find(r=>r.id==$("ur").value).description+".";$("ur").onchange=desc;desc();
+  $("uf").onsubmit=async e=>{e.preventDefault();try{const u=await post("/api/users",{full_name:$("un").value,email:$("ue").value,role:$("ur").value,password:$("up").value});toast(`${u.full_name} can now sign in as ${u.role_title}.`);viewStaff(v)}catch(x){toast(x.message)}}}
+async function editUser(id,b){try{await api("/api/users/"+id,{method:"PATCH",body:JSON.stringify(b)});toast("Saved.");viewStaff($("view"))}catch(e){toast(e.message);viewStaff($("view"))}}
+function resetPw(id,name){$("modal").innerHTML=`<div class="modal" role="dialog" aria-modal="true" aria-labelledby="mh"><form class="box" id="pf"><h2 id="mh">Set a password for ${name}</h2>
+  <label class="f" for="np">New password</label><input id="np" type="password" minlength="8" autocomplete="new-password" placeholder="At least 8 characters">
+  <p class="hint">Tell them the new password in person or by phone. They are signed out everywhere.</p><div class="row"><button class="primary" type="submit">Set password</button><button type="button" onclick="$('modal').innerHTML=''">Cancel</button></div></form></div>`;
+  $("np").focus();$("pf").onsubmit=async e=>{e.preventDefault();await editUser(id,{password:$("np").value});$("modal").innerHTML=""}}
+
+/* ════════════ Audit trail ════════════ */
+async function viewAudit(v){S.audTab=S.audTab||"ledger";const t=S.audTab;
+  v.innerHTML=`<h1>Audit trail</h1><p class="lede">Every agent action and human decision, in order. Each entry is chained to the one before it, so an edit or deletion anywhere is detected.</p>
+   <div class="tabs" role="tablist"><button role="tab" aria-selected="${t=="ledger"}" onclick="S.audTab='ledger';viewAudit($('view'))">Ledger</button><button role="tab" aria-selected="${t=="ext"}" onclick="S.audTab='ext';viewAudit($('view'))">What reached outside systems</button></div><div id="ab">Loading…</div>`;
+  if(t=="ledger"){const [vf,l]=await Promise.all([api("/api/ledger/verify"),api("/api/ledger?limit=150"+(S.ledRun?"&run_id="+encodeURIComponent(S.ledRun):""))]);
+    $("ab").innerHTML=`<div class="${vf.ok?"notice info":"notice bad"}">${vf.ok?`<b>The chain is intact.</b> All ${vf.entries.toLocaleString()} entries check out.`:`<b>The chain is broken at entry ${vf.broken_at}.</b> Something was changed after it was written.`}</div>
+     <div class="row" style="margin:12px 0"><input placeholder="Show one task, for example RUN-1a2b3c4d" value="${h(S.ledRun||"")}" style="max-width:320px" aria-label="Filter by task" onchange="S.ledRun=this.value.trim();viewAudit($('view'))">${S.ledRun?`<button class="link" onclick="S.ledRun='';viewAudit($('view'))">Show everything</button>`:""}<span class="hint right">Latest ${l.rows.length} of ${l.total.toLocaleString()}</span></div>
+     <div class="panel flush" style="overflow-x:auto"><table><tr><th class="n">#</th><th>When</th><th>Who</th><th>What</th><th>Task</th></tr>${l.rows.map(r=>`<tr class="click" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden"><td class="n">${r.seq}</td><td style="white-space:nowrap">${when(r.ts)}</td><td>${h(actorName(r.actor))}</td><td>${h(r.event.replace(/_/g," "))}${r.tool_id?` <span class="tag">${r.tool_id}</span>`:""}${r.level?` <span class="hint">${r.level}</span>`:""}</td><td class="hint">${h(r.run_id||"")}</td></tr>
+      <tr hidden><td colspan="5"><pre>${h(JSON.stringify({payload:r.payload?JSON.parse(r.payload):null,policy_version:r.policy_version,model_version:r.model_version,prev_hash:r.prev_hash,hash:r.hash},null,1))}</pre></td></tr>`).join("")}</table></div>`}
+  else{const e=await api("/api/external");const N={ext_loan_decisions:"Loan system decisions",ext_cases:"AML case queue",ext_holds:"Payment holds",ext_str_filings:"Reports to the financial intelligence unit",ext_campaigns:"Customer offers",ext_cash_orders:"Cash-in-transit orders"};
+    $("ab").innerHTML=`<p class="hint">These systems are simulated. Each row was written by an agent action after the safety layer allowed it.</p>`+Object.entries(e).map(([k,rows])=>`<h3>${N[k]||k}</h3>${rows.length?`<div class="panel flush" style="overflow-x:auto"><table><tr>${Object.keys(rows[0]).map(c=>`<th>${c.replace(/_/g," ")}</th>`).join("")}</tr>${rows.slice(0,12).map(r=>`<tr>${Object.values(r).map(x=>`<td class="hint">${h(String(x??"").slice(0,80))}</td>`).join("")}</tr>`).join("")}</table></div>`:'<p class="hint">Nothing yet.</p>'}`).join("")}}
+function actorName(a){if(a.startsWith("human:")){const p=a.split(":");return roleT(p[1])+(p[2]?" ("+p[2]+")":"")}return S.meta.agents[a]||a.replace(/^L7\./,"Safety layer: ").replace(/_/g," ")}
+
+/* ════════════ About ════════════ */
+async function viewAbout(v){S.abTab=S.abTab||"arch";const t=S.abTab;
+  v.innerHTML=`<h1>How the system works</h1><p class="lede">Analytixa follows HAARA, an eight-layer architecture for human-in-the-loop agentic analytics. Agents reach data and models only through governed tools, and a rule-based safety layer checks every call.</p>
+   <div class="tabs" role="tablist"><button role="tab" aria-selected="${t=="arch"}" onclick="S.abTab='arch';viewAbout($('view'))">Layers</button><button role="tab" aria-selected="${t=="tools"}" onclick="S.abTab='tools';viewAbout($('view'))">Tools and agents</button><button role="tab" aria-selected="${t=="eval"}" onclick="S.abTab='eval';viewAbout($('view'))">Evaluation</button></div><div id="abb"></div>`;
+  const T=S.meta.tools,by=l=>T.filter(t=>t.layer==l).map(t=>`<span class="tag" title="${h(t.name)}">${t.id}</span>`).join(" ");
+  if(t=="arch"){const L=[["L8 Human interaction","Sign-in, home, approvals, the credit discussion, policies, audit trail"],
+   ["L7 Oversight control plane","Autonomy governor, checkpoint manager, action guard, steering, uncertainty estimator, escalation router. Rule-based code, no language model.","l7"],
+   ["L6.2 Orchestrator","Turns each plan into ordered steps, saves state after every step, pauses for decisions, resumes and reruns"],
+   ["L6.1 Agents",Object.values(S.meta.agents).join(", ")],["L5.5 Connection tools",by("L5.5")+" Loan system, payment holds, report filing, customer offers, cash orders (simulated)"],
+   ["L5.4 Cognitive tools",by("L5.4")],["L5.3 Explanation tools",by("L5.3")],["L5.2 Model tools",by("L5.2")],["L5.1 Data tools",by("L5.1")],
+   ["L4 Explainable AI","Exact additive attributions, reason codes, recourse, stability and fairness checks"],
+   ["L3 Models",S.meta.models.map(m=>m.version).join(", ")+", optional hosted language model"],
+   ["L2 Semantic and policy","Versioned bank policies and approved metric definitions"],
+   ["L1 Data and provenance",`PostgreSQL schema “${h(S.meta.database.schema)}” on ${h(S.meta.database.host)}: ${S.meta.counts.customers.toLocaleString()} customers, ${S.meta.counts.transactions.toLocaleString()} transactions, model registry, hash-chained ledger`]];
+    $("abb").innerHTML=`<div class="panel">${L.map(([n,d,c])=>`<div class="layer ${c||""}"><b>${n}</b><div>${d}</div></div>`).join("")}</div>
+    <div class="panel"><h2>Autonomy levels</h2><div class="kv"><div>A0 Manual</div><div>A person does it</div><div>A1 Approve before</div><div>Outside effects, report filing (always), credit decisions</div><div>A2 Review after</div><div>Low-confidence steps</div><div>A3 Notify</div><div>Internal writes and actions within the bank's limits</div><div>A4 Autonomous</div><div>Reading and calculating</div></div></div>`}
+  else if(t=="tools")$("abb").innerHTML=`<div class="panel flush" style="overflow-x:auto"><table><tr><th>Tool</th><th>Layer</th><th>Type</th><th>Policy check</th><th>Limit</th></tr>${T.map(t=>`<tr><td><span class="tag">${t.id}</span> <b>${h(t.name)}</b><div class="hint">${h(t.doc)}</div></td><td>${t.layer}</td><td>${t.class}</td><td>${t.has_precheck?"Yes":""}</td><td>${t.has_envelope?"Yes":""}</td></tr>`).join("")}</table></div>
+    <h2>What each agent may use</h2><div class="panel flush"><table>${Object.entries(S.meta.scopes).map(([a,t])=>`<tr><td><b>${h(S.meta.agents[a])}</b></td><td>${t.map(x=>`<span class="tag">${x}</span>`).join(" ")}</td></tr>`).join("")}</table></div>`;
+  else{const e=await api("/api/evaluation");if(e.available===false){$("abb").innerHTML=`<div class="panel empty">No evaluation yet. Run <code>python evaluate.py</code> on the server, then reload.</div>`;return}
+    if(e.summary){$("abb").innerHTML=evalV2(e);return}
+    $("abb").innerHTML=`<p class="hint">${h(e.description)}</p><div class="panel flush" style="overflow-x:auto"><table><tr><th>Measure</th>${e.configs.map(c=>`<th class="n">${h(c)}</th>`).join("")}</tr>
+     ${e.comparison.map(r=>`<tr><td>${h(r.measure)}${r.note?`<div class="hint">${h(r.note)}</div>`:""}</td>${e.configs.map(c=>`<td class="n">${h(r[c])}</td>`).join("")}</tr>`).join("")}</table></div>
+     <div class="cols">${e.sections.map(s=>`<div class="panel"><h2>${h(s.title)}</h2><div class="kv">${s.items.map(i=>`<div>${h(i[0])}</div><div>${h(i[1])}</div>`).join("")}</div></div>`).join("")}</div>`}}
+
+function evalV2(e){const c=e.summary.comparative,cf=["autonomous","guarded","uniform","haara"].filter(k=>c[k]),T={autonomous:"Autonomous",guarded:"Guards only",uniform:"Approve every step",haara:"HAARA"};
+  const ci=(x,d=1)=>x.ci95?` (${Number(x.ci95[0]).toFixed(d)} to ${Number(x.ci95[1]).toFixed(d)})`:"";
+  const rows=[["Unsafe scenario runs",k=>`${c[k].unsafe_scenarios} of ${c[k].scenario_runs}`],
+    ["Unsafe rate, 95% interval",k=>`${(c[k].unsafe_rate*100).toFixed(1)}% (${(c[k].unsafe_rate_ci95[0]*100).toFixed(1)} to ${(c[k].unsafe_rate_ci95[1]*100).toFixed(1)})`],
+    ["Human decisions per bank",k=>c[k].decision_requests_per_seed.mean.toFixed(1)+ci(c[k].decision_requests_per_seed)],
+    ["Human decisions per scenario",k=>c[k].decision_requests_per_scenario.toFixed(2)],
+    ["External actions per bank",k=>c[k].external_actions_per_seed.mean.toFixed(1)],
+    ["Unsafe probes stopped",k=>`${e.summary.probes[k].unsafe_stopped} of ${e.summary.probes[k].unsafe_total}`]];
+  const o=e.summary.oversight,b=e.summary.boundaries,sm=e.summary.semantic,v=e.summary.validity,A=sm.A_no_confirmation,B=sm.B_review_and_correct,C=sm.C_seeded_error;
+  const m=e.manifest||{};
+  return `<p class="hint">Reproducible benchmark on ${c.haara.seeds} synthetic banks, with expected outcomes written before the run. Run ${h(String(m.finished||e.generated_at||"").slice(0,16).replace("T"," "))}, code ${h(m.code_fingerprint||"")}. Rerun with <code>python evaluate.py</code>.</p>
+   <div class="panel flush" style="overflow-x:auto"><table><tr><th>Measure</th>${cf.map(k=>`<th class="n">${T[k]}</th>`).join("")}</tr>${rows.map(([t,f])=>`<tr><td>${t}</td>${cf.map(k=>`<td class="n">${f(k)}</td>`).join("")}</tr>`).join("")}</table></div>
+   <div class="cols"><div class="panel"><h2>Oversight robustness</h2><p><b>${o.pass} of ${o.total}</b> tests passed.</p><div class="kv">${Object.entries(o.by_family).map(([k,x])=>`<div>${h(cap(k.replace(/_/g," ")))}</div><div>${h(x)}</div>`).join("")}</div>
+     <p class="hint">Credit policy boundary cases: ${b.pass} of ${b.total} passed.</p></div>
+    <div class="panel"><h2>Questions and corrections</h2><div class="kv"><div>Without confirmation</div><div>${A.safe_final} of ${A.items} safe, ${A.wrong_answers_released} wrong answers released</div>
+     <div>With review and correction</div><div>${B.safe_final} of ${B.items} safe, ${B.wrong_answers_released} wrong answers accepted</div>
+     <div>Seeded errors fixed by one plain-words correction</div><div>${C.text_recovered} of ${C.items}</div><div>Every correction in the ledger</div><div>${C.every_correction_in_ledger?"Yes":"No"}</div></div></div>
+    <div class="panel"><h2>Analytical validity</h2><div class="kv"><div>Credit model AUC</div><div>${v.credit_auc.mean}${ci(v.credit_auc,3)}</div><div>Credit calibration error</div><div>${v.credit_ece.mean}</div>
+     <div>Downturn: predicted against observed default</div><div>${(v.shift_mean_predicted.mean*100).toFixed(1)}% against ${(v.shift_observed_default.mean*100).toFixed(1)}%</div>
+     <div>Churn model AUC</div><div>${v.churn_auc.mean}</div><div>AML precision and recall</div><div>${v.aml_precision.mean} and ${v.aml_recall.mean}</div>
+     <div>Cash forecast error (MAPE)</div><div>${(v.cash_mape.mean*100).toFixed(1)}%</div></div></div>
+    <div class="panel"><h2>What this does not show</h2><p class="hint" style="margin:0">Decisions came from a scripted reviewer that follows policy, and the data is synthetic. The numbers count requests and prevented actions. They do not measure how long people take or how well they decide.</p></div></div>`}
+
+/* ════════════ Settings ════════════ */
+async function openSettings(){document.querySelector(".menu")?.remove();let l=S.meta.llm;try{l=await api("/api/llm");S.meta.llm=l}catch(e){}
+  const last=l.last||{};
+  $("modal").innerHTML=`<div class="modal" role="dialog" aria-modal="true" aria-labelledby="sh"><form class="box" id="sf"><h2 id="sh">Language model</h2>
+  <p class="hint">The language model reads questions first, writes summaries and reads officers' messages. If a model is busy or fails, the next one in the list is tried, and every switch is recorded in the audit trail. If every model fails, rules and templates take over. A key pasted here stays in server memory only. A key saved in config.env as OPENROUTER_API_KEY loads at every start.</p>
+  <p>Status: <b>${l.available?"Connected":"Off. Rules and templates are in use."}</b>${last.model?`<br><span class="hint">Last answer from ${h(last.model)}${last.fallbacks_used?` after ${last.fallbacks_used} unavailable model(s)`:""}.</span>`:last.tried?.length?`<br><span class="hint">Last call: no model answered, rules were used.</span>`:""}</p>
+  <label class="f" for="k">OpenRouter API key ${l.openrouter_key_set?'<span class="hint">(set)</span>':""}</label><input id="k" type="password" placeholder="${l.openrouter_key_set?"Leave empty to keep the current key":"Paste a key to connect"}" autocomplete="off">
+  <label class="f" for="mdl" style="margin-top:12px">First model</label><input id="mdl" value="${h(l.model)}">
+  <label class="f" for="fb" style="margin-top:12px">Backup models, tried in order</label><textarea id="fb" rows="4" style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px">${h((l.fallbacks||[]).join("\n"))}</textarea>
+  <label class="f" for="ak" style="margin-top:12px">Anthropic API key, used last if every OpenRouter model fails ${l.anthropic_key_set?'<span class="hint">(set)</span>':'<span class="hint">(optional)</span>'}</label><input id="ak" type="password" placeholder="${l.anthropic_key_set?"Leave empty to keep the current key":"Optional"}" autocomplete="off">
+  <label class="f" for="am" style="margin-top:12px">Anthropic model</label><input id="am" value="${h(l.anthropic_model||"")}">
+  <label class="check" style="margin-top:12px"><input type="checkbox" id="en" ${l.enabled?"checked":""}> Use the language model when a key is set</label>
+  ${(l.chain||[]).length?`<p class="hint" style="margin-top:10px">Order now: ${l.chain.map(x=>h(x.replace(/^openrouter:/,""))).join(", then ")}.</p>`:""}
+  <div class="row" style="margin-top:18px"><button class="primary" type="submit">Save</button><button type="button" onclick="$('modal').innerHTML=''">Cancel</button></div></form></div>`;
+  $("sf").onsubmit=async e=>{e.preventDefault();const b={model:$("mdl").value,enabled:$("en").checked,fallbacks:$("fb").value.split(/[\n,]+/).map(x=>x.trim()).filter(Boolean),anthropic_model:$("am").value};
+    const k=$("k").value.trim();if(k)b.api_key=k;const ak=$("ak").value.trim();if(ak)b.anthropic_key=ak;
+    try{const r=await post("/api/settings",b);S.meta.llm=r;$("modal").innerHTML="";toast(r.available?`Language model connected. ${r.chain.length} model(s) in order.`:"Language model off. Rules and templates are in use.")}catch(x){toast(x.message)}}}
+async function openDiagnostics(){document.querySelector(".menu")?.remove();
+  $("modal").innerHTML=`<div class="modal" role="dialog" aria-modal="true" aria-labelledby="dh"><div class="box" style="width:min(860px,100%)"><h2 id="dh">Diagnostic log</h2>
+   <p class="hint">What the server did recently, how long each request took, and every error with its reference. Passwords, keys and the database password are removed. Copy it and paste it when you report a problem.</p>
+   <textarea id="dlog" rows="18" readonly style="font-family:ui-monospace,Menlo,monospace;font-size:12px;white-space:pre">Loading…</textarea>
+   <div class="row" style="margin-top:12px"><button class="primary" id="dcopy">Copy</button><button id="dsave">Save as file</button><button onclick="openDiagnostics()">Refresh</button><button class="right" onclick="$('modal').innerHTML=''">Close</button></div></div></div>`;
+  try{const d=await api("/api/diagnostics?lines=400");$("dlog").value=d.text;$("dlog").scrollTop=$("dlog").scrollHeight}catch(e){$("dlog").value=e.message}
+  $("dcopy").onclick=async()=>{try{await navigator.clipboard.writeText($("dlog").value);toast("Copied. Paste it into your message.")}catch(e){$("dlog").select();document.execCommand("copy");toast("Copied.")}};
+  $("dsave").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([$("dlog").value],{type:"text/plain"}));a.download="analytixa-diagnostic-log.txt";a.click();URL.revokeObjectURL(a.href)}}
+document.addEventListener("keydown",e=>{if(e.key=="Escape"){$("modal").innerHTML="";document.querySelector(".menu")?.remove()}});
+
+/* ════════════ boot ════════════ */
+(async()=>{try{await api("/api/me");await start()}catch(e){if(!S.me)renderLogin()}})();
+</script>
+</body>
+</html>
